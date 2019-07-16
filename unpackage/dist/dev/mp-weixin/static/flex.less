@@ -1,0 +1,166 @@
+/*! https://github.com/lzxb/flex.css */
+/*
+    定义flex布局
+*/
+
+
+
+  .flex{
+    display: flex;
+  }
+
+
+/*换行*/
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+
+/*
+      主轴方向：从左到右(默认)
+  */
+
+.dir-left {
+  flex-direction: row;
+}
+
+
+/*
+      主轴方向：从右到左
+  */
+
+.dir-right {
+  flex-direction: row-reverse;
+  -webkit-box-pack: end; //修复旧版本主轴和标准主轴flex表现不一致的bug
+}
+
+
+/*
+      主轴方向：从上到下
+  */
+
+.dir-top {
+  flex-direction: column;
+}
+
+
+/*
+      主轴方向：从下到上
+  */
+
+.dir-bottom {
+  flex-direction: column-reverse;
+  -webkit-box-pack: end; //修复旧版本主轴和标准主轴flex表现不一致的bug
+}
+
+/*
+      主轴对齐方式：从左到右(默认)
+  */
+
+.main-left {
+  justify-content: flex-start;
+}
+
+
+/*
+      主轴对齐方式：从右到左
+  */
+
+.main-right {
+  justify-content: flex-end;
+}
+
+
+/*
+      主轴对齐方式：两端对齐
+  */
+
+.main-justify {
+  justify-content: space-between;
+}
+
+
+.main-around {
+  justify-content: space-around;
+}
+
+
+
+/*
+      主轴对齐方式：居中对齐
+  */
+
+.main-center {
+  justify-content: center;
+}
+
+/*
+      交叉轴齐方式：从上到下(默认)
+  */
+
+.cross-top {
+  align-items: flex-start;
+}
+
+
+/*
+      交叉轴齐方式：从下到上
+  */
+
+.cross-bottom {
+  align-items: flex-end;
+}
+
+
+/*
+      交叉轴齐方式：居中对齐
+  */
+
+.cross-center {
+  align-items: center;
+}
+
+
+/*
+      交叉轴齐方式：跟随内容高度对齐
+  */
+
+.cross-baseline {
+  align-items: baseline;
+}
+
+
+/*
+      交叉轴齐方式：高度并排铺满
+  */
+
+.cross-stretch {
+  align-items: stretch;
+}
+
+/*
+      子元素平分宽度
+  */
+
+.box-child {
+
+  flex-grow: 1;
+  flex-shrink: 1;
+
+}
+
+//子元素伸缩比例循环
+// .flex-box(10);
+
+// .flex-box(@n, @i: 0) when (@i =< @n) {
+//   .@{flex-box}-@{i} {
+//     //   flex-grow: @i;
+//     //   flex-shrink:0;
+//     //    flex-basis
+//     flex: @i;
+
+//   }
+
+//   .flex-box(@n, (@i + 1));
+// }
+

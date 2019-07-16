@@ -3,7 +3,12 @@
 		{
 			"path": "pages/index/index"
 		}
-	],
+			
+			// {
+   //          "path" : "pages/flexTable/flexTable",
+   //          "style" : {}
+   //      }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",

@@ -309,7 +309,38 @@ var _default =
 {
   data: function data() {
     return {
-      title: "Hello" };
+      title: "Hello",
+      list: [{
+        col1: 100,
+        col2: 200,
+        col3: 300,
+        col4: 400,
+        col5: 500,
+        cel1Span: 2 },
+
+      {
+        col1: 100,
+        col2: 200,
+        col3: 300,
+        col4: 400,
+        col5: 500,
+        cel1Span: 0 },
+
+      {
+        col1: 100,
+        col2: 200,
+        col3: 300,
+        col4: 400,
+        col5: 500 },
+
+      {
+        col1: 100,
+        col2: 200,
+        col3: 300,
+        col4: 400,
+        col5: 500 }] };
+
+
 
   },
   onLoad: function onLoad() {},

@@ -7152,6 +7152,7 @@ var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ "C:\\Users\\B
 
 _vue.default.config.productionTip = false;
 
+
 _App.default.mpType = 'app';
 
 var app = new _vue.default(_objectSpread({},
