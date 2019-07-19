@@ -1119,6 +1119,12 @@ Z(z[16])
 Z([[7],[3,'columnsOperate']])
 Z([[4],[[5],[[5],[[4],[[5],[[5],[1,'^delete']],[[4],[[5],[[4],[[5],[1,'deleteFn']]]]]]]],[[4],[[5],[[5],[1,'^edi']],[[4],[[5],[[4],[[5],[1,'ediFn']]]]]]]]])
 Z([[7],[3,'dataOperate']])
+Z(z[1])
+Z([[7],[3,'dataRowSpan']])
+Z([[7],[3,'arraySpanMethod']])
+Z(z[1])
+Z([[7],[3,'dataColSpan']])
+Z([[7],[3,'colsSpanMethod']])
 })(__WXML_GLOBAL__.ops_cached.$gwx_5);return __WXML_GLOBAL__.ops_cached.$gwx_5
 }
 __WXML_GLOBAL__.ops_set.$gwx=z;
@@ -1162,8 +1168,8 @@ var eN=function(oP,bO,xQ,gg){
 var fS=_v()
 _(xQ,fS)
 if(_oz(z,10,oP,bO,gg)){fS.wxVkey=1
-cs.push("./components/table.wxml:block:1:825")
-cs.push("./components/table.wxml:scoped-slots-default:1:857")
+cs.push("./components/table.wxml:block:1:1206")
+cs.push("./components/table.wxml:scoped-slots-default:1:1238")
 var cT=_n('scoped-slots-default')
 _rz(z,cT,'row',11,oP,bO,gg)
 cs.pop()
@@ -1223,6 +1229,14 @@ cs.push("./pages/tableDemo/tableDemo.wxml:v-table:1:681")
 var b3=_mz(z,'v-table',['bind:delete',16,'bind:edi',1,'columns',2,'data-event-opts',3,'list',4],[],e,s,gg)
 cs.pop()
 _(cW,b3)
+cs.push("./pages/tableDemo/tableDemo.wxml:v-table:1:876")
+var o4=_mz(z,'v-table',['columns',21,'list',1,'spanMethod',2],[],e,s,gg)
+cs.pop()
+_(cW,o4)
+cs.push("./pages/tableDemo/tableDemo.wxml:v-table:1:993")
+var x5=_mz(z,'v-table',['columns',24,'list',1,'spanMethod',2],[],e,s,gg)
+cs.pop()
+_(cW,x5)
 cs.pop()
 _(r,cW)
 return r
@@ -9219,6 +9233,13 @@ define('components/table.js',function(require, module, exports, window, document
 
 
 
+
+
+
+
+
+
+
     var _watcher = _interopRequireDefault(__webpack_require__( /*! @/common/tools/watcher.js */"C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\common\\tools\\watcher.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
     //
     //
@@ -9263,24 +9284,18 @@ define('components/table.js',function(require, module, exports, window, document
     //
     //
     //
-    var tableRow = function tableRow() {return Promise.all( /*! import() | components/table-row */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/table-row")]).then(__webpack_require__.bind(null, /*! @/components/table-row.vue */"C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\components\\table-row.vue"));};var _default2 = { components: { tableRow: tableRow }, props: { columns: { type: Array, required: true }, list: { type: Array, required: true }, rowClassName: { type: [String, Function], default: "" }, 'slot-cols': { type: Array, default: function _default() {return [];} }, arraySpanMethod: { type: Function, default: function _default() {return function () {return [1, 1];};} }, "td-width": { type: Number, default: 220 }, "td-height": { type: Number, default: 160 }, "td-padding": { type: Number, default: 10 }, "border-color": { type: String,
-          default: "#666" } },
+    //
+    //
+    //
+    //
+    //
+    //
+    var tableRow = function tableRow() {return Promise.all( /*! import() | components/table-row */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/table-row")]).then(__webpack_require__.bind(null, /*! @/components/table-row.vue */"C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\components\\table-row.vue"));};var _default2 = { components: { tableRow: tableRow }, props: { columns: { type: Array, required: true }, list: { type: Array, required: true }, rowClassName: { type: [String, Function], default: "" }, 'slot-cols': { type: Array, default: function _default() {return [];} }, "span-method": { type: Function, default: function _default() {return function () {return { rowspan: 1, colspan: 1 };};} }, "td-width": { type: Number, default: 110 }, "td-height": { type: Number, default: 30 }, "td-padding": { type: Number, default: 10 }, "border-color": { type: String, default: "#666" } },
 
 
 
-      created: function created() {var _this = this;
-        //给下级传递参数
-        //申请参数响应的时间，必须把接收的事件传递过来
-        _watcher.default.$on("column-get-table-attr", function (e) {
-          var t = {
-            "td-width": _this.tdWidth,
-            "td-height": _this.tdHeight,
-            "td-padding": _this.tdPadding,
-            "border-color": _this.borderColor };
-
-          _watcher.default.$emit(e, t);
-        });
-        console.log(this.slotCols.indexOf('Name') > -1, " at components\\table.vue:107");
+      created: function created() {
+        console.log(this.tdHeight, " at components\\table.vue:108");
 
       },
       methods: {
@@ -9293,9 +9308,9 @@ define('components/table.js',function(require, module, exports, window, document
           }
         },
         pullEvent: function pullEvent(event, data) {
-          console.log("触发时间", " at components\\table.vue:120");
-          console.log(event, " at components\\table.vue:121");
-          console.log(data, " at components\\table.vue:122");
+          console.log("触发时间", " at components\\table.vue:121");
+          console.log(event, " at components\\table.vue:122");
+          console.log(data, " at components\\table.vue:123");
           this.$emit(event, data);
         } } };exports.default = _default2;
 
@@ -9330,13 +9345,23 @@ define('components/table.js',function(require, module, exports, window, document
       var l1 = _vm.list.map(function (item, index) {
         var m0 = _vm.rowClassNamePlus(item, index);
         var l0 = _vm.columns.map(function (tdItem, tdItemIndex) {
-          var m1 = _vm.arraySpanMethod(item, tdItem, index, tdItemIndex);
-          var m2 = _vm.arraySpanMethod(item, tdItem, index, tdItemIndex);
+          var m1 = _vm.spanMethod(item, tdItem, index, tdItemIndex);
+          var m2 = _vm.spanMethod(item, tdItem, index, tdItemIndex);
+          var m3 = _vm.spanMethod(item, tdItem, index, tdItemIndex);
+          var m4 = _vm.spanMethod(item, tdItem, index, tdItemIndex);
+          var m5 = _vm.spanMethod(item, tdItem, index, tdItemIndex);
+          var m6 = _vm.spanMethod(item, tdItem, index, tdItemIndex);
+          var m7 = _vm.spanMethod(item, tdItem, index, tdItemIndex);
           var g0 = _vm.slotCols.indexOf(tdItem.key);
           return {
             $orig: _vm.__get_orig(tdItem),
             m1: m1,
             m2: m2,
+            m3: m3,
+            m4: m4,
+            m5: m5,
+            m6: m6,
+            m7: m7,
             g0: g0 };
 
         });
@@ -9516,6 +9541,10 @@ define('pages/tableDemo/tableDemo.js',function(require, module, exports, window,
 
 
 
+
+
+
+
 var operateCol = {
   operate: {
     delete: {
@@ -9533,11 +9562,14 @@ var operateCol = {
 
 
 {
-  components: { vTable: vTable, vTableRow: vTableRow, vTableColumn: vTableColumn },
+  components: {
+    vTable: vTable,
+    vTableRow: vTableRow,
+    vTableColumn: vTableColumn },
+
   data: function data() {
     return {
-      data: [
-      {
+      data: [{
         name: 'John Brown',
         age: 18,
         address: 'New York No. 1 Lake Park',
@@ -9562,8 +9594,8 @@ var operateCol = {
         id: "4" }],
 
 
-      dataCusCell: [
-      {
+      //自定义列样式
+      dataCusCell: [{
         name: 'John Brown',
         age: 18,
         address: 'New York No. 1 Lake Park',
@@ -9595,7 +9627,68 @@ var operateCol = {
 
 
 
-      columns: [
+      //合并行
+      dataRowSpan: [{
+        name: 'John Brown',
+        age: 18,
+        address: 'New York No. 1 Lake Park',
+        id: "1",
+        rowspan: 3 },
+
+      {
+        name: 'Jim Green',
+        age: 25,
+        address: 'London No. 1 Lake Park',
+        id: "2",
+        rowspan: 0 },
+
+      {
+        name: 'Joe Black',
+        age: 30,
+        address: 'Sydney No. 1 Lake Park',
+        id: "3",
+        rowspan: 0 },
+
+      {
+        name: 'Jon Snow',
+        age: 26,
+        address: 'Ottawa No. 2 Lake Park',
+        id: "4",
+        rowspan: 0 }],
+
+
+      //列合并数据
+      dataColSpan: [{
+        name: 'John Brown',
+        age: 18,
+        address: 'New York No. 1 Lake Park',
+        id: "1",
+        nameCols: 2 },
+
+      {
+        name: 'Jim Green',
+        age: 25,
+        address: 'London No. 1 Lake Park',
+        id: "2"
+        // nameCols: 2
+      },
+      {
+        name: 'Joe Black',
+        age: 30,
+        address: 'Sydney No. 1 Lake Park',
+        id: "3" },
+
+      {
+        name: 'Jon Snow',
+        age: 26,
+        address: 'Ottawa No. 2 Lake Park',
+        id: "4" }],
+
+
+      columns: [{
+        title: "ID",
+        key: "id" },
+
       {
         title: 'Name',
         key: 'name' },
@@ -9612,7 +9705,6 @@ var operateCol = {
 
       //自定义操作列
       dataOperate: [_objectSpread({
-
         name: 'John Brown',
         age: 18,
         address: 'New York No. 1 Lake Park',
@@ -9641,8 +9733,7 @@ var operateCol = {
       operateCol)],
 
 
-      columnsOperate: [
-      {
+      columnsOperate: [{
         title: 'Name',
         key: 'name' },
 
@@ -9657,8 +9748,7 @@ var operateCol = {
       {
         title: "operate",
         key: "$operate",
-        $operateList: [
-        {
+        $operateList: [{
           label: "删除",
           event: "delete",
           id: "delete",
@@ -9694,6 +9784,49 @@ var operateCol = {
         title: "\u7F16\u8F91\u7B2C".concat(data.index, "\u884C"),
         duration: 800 });
 
+    },
+    arraySpanMethod: function arraySpanMethod(
+    row,
+    column,
+    rowIndex,
+    columnIndex)
+    {
+      console.log("合并", " at pages\\tableDemo\\tableDemo.vue:278");
+      console.log(columnIndex, " at pages\\tableDemo\\tableDemo.vue:279");
+      if (columnIndex == 0) {
+
+        if (row.rowspan) {
+          return {
+            rowspan: row.rowspan,
+            colspan: 1 };
+
+        } else {
+          return {
+            rowspan: 0,
+            colspan: 0 };
+
+        }
+      }
+    },
+    colsSpanMethod: function colsSpanMethod(row, column, rowIndex, columnIndex) {
+      console.log(column, " at pages\\tableDemo\\tableDemo.vue:296");
+      if (column.key == 'name' && row.nameCols == 2) {
+        return {
+          rowspan: 1,
+          colspan: 2 };
+
+      } else
+      if (row.nameCols == 2 && column.key == 'age') {
+        return {
+          rowspan: 0,
+          colspan: 0 };
+
+      } else {
+        return {
+          rowspan: 1,
+          colspan: 1 };
+
+      }
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["default"]))
 
