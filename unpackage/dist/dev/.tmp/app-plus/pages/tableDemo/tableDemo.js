@@ -35,7 +35,6 @@
 
 
 
-
 var operateCol = {
   operate: {
     delete: {
@@ -53,14 +52,11 @@ var operateCol = {
 
 
 {
-  components: {
-    vTable: vTable,
-    vTableRow: vTableRow,
-    vTableColumn: vTableColumn },
-
+  components: { vTable: vTable, vTableRow: vTableRow, vTableColumn: vTableColumn },
   data: function data() {
     return {
-      data: [{
+      data: [
+      {
         name: 'John Brown',
         age: 18,
         address: 'New York No. 1 Lake Park',
@@ -85,7 +81,8 @@ var operateCol = {
         id: "4" }],
 
 
-      dataCusCell: [{
+      dataCusCell: [
+      {
         name: 'John Brown',
         age: 18,
         address: 'New York No. 1 Lake Park',
@@ -117,36 +114,8 @@ var operateCol = {
 
 
 
-      dataRowSpan: [{
-        name: 'John Brown',
-        age: 18,
-        address: 'New York No. 1 Lake Park',
-        id: "1",
-        rowspan: 3 },
-
+      columns: [
       {
-        name: 'Jim Green',
-        age: 25,
-        address: 'London No. 1 Lake Park',
-        id: "2",
-        rowspan: 0 },
-
-      {
-        name: 'Joe Black',
-        age: 30,
-        address: 'Sydney No. 1 Lake Park',
-        id: "3",
-        rowspan: 0 },
-
-      {
-        name: 'Jon Snow',
-        age: 26,
-        address: 'Ottawa No. 2 Lake Park',
-        id: "4",
-        rowspan: 0 }],
-
-
-      columns: [{
         title: 'Name',
         key: 'name' },
 
@@ -162,6 +131,7 @@ var operateCol = {
 
       //自定义操作列
       dataOperate: [_objectSpread({
+
         name: 'John Brown',
         age: 18,
         address: 'New York No. 1 Lake Park',
@@ -190,7 +160,8 @@ var operateCol = {
       operateCol)],
 
 
-      columnsOperate: [{
+      columnsOperate: [
+      {
         title: 'Name',
         key: 'name' },
 
@@ -205,7 +176,8 @@ var operateCol = {
       {
         title: "operate",
         key: "$operate",
-        $operateList: [{
+        $operateList: [
+        {
           label: "删除",
           event: "delete",
           id: "delete",
@@ -241,31 +213,8 @@ var operateCol = {
         title: "\u7F16\u8F91\u7B2C".concat(data.index, "\u884C"),
         duration: 800 });
 
-    },
-    arraySpanMethod: function arraySpanMethod(
-    row,
-    column,
-    rowIndex,
-    columnIndex)
-    {
-      console.log("合并");
-      console.log(columnIndex);
-      if (columnIndex == 1) {
-
-        if (row.rowspan) {
-          return {
-            rowspan: row.rowspan,
-            colspan: 1 };
-
-        } else {
-          return {
-            rowspan: 0,
-            colspan: 0 };
-
-        }
-      }
     } } };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["default"]))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["default"]))
 
 /***/ }),
 
@@ -394,4 +343,3 @@ __webpack_require__.r(__webpack_exports__);
 /***/ })
 
 },[["C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\main.js?{\"page\":\"pages%2FtableDemo%2FtableDemo\"}","common/runtime","common/vendor"]]]);
-//# sourceMappingURL=../../../.sourcemap/mp-weixin/pages/tableDemo/tableDemo.js.map

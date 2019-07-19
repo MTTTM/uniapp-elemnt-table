@@ -15,17 +15,28 @@
 					<view class="div-table">
 						<template v-for="(item,index) in list">
 							<view  :class='["tr",rowClassNamePlus(item,index)]'  :key="item.id">
-								<view class="td" :class='[item.cellClassName&&item.cellClassName[tdItem.key]?item.cellClassName[tdItem.key]:""]' v-for="tdItem in columns" :key="tdItem.key">
-									<view class="td_wrap">
-										<slot :row='item' v-if="slotCols.indexOf(tdItem.key)>-1"></slot>
-										<template v-if="tdItem.$operateList">
-											<template v-for="btn in tdItem.$operateList">
-												<button :class="[btn.styles?btn.styles:'']" v-bind:style="{ padding: '2px 5px',fontSize:'12px',lineHeight:'1.2',display:'inline-block'}" @click="pullEvent(btn.event,{row:item,index:index})" type="primary" size="min"  :key="btn.id">{{btn.label}}</button>	 
+								<template  v-for="(tdItem,tdItemIndex) in columns">
+									<view class="td" 
+									
+									:class='[
+										item.cellClassName&&item.cellClassName[tdItem.key]?item.cellClassName[tdItem.key]:"",
+										spanMethod(item,tdItem,index,tdItemIndex)["rowspan"]==0?"empty-cells":"",
+										spanMethod(item,tdItem,index,tdItemIndex)["colspan"]==0?"empty-cells":"",
+										spanMethod(item,tdItem,index,tdItemIndex)["rowspan"]>1?"rowspan":"",
+										spanMethod(item,tdItem,index,tdItemIndex)["colspan"]>1?"colspan":""]'
+										
+										 :key="tdItem.key">
+										<view :class="['td_wrap']" :style='{height:item.rowspan*160+"upx"}'>
+											<slot :row='item' v-if="slotCols.indexOf(tdItem.key)>-1"></slot>
+											<template v-if="tdItem.$operateList">
+												<template v-for="btn in tdItem.$operateList">
+													<button :class="[btn.styles?btn.styles:'']" v-bind:style="{ padding: '2px 5px',fontSize:'12px',lineHeight:'1.2',display:'inline-block'}" @click="pullEvent(btn.event,{row:item,index:index})" type="primary" size="min"  :key="btn.id">{{btn.label}}</button>	 
+												</template>
 											</template>
-										</template>
-										<template v-else>{{item[tdItem.key]}}</template>
+											<template v-else>{{item[tdItem.key]}}</template>
+										</view>
 									</view>
-								</view>
+								</template>
 							</view>
 						</template>
 					</view>
@@ -36,6 +47,7 @@
 </template>
 
 <script>
+
 	import Event from "@/common/tools/watcher.js"
 	import tableRow from "@/components/table-row.vue"
 	export default {
@@ -61,6 +73,17 @@
 					return []
 				}
 			},
+			"span-method":{
+				type:Function,
+				default:()=>{
+					return ()=>{
+						return {
+							rowspan:1,
+							colspan:1
+						}
+					}
+				}
+			},
 			"td-width": {
 				type: Number,
 				default: 220
@@ -80,18 +103,7 @@
 		},
 
 		created() {
-			//给下级传递参数
-			//申请参数响应的时间，必须把接收的事件传递过来
-			Event.$on("column-get-table-attr", (e) => {
-				let t = {
-					"td-width": this.tdWidth,
-					"td-height": this.tdHeight,
-					"td-padding": this.tdPadding,
-					"border-color": this.borderColor
-				};
-				Event.$emit(e, t);
-			});
-			console.log(this.slotCols.indexOf('Name')>-1)
+			console.log(this.spanMethod)
 
 		},
 		methods:{
@@ -113,6 +125,6 @@
 	}
 </script>
 
-<style>
-
+<style lang="scss">
+@import "../common/style/table.scss";
 </style>

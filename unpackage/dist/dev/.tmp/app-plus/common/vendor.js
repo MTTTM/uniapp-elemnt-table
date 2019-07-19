@@ -7119,6 +7119,20 @@ module.exports = g;
 
 /***/ }),
 
+/***/ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\common\\tools\\watcher.js":
+/*!*********************************************************************************!*\
+  !*** C:/Users/Boolean/Documents/HBuilderProjects/demo1/common/tools/watcher.js ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var t = new _vue.default();var _default =
+t;exports.default = _default;
+
+/***/ }),
+
 /***/ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\main.js":
 /*!*****************************************************************!*\
   !*** C:/Users/Boolean/Documents/HBuilderProjects/demo1/main.js ***!
@@ -7133,6 +7147,7 @@ var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ "C:\\Users\\B
 
 _vue.default.config.productionTip = false;
 
+
 _App.default.mpType = 'app';
 
 var app = new _vue.default(_objectSpread({},
@@ -7143,10 +7158,10 @@ createApp(app).$mount();
 
 /***/ }),
 
-/***/ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\main.js?{\"page\":\"pages%2Findex%2Findex\"}":
-/*!**************************************************************************************************!*\
-  !*** C:/Users/Boolean/Documents/HBuilderProjects/demo1/main.js?{"page":"pages%2Findex%2Findex"} ***!
-  \**************************************************************************************************/
+/***/ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\main.js?{\"page\":\"pages%2FtableDemo%2FtableDemo\"}":
+/*!**********************************************************************************************************!*\
+  !*** C:/Users/Boolean/Documents/HBuilderProjects/demo1/main.js?{"page":"pages%2FtableDemo%2FtableDemo"} ***!
+  \**********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7154,8 +7169,8 @@ createApp(app).$mount();
 /* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/index/index.vue */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\pages\\index\\index.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_index.default);
+var _tableDemo = _interopRequireDefault(__webpack_require__(/*! ./pages/tableDemo/tableDemo.vue */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\pages\\tableDemo\\tableDemo.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_tableDemo.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),

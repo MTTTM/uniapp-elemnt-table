@@ -53,11 +53,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-
-
-
-
-
 var _watcher = _interopRequireDefault(__webpack_require__(/*! @/common/tools/watcher.js */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\common\\tools\\watcher.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
 //
 //
@@ -102,18 +97,24 @@ var _watcher = _interopRequireDefault(__webpack_require__(/*! @/common/tools/wat
 //
 //
 //
-//
-//
-//
-//
-var tableRow = function tableRow() {return Promise.all(/*! import() | components/table-row */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/table-row")]).then(__webpack_require__.bind(null, /*! @/components/table-row.vue */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\components\\table-row.vue"));};var _default2 = { components: { tableRow: tableRow }, props: { columns: { type: Array, required: true }, list: { type: Array, required: true }, rowClassName: { type: [String, Function], default: "" }, 'slot-cols': { type: Array, default: function _default() {return [];} }, "span-method": { type: Function, default: function _default() {return function () {return { rowspan: 1, colspan: 1 };};} }, "td-width": { type: Number, default: 220 }, "td-height": { type: Number, default: 160 }, "td-padding": { type: Number, default: 10 }, "border-color": {
-      type: String,
+var tableRow = function tableRow() {return Promise.all(/*! import() | components/table-row */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/table-row")]).then(__webpack_require__.bind(null, /*! @/components/table-row.vue */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\components\\table-row.vue"));};var _default2 = { components: { tableRow: tableRow }, props: { columns: { type: Array, required: true }, list: { type: Array, required: true }, rowClassName: { type: [String, Function], default: "" }, 'slot-cols': { type: Array, default: function _default() {return [];} }, arraySpanMethod: { type: Function, default: function _default() {return function () {return [1, 1];};} }, "td-width": { type: Number, default: 220 }, "td-height": { type: Number, default: 160 }, "td-padding": { type: Number, default: 10 }, "border-color": { type: String,
       default: "#666" } },
 
 
 
-  created: function created() {
-    console.log(this.spanMethod);
+  created: function created() {var _this = this;
+    //给下级传递参数
+    //申请参数响应的时间，必须把接收的事件传递过来
+    _watcher.default.$on("column-get-table-attr", function (e) {
+      var t = {
+        "td-width": _this.tdWidth,
+        "td-height": _this.tdHeight,
+        "td-padding": _this.tdPadding,
+        "border-color": _this.borderColor };
+
+      _watcher.default.$emit(e, t);
+    });
+    console.log(this.slotCols.indexOf('Name') > -1, " at components\\table.vue:107");
 
   },
   methods: {
@@ -126,9 +127,9 @@ var tableRow = function tableRow() {return Promise.all(/*! import() | components
       }
     },
     pullEvent: function pullEvent(event, data) {
-      console.log("触发时间");
-      console.log(event);
-      console.log(data);
+      console.log("触发时间", " at components\\table.vue:120");
+      console.log(event, " at components\\table.vue:121");
+      console.log(data, " at components\\table.vue:122");
       this.$emit(event, data);
     } } };exports.default = _default2;
 
@@ -163,17 +164,13 @@ var render = function() {
   var l1 = _vm.list.map(function(item, index) {
     var m0 = _vm.rowClassNamePlus(item, index)
     var l0 = _vm.columns.map(function(tdItem, tdItemIndex) {
-      var m1 = _vm.spanMethod(item, tdItem, index, tdItemIndex)
-      var m2 = _vm.spanMethod(item, tdItem, index, tdItemIndex)
-      var m3 = _vm.spanMethod(item, tdItem, index, tdItemIndex)
-      var m4 = _vm.spanMethod(item, tdItem, index, tdItemIndex)
+      var m1 = _vm.arraySpanMethod(item, tdItem, index, tdItemIndex)
+      var m2 = _vm.arraySpanMethod(item, tdItem, index, tdItemIndex)
       var g0 = _vm.slotCols.indexOf(tdItem.key)
       return {
         $orig: _vm.__get_orig(tdItem),
         m1: m1,
         m2: m2,
-        m3: m3,
-        m4: m4,
         g0: g0
       }
     })
@@ -290,12 +287,11 @@ __webpack_require__.r(__webpack_exports__);
 /***/ })
 
 }]);
-//# sourceMappingURL=../../.sourcemap/mp-weixin/components/table.js.map
 ;(global["webpackJsonp"] = global["webpackJsonp"] || []).push([
     'components/table-create-component',
     {
         'components/table-create-component':(function(module, exports, __webpack_require__){
-            __webpack_require__('./node_modules/@dcloudio/uni-mp-weixin/dist/index.js')['createComponent'](__webpack_require__("C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\components\\table.vue"))
+            __webpack_require__('./node_modules/@dcloudio/uni-app-plus/dist/index.js')['createComponent'](__webpack_require__("C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\components\\table.vue"))
         })
     },
     [['components/table-create-component']]
