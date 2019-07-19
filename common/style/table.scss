@@ -1,0 +1,126 @@
+.table_box_big {
+		overflow-x: scroll;
+		overflow-y: hidden;
+		position: relative;
+		height: 350px;
+	}
+
+	.table_box {
+		overflow: hidden;
+		position: absolute;
+	}
+
+	.table_tbody_box {
+		height: 300px;
+		overflow: scroll;
+	}
+
+
+	$div-table-border-color: #666;
+	$div-table-border-width: 1upx;
+
+	.div-table {
+		display: table;
+		border: $div-table-border-width solid $div-table-border-color;
+		box-sizing: border-box;
+		table-layout: fixed;
+		position: relative;
+		
+
+		&.div-table-head {
+			border-bottom: 0;
+		}
+		.tr,
+		.th {
+			display: table-row;
+
+			&+.tr,
+			&+.th {
+
+				.td,
+				.th {
+					border-top: $div-table-border-width solid $div-table-border-color;
+					word-break: break-word;
+				}
+			}
+		}
+
+		.td {
+			display: table-cell;
+			vertical-align: middle;
+			text-align: center;
+			box-sizing: border-box;
+
+			.td_wrap {
+				width: 220upx;
+				height: 120upx;
+				padding: 10upx;
+				box-sizing: border-box;
+				overflow: hidden;
+			}
+			&.celspan {
+				 position: relative;
+				  width: 440upx;
+				  z-index: 10;
+				 position: absolute;
+				 .td_wrap{
+					 width: 100%
+				 }
+			}
+			
+			&.rowspan {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				width: 220px;
+				z-index: 10;
+			}
+			
+			&.empty-cells {
+				opacity: 0;
+			}
+
+			&.noPadding {
+				padding: 0;
+			}
+
+			&+.td {
+				border-left: $div-table-border-width solid $div-table-border-color;
+			}
+		}
+
+		.th .td {
+			font-weight: bold;
+		}
+
+		.tbody {
+			display: table-row-group;
+		}
+
+		.thead {
+			display: table-header-group;
+
+			.tr,
+			.th {
+
+				.td,
+				.th {
+					// border-bottom: $div-table-border-width solid $div-table-border-color;
+					width: 120upx;
+					height: 75px;
+				}
+			}
+		}
+
+		.colgroup {
+			display: table-column-group;
+		}
+
+		.col {
+			display: table-column;
+		}
+
+		.caption {
+			display: table-caption;
+		}
+	}
