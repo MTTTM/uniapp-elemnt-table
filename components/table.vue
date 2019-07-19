@@ -24,9 +24,9 @@
 										spanMethod(item,tdItem,index,tdItemIndex)["colspan"]==0?"empty-cells":"",
 										spanMethod(item,tdItem,index,tdItemIndex)["rowspan"]>1?"rowspan":"",
 										spanMethod(item,tdItem,index,tdItemIndex)["colspan"]>1?"colspan":""]'
-										
+										:style='{height:spanMethod(item,tdItem,index,tdItemIndex)["rowspan"]>1?item.rowspan*tdHeight+"px":tdHeight+"px"}'
 										 :key="tdItem.key">
-										<view :class="['td_wrap']" :style='{height:item.rowspan*160+"upx"}'>
+										<view :class="['td_wrap']" :style='{height:spanMethod(item,tdItem,index,tdItemIndex)["rowspan"]>1?item.rowspan*tdHeight+"px":tdHeight+"px"}'>
 											<slot :row='item' v-if="slotCols.indexOf(tdItem.key)>-1"></slot>
 											<template v-if="tdItem.$operateList">
 												<template v-for="btn in tdItem.$operateList">
@@ -90,7 +90,7 @@
 			},
 			"td-height": {
 				type: Number,
-				default: 160
+				default: 30
 			},
 			"td-padding": {
 				type: Number,
@@ -103,7 +103,7 @@
 		},
 
 		created() {
-			console.log(this.spanMethod)
+			console.log(this.tdHeight)
 
 		},
 		methods:{

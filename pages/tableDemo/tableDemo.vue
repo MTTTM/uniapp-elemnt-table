@@ -17,7 +17,10 @@
 		<view>自定义列内容</view>
 		<v-table :columns="columnsOperate" :list="dataOperate" @delete="deleteFn" @edi="ediFn"></v-table>
 		<view>跨行</view>
-		<v-table :columns="columns" :list="dataRowSpan" :span-method="arraySpanMethod" @delete="deleteFn" @edi="ediFn"></v-table>
+		<v-table :columns="columns" :list="dataRowSpan" :span-method="arraySpanMethod"></v-table>
+
+		<view>跨列</view>
+		<v-table :columns="columns" :list="dataColSpan" :span-method="colsSpanMethod"></v-table>
 	</view>
 
 </template>
@@ -75,6 +78,7 @@
 						id: "4"
 					}
 				],
+				//自定义列样式
 				dataCusCell: [{
 						name: 'John Brown',
 						age: 18,
@@ -107,36 +111,69 @@
 						}
 					}
 				],
+				//合并行
 				dataRowSpan: [{
 						name: 'John Brown',
 						age: 18,
 						address: 'New York No. 1 Lake Park',
 						id: "1",
-						rowspan:3
+						rowspan: 3
 					},
 					{
 						name: 'Jim Green',
 						age: 25,
 						address: 'London No. 1 Lake Park',
 						id: "2",
-						rowspan:0
+						rowspan: 0
 					},
 					{
 						name: 'Joe Black',
 						age: 30,
 						address: 'Sydney No. 1 Lake Park',
 						id: "3",
-						rowspan:0
+						rowspan: 0
 					},
 					{
 						name: 'Jon Snow',
 						age: 26,
 						address: 'Ottawa No. 2 Lake Park',
 						id: "4",
-						rowspan:0
+						rowspan: 0
 					}
 				],
+				//列合并数据
+				dataColSpan: [{
+						name: 'John Brown',
+						age: 18,
+						address: 'New York No. 1 Lake Park',
+						id: "1",
+						nameCols: 2
+					},
+					{
+						name: 'Jim Green',
+						age: 25,
+						address: 'London No. 1 Lake Park',
+						id: "2",
+						// nameCols: 2
+					},
+					{
+						name: 'Joe Black',
+						age: 30,
+						address: 'Sydney No. 1 Lake Park',
+						id: "3"
+					},
+					{
+						name: 'Jon Snow',
+						age: 26,
+						address: 'Ottawa No. 2 Lake Park',
+						id: "4"
+					},
+				],
 				columns: [{
+						title: "ID",
+						key: "id"
+					},
+					{
 						title: 'Name',
 						key: 'name'
 					},
@@ -240,8 +277,8 @@
 			) {
 				console.log("合并")
 				console.log(columnIndex)
-				if (columnIndex == 1) {
-					
+				if (columnIndex == 0) {
+
 					if (row.rowspan) {
 						return {
 							rowspan: row.rowspan,
@@ -253,6 +290,26 @@
 							colspan: 0
 						};
 					}
+				}
+			},
+			colsSpanMethod(row,column,rowIndex,columnIndex) {
+				console.log(column)
+				if(column.key == 'name' &&row.nameCols == 2) {
+					return {
+						rowspan: 1,
+						colspan: 2
+					};
+				} 
+				else if (row.nameCols == 2&&column.key == 'age') {
+					return {
+						rowspan: 0,
+						colspan: 0
+					};
+				} else {
+					return {
+						rowspan: 1,
+						colspan: 1
+					};
 				}
 			}
 		}

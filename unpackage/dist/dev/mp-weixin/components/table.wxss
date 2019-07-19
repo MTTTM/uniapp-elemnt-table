@@ -78,6 +78,7 @@
       -webkit-box-sizing: border-box;
               box-sizing: border-box;
       overflow: hidden;
+      line-height: 1.6;
 }
 .div-table .td.celspan {
       position: relative;
@@ -90,8 +91,6 @@
 }
 .div-table .td.rowspan {
       position: absolute;
-      top: 0;
-      bottom: 0;
       width: 220rpx;
       z-index: 10;
 }

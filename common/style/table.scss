@@ -50,13 +50,14 @@
 			vertical-align: middle;
 			text-align: center;
 			box-sizing: border-box;
-
+			
 			.td_wrap {
 				width: 220upx;
 				height: 120upx;
 				padding: 10upx;
 				box-sizing: border-box;
 				overflow: hidden;
+				line-height: 1.6;
 			}
 			&.celspan {
 				 position: relative;
@@ -70,8 +71,8 @@
 			
 			&.rowspan {
 				position: absolute;
-				top: 0;
-				bottom: 0;
+				// top: 0;
+				// bottom: 0;
 				width: 220upx;
 				z-index: 10;
 			}

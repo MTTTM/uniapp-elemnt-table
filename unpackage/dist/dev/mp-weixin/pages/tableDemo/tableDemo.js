@@ -36,6 +36,9 @@
 
 
 
+
+
+
 var operateCol = {
   operate: {
     delete: {
@@ -85,6 +88,7 @@ var operateCol = {
         id: "4" }],
 
 
+      //自定义列样式
       dataCusCell: [{
         name: 'John Brown',
         age: 18,
@@ -117,6 +121,7 @@ var operateCol = {
 
 
 
+      //合并行
       dataRowSpan: [{
         name: 'John Brown',
         age: 18,
@@ -146,7 +151,39 @@ var operateCol = {
         rowspan: 0 }],
 
 
+      //列合并数据
+      dataColSpan: [{
+        name: 'John Brown',
+        age: 18,
+        address: 'New York No. 1 Lake Park',
+        id: "1",
+        nameCols: 2 },
+
+      {
+        name: 'Jim Green',
+        age: 25,
+        address: 'London No. 1 Lake Park',
+        id: "2"
+        // nameCols: 2
+      },
+      {
+        name: 'Joe Black',
+        age: 30,
+        address: 'Sydney No. 1 Lake Park',
+        id: "3" },
+
+      {
+        name: 'Jon Snow',
+        age: 26,
+        address: 'Ottawa No. 2 Lake Park',
+        id: "4" }],
+
+
       columns: [{
+        title: "ID",
+        key: "id" },
+
+      {
         title: 'Name',
         key: 'name' },
 
@@ -250,7 +287,7 @@ var operateCol = {
     {
       console.log("合并");
       console.log(columnIndex);
-      if (columnIndex == 1) {
+      if (columnIndex == 0) {
 
         if (row.rowspan) {
           return {
@@ -263,6 +300,26 @@ var operateCol = {
             colspan: 0 };
 
         }
+      }
+    },
+    colsSpanMethod: function colsSpanMethod(row, column, rowIndex, columnIndex) {
+      console.log(column);
+      if (column.key == 'name' && row.nameCols == 2) {
+        return {
+          rowspan: 1,
+          colspan: 2 };
+
+      } else
+      if (row.nameCols == 2 && column.key == 'age') {
+        return {
+          rowspan: 0,
+          colspan: 0 };
+
+      } else {
+        return {
+          rowspan: 1,
+          colspan: 1 };
+
       }
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["default"]))
