@@ -61,9 +61,7 @@
 				overflow: hidden;
 				line-height: 1.6;
 			}
-			&.celspan {
-				 position: relative;
-				  width: 440upx;
+			&.colspan {
 				  z-index: 10;
 				 position: absolute;
 				 .td_wrap{
@@ -77,9 +75,6 @@
 			
 			&.rowspan {
 				position: absolute;
-				// top: 0;
-				// bottom: 0;
-				width: 220upx;
 				z-index: 10;
 			}
 			

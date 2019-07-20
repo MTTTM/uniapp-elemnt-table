@@ -129,10 +129,14 @@ var tableRow = function tableRow() {return Promise.all(/*! import() | components
       }
     },
     pullEvent: function pullEvent(event, data) {
-      console.log("触发时间");
-      console.log(event);
-      console.log(data);
       this.$emit(event, data);
+    },
+    countColspanWidth: function countColspanWidth(item, tdItem, index, tdItemIndex) {
+      return this.spanMethod(item, tdItem, index, tdItemIndex) && this.spanMethod(item, tdItem, index, tdItemIndex)["colspan"] > 1 ? this.spanMethod(item, tdItem, index, tdItemIndex)["colspan"] * this.tdWidth + "px" : this.tdWidth + "px";
+
+    },
+    countRowspanHeight: function countRowspanHeight(item, tdItem, index, tdItemIndex) {
+      return this.spanMethod(item, tdItem, index, tdItemIndex) && this.spanMethod(item, tdItem, index, tdItemIndex)["rowspan"] > 1 ? this.spanMethod(item, tdItem, index, tdItemIndex)["rowspan"] * this.tdHeight + "px" : this.tdHeight + "px";
     } } };exports.default = _default2;
 
 /***/ }),
@@ -170,9 +174,10 @@ var render = function() {
       var m2 = _vm.spanMethod(item, tdItem, index, tdItemIndex)
       var m3 = _vm.spanMethod(item, tdItem, index, tdItemIndex)
       var m4 = _vm.spanMethod(item, tdItem, index, tdItemIndex)
-      var m5 = _vm.spanMethod(item, tdItem, index, tdItemIndex)
-      var m6 = _vm.spanMethod(item, tdItem, index, tdItemIndex)
-      var m7 = _vm.spanMethod(item, tdItem, index, tdItemIndex)
+      var m5 = _vm.countRowspanHeight(item, tdItem, index, tdItemIndex)
+      var m6 = _vm.countColspanWidth(item, tdItem, index, tdItemIndex)
+      var m7 = _vm.countRowspanHeight(item, tdItem, index, tdItemIndex)
+      var m8 = _vm.countColspanWidth(item, tdItem, index, tdItemIndex)
       var g0 = _vm.slotCols.indexOf(tdItem.key)
       return {
         $orig: _vm.__get_orig(tdItem),
@@ -183,6 +188,7 @@ var render = function() {
         m5: m5,
         m6: m6,
         m7: m7,
+        m8: m8,
         g0: g0
       }
     })

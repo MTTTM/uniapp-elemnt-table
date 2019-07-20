@@ -6,7 +6,7 @@
 					<view class="thead">
 						<view class="tr">
 							<view class="td" :style='{width:tdWidth+"px",height:tdHeight+"px"}' v-for="item in columns" :key="item.key">
-								<view class="td_wrap" >{{item.title}}</view>
+								<view class="td_wrap" :style='{width:tdWidth+"px",height:tdHeight+"px"}'>{{item.title}}</view>
 							</view>
 						</view>
 					</view>
@@ -24,19 +24,19 @@
 										spanMethod(item,tdItem,index,tdItemIndex)["colspan"]==0?"empty-cells-for-celspan":"",
 										spanMethod(item,tdItem,index,tdItemIndex)["rowspan"]>1?"rowspan":"",
 										spanMethod(item,tdItem,index,tdItemIndex)["colspan"]>1?"colspan":""]'
-										:style='{height:spanMethod(item,tdItem,index,tdItemIndex)["rowspan"]>1?item.rowspan*tdHeight+"px":tdHeight+"px",
-										 width:spanMethod(item,tdItem,index,tdItemIndex)["rowspan"]>1?item.rowspan*tdWidth+"px":tdWidth+"px"
-										}'
+										:style='{height:countRowspanHeight(item,tdItem,index,tdItemIndex),
+										width:countColspanWidth(item,tdItem,index,tdItemIndex)}'
 										 :key="tdItem.key">
 										<view :class="['td_wrap']" 
-										:style='{height:spanMethod(item,tdItem,index,tdItemIndex)["rowspan"]>1?item.rowspan*tdHeight+"px":tdHeight+"px"}'>
+										:style='{height:countRowspanHeight(item,tdItem,index,tdItemIndex),
+										 width:countColspanWidth(item,tdItem,index,tdItemIndex)}'>
 											<slot :row='item' v-if="slotCols.indexOf(tdItem.key)>-1"></slot>
 											<template v-if="tdItem.$operateList">
 												<template v-for="btn in tdItem.$operateList">
 													<button :class="[btn.styles?btn.styles:'']" v-bind:style="{ padding: '2px 5px',fontSize:'12px',lineHeight:'1.2',display:'inline-block'}" @click="pullEvent(btn.event,{row:item,index:index})" type="primary" size="min"  :key="btn.id">{{btn.label}}</button>	 
 												</template>
 											</template>
-											<template v-else>{{item[tdItem.key]}}</template>
+											<template v-else>{{item[tdItem.key]}} </template>
 										</view>
 									</view>
 								</template>
@@ -119,10 +119,14 @@
 				}
 			},
 			pullEvent(event,data){
-					console.log("触发时间")
-					console.log(event)
-					console.log(data)
 					this.$emit(event,data);
+			},
+			countColspanWidth(item,tdItem,index,tdItemIndex){
+				return this.spanMethod(item,tdItem,index,tdItemIndex)&&this.spanMethod(item,tdItem,index,tdItemIndex)["colspan"]>1?(this.spanMethod(item,tdItem,index,tdItemIndex)["colspan"]*this.tdWidth)+"px":this.tdWidth+"px";
+				         
+			},
+			countRowspanHeight(item,tdItem,index,tdItemIndex){
+				return this.spanMethod(item,tdItem,index,tdItemIndex)&&this.spanMethod(item,tdItem,index,tdItemIndex)["rowspan"]>1?(this.spanMethod(item,tdItem,index,tdItemIndex)["rowspan"]*this.tdHeight)+"px":this.tdHeight+"px"
 			}
 		}
 	}
