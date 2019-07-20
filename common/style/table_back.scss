@@ -83,17 +83,8 @@
 				z-index: 10;
 			}
 			
-			&.empty-cells-for-celspan {
-				border-left:none!important;
-				.td_wrap{
-					opacity: 0;
-				}
-			}
-			&.empty-cells-for-rowspan{
-				border-top:none!important;
-				.td_wrap{
-					opacity: 0;
-				}
+			&.empty-cells {
+				opacity: 0;
 			}
 
 			&.noPadding {

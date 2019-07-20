@@ -138,7 +138,7 @@
 						age: 26,
 						address: 'Ottawa No. 2 Lake Park',
 						id: "4",
-						rowspan: 0
+						rowspan: 1
 					}
 				],
 				//列合并数据
@@ -154,7 +154,7 @@
 						age: 25,
 						address: 'London No. 1 Lake Park',
 						id: "2",
-						// nameCols: 2
+						 nameCols: 2
 					},
 					{
 						name: 'Joe Black',
@@ -287,7 +287,7 @@
 					} else {
 						return {
 							rowspan: 0,
-							colspan: 0
+							colspan: 1
 						};
 					}
 				}
@@ -302,7 +302,7 @@
 				} 
 				else if (row.nameCols == 2&&column.key == 'age') {
 					return {
-						rowspan: 0,
+						rowspan: 1,
 						colspan: 0
 					};
 				} else {
@@ -319,45 +319,4 @@
 <style lang="scss">
 	@import "@/common/style/table.scss";
 
-	.rowClassName {
-		.td {
-			background: red;
-		}
-	}
-
-	//自定义某一行样式
-	.demo-table-info-row .td {
-		background-color: #2db7f5;
-		color: #fff;
-	}
-
-	.demo-table-error-row .td {
-		background-color: #ff6600;
-		color: #fff;
-	}
-
-	.td.demo-table-info-column {
-		background-color: #2db7f5;
-		color: #fff;
-	}
-
-	.demo-table-info-cell-name {
-		background-color: #2db7f5;
-		color: #fff;
-	}
-
-	.demo-table-info-cell-age {
-		background-color: #ff6600;
-		color: #fff;
-	}
-
-	.demo-table-info-cell-address {
-		background-color: #187;
-		color: #fff;
-	}
-
-	.btn-delete {
-		background: red !important;
-		color: #fff !important;
-	}
 </style>

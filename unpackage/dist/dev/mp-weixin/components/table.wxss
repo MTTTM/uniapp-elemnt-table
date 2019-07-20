@@ -100,8 +100,17 @@
       width: 220rpx;
       z-index: 10;
 }
-.div-table .td.empty-cells {
-      opacity: 0;
+.div-table .td.empty-cells-for-celspan {
+      border-left: none !important;
+}
+.div-table .td.empty-cells-for-celspan .td_wrap {
+        opacity: 0;
+}
+.div-table .td.empty-cells-for-rowspan {
+      border-top: none !important;
+}
+.div-table .td.empty-cells-for-rowspan .td_wrap {
+        opacity: 0;
 }
 .div-table .td.noPadding {
       padding: 0;

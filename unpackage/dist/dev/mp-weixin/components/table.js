@@ -60,6 +60,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+
 var _watcher = _interopRequireDefault(__webpack_require__(/*! @/common/tools/watcher.js */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\common\\tools\\watcher.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
 //
 //
@@ -110,8 +111,8 @@ var _watcher = _interopRequireDefault(__webpack_require__(/*! @/common/tools/wat
 //
 //
 //
+//
 var tableRow = function tableRow() {return Promise.all(/*! import() | components/table-row */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/table-row")]).then(__webpack_require__.bind(null, /*! @/components/table-row.vue */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\components\\table-row.vue"));};var _default2 = { components: { tableRow: tableRow }, props: { columns: { type: Array, required: true }, list: { type: Array, required: true }, rowClassName: { type: [String, Function], default: "" }, 'slot-cols': { type: Array, default: function _default() {return [];} }, "span-method": { type: Function, default: function _default() {return function () {return { rowspan: 1, colspan: 1 };};} }, "td-width": { type: Number, default: 110 }, "td-height": { type: Number, default: 30 }, "td-padding": { type: Number, default: 10 }, "border-color": { type: String, default: "#666" } },
-
 
 
   created: function created() {

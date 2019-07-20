@@ -339,5 +339,5 @@
 </script>
 
 <style lang="scss">
-	@import "@/common/style/table.scss";
+	@import "@/common/style/table_back.scss";
 </style>

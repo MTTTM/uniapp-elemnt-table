@@ -148,7 +148,7 @@ var operateCol = {
         age: 26,
         address: 'Ottawa No. 2 Lake Park',
         id: "4",
-        rowspan: 0 }],
+        rowspan: 1 }],
 
 
       //列合并数据
@@ -163,9 +163,9 @@ var operateCol = {
         name: 'Jim Green',
         age: 25,
         address: 'London No. 1 Lake Park',
-        id: "2"
-        // nameCols: 2
-      },
+        id: "2",
+        nameCols: 2 },
+
       {
         name: 'Joe Black',
         age: 30,
@@ -297,7 +297,7 @@ var operateCol = {
         } else {
           return {
             rowspan: 0,
-            colspan: 0 };
+            colspan: 1 };
 
         }
       }
@@ -312,7 +312,7 @@ var operateCol = {
       } else
       if (row.nameCols == 2 && column.key == 'age') {
         return {
-          rowspan: 0,
+          rowspan: 1,
           colspan: 0 };
 
       } else {
