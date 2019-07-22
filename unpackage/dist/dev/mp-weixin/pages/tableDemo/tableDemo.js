@@ -39,6 +39,8 @@
 
 
 
+
+
 var operateCol = {
   operate: {
     delete: {
@@ -85,7 +87,38 @@ var operateCol = {
         name: 'Jon Snow',
         age: 26,
         address: 'Ottawa No. 2 Lake Park',
-        id: "4" }],
+        id: "4" },
+
+      {
+        name: 'Jon Snow',
+        age: 26,
+        address: 'Ottawa No. 2 Lake Park',
+        id: "5" },
+
+
+      {
+        name: 'Jon Snow',
+        age: 26,
+        address: 'Ottawa No. 2 Lake Park',
+        id: "6" },
+
+      {
+        name: 'Jon Snow',
+        age: 26,
+        address: 'Ottawa No. 2 Lake Park',
+        id: "7" },
+
+      {
+        name: 'Jon Snow',
+        age: 26,
+        address: 'Ottawa No. 2 Lake Park',
+        id: "8" },
+
+      {
+        name: 'Jon Snow',
+        age: 26,
+        address: 'Ottawa No. 2 Lake Park',
+        id: "9" }],
 
 
       //自定义列样式
@@ -285,8 +318,8 @@ var operateCol = {
     rowIndex,
     columnIndex)
     {
-      console.log("合并");
-      console.log(columnIndex);
+      // console.log("合并")
+      // console.log(columnIndex)
       if (columnIndex == 0) {
 
         if (row.rowspan) {
@@ -303,7 +336,7 @@ var operateCol = {
       }
     },
     colsSpanMethod: function colsSpanMethod(row, column, rowIndex, columnIndex) {
-      console.log(column);
+      // console.log(column)
       if (column.key == 'name' && row.nameCols == 2) {
         return {
           rowspan: 1,

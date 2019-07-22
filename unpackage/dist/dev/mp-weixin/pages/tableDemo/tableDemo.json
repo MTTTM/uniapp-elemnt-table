@@ -1,5 +1,6 @@
 {
   "usingComponents": {
+    "tableDemo-v-table-default": "/pages/tableDemo/tableDemo-v-table-default",
     "v-table": "/components/table",
     "v-table-row": "/components/table-row",
     "v-table-column": "/components/table-column"

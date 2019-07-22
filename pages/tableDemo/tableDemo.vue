@@ -2,6 +2,8 @@
 	<view>
 		<view>简单table</view>
 		<v-table :columns="columns" :list="data"></v-table>
+		<view>固定高度的table</view>
+		<v-table :columns="columns" :list="data" :height="250"></v-table>
 		<view>自定义行样式</view>
 		<v-table :columns="columns" :list="data" row-class-name="rowClassName"></v-table>
 		<view>自定义某行样式</view>
@@ -76,6 +78,37 @@
 						age: 26,
 						address: 'Ottawa No. 2 Lake Park',
 						id: "4"
+					},
+					{
+						name: 'Jon Snow',
+						age: 26,
+						address: 'Ottawa No. 2 Lake Park',
+						id: "5"
+					},
+					
+					{
+						name: 'Jon Snow',
+						age: 26,
+						address: 'Ottawa No. 2 Lake Park',
+						id: "6"
+					},
+					{
+						name: 'Jon Snow',
+						age: 26,
+						address: 'Ottawa No. 2 Lake Park',
+						id: "7"
+					},
+					{
+						name: 'Jon Snow',
+						age: 26,
+						address: 'Ottawa No. 2 Lake Park',
+						id: "8"
+					},
+					{
+						name: 'Jon Snow',
+						age: 26,
+						address: 'Ottawa No. 2 Lake Park',
+						id: "9"
 					}
 				],
 				//自定义列样式
@@ -275,8 +308,8 @@
 				rowIndex,
 				columnIndex
 			) {
-				console.log("合并")
-				console.log(columnIndex)
+				// console.log("合并")
+				// console.log(columnIndex)
 				if (columnIndex == 0) {
 
 					if (row.rowspan) {
@@ -293,7 +326,7 @@
 				}
 			},
 			colsSpanMethod(row,column,rowIndex,columnIndex) {
-				console.log(column)
+				// console.log(column)
 				if(column.key == 'name' &&row.nameCols == 2) {
 					return {
 						rowspan: 1,

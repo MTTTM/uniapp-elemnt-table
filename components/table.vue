@@ -1,6 +1,6 @@
 <template>
-	<view class="content">
-		<view class="table_box_big">
+	<view class="content" :class="[tableHeight!='auto'?'fix-height':'']">
+		<view class="table_box_big" :style='{height:tableHeight}'>
 			<view class="table_box">
 				<view class="div-table div-table-head">
 					<view class="thead">
@@ -11,7 +11,7 @@
 						</view>
 					</view>
 				</view>
-				<view class="table_tbody_box">
+				<view class="table_tbody_box" :style='{height:talbeBodyHeight}'>
 					<view class="div-table">
 						<template v-for="(item,index) in list">
 							<view  :class='["tr",rowClassNamePlus(item,index)]'  :key="item.id">
@@ -87,6 +87,10 @@
 					}
 				}
 			},
+			height:{
+				type:Number,
+				default:undefined
+			},
 			"td-width": {
 				type: Number,
 				default: 110
@@ -104,7 +108,18 @@
 				default: "#666"
 			}
 		},
-
+		computed:{
+			tableHeight(){
+				return Number(this.height)&&Number(this.height)>this.tdHeight*3?this.height+"px":"auto";
+			},
+			talbeBodyHeight(){
+				let t=this.tableHeight!=="auto"?parseInt(this.tableHeight)-this.tdHeight+"px":"auto";
+				console.log("this.tableHeight"+this.tableHeight)
+				console.log('this.tdHeight'+this.tdHeight)
+				console.log(t)
+				return t;
+			}
+		},
 		created() {
 			console.log(this.tdHeight)
 

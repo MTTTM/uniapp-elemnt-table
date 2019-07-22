@@ -25,17 +25,23 @@
 /* 透明度 */
 /* 文章场景相关 */
 .table_box_big {
+  overflow: auto;
+  width: 100%;
+  position: relative;
+}
+.table_box {
+  overflow: auto;
+}
+.fix-height .table_box_big {
   overflow-x: scroll;
   overflow-y: hidden;
   position: relative;
-  height: 350px;
 }
-.table_box {
+.fix-height .table_box {
   overflow: hidden;
   position: absolute;
 }
-.table_tbody_box {
-  height: 300px;
+.fix-height .table_tbody_box {
   overflow: scroll;
 }
 .div-table {

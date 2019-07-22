@@ -1,19 +1,37 @@
 .table_box_big {
-		overflow-x: scroll;
-		overflow-y: hidden;
+		 overflow:auto;
+		 width:100%;
 		position: relative;
-		height: 350px;
+		// height: 350px;
 	}
 
 	.table_box {
-		overflow: hidden;
-		position: absolute;
+		 overflow: auto;
+		// position: absolute;
 	}
 
 	.table_tbody_box {
-		height: 300px;
-		overflow: scroll;
+		// height: 300px;
+		 // overflow: scroll;
 	}
+.fix-height{
+	.table_box_big {
+			overflow-x: scroll;
+			overflow-y: hidden;
+			position: relative;
+			// height: 350px;
+		}
+	
+		.table_box {
+			overflow: hidden;
+			position: absolute;
+		}
+	
+		.table_tbody_box {
+			// height: 300px;
+			overflow: scroll;
+		}
+}
 
 
 	$div-table-border-color: #666;

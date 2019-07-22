@@ -112,8 +112,23 @@ var _watcher = _interopRequireDefault(__webpack_require__(/*! @/common/tools/wat
 //
 //
 //
-var tableRow = function tableRow() {return Promise.all(/*! import() | components/table-row */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/table-row")]).then(__webpack_require__.bind(null, /*! @/components/table-row.vue */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\components\\table-row.vue"));};var _default2 = { components: { tableRow: tableRow }, props: { columns: { type: Array, required: true }, list: { type: Array, required: true }, rowClassName: { type: [String, Function], default: "" }, 'slot-cols': { type: Array, default: function _default() {return [];} }, "span-method": { type: Function, default: function _default() {return function () {return { rowspan: 1, colspan: 1 };};} }, "td-width": { type: Number, default: 110 }, "td-height": { type: Number, default: 30 }, "td-padding": { type: Number, default: 10 }, "border-color": { type: String, default: "#666" } },
+var tableRow = function tableRow() {return Promise.all(/*! import() | components/table-row */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/table-row")]).then(__webpack_require__.bind(null, /*! @/components/table-row.vue */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\components\\table-row.vue"));};var _default2 = { components: { tableRow: tableRow }, props: { columns: { type: Array, required: true }, list: { type: Array, required: true }, rowClassName: { type: [String, Function], default: "" }, 'slot-cols': { type: Array, default: function _default() {return [];} }, "span-method": { type: Function, default: function _default() {return function () {return { rowspan: 1, colspan: 1 };};} }, height: { type: Number, default: undefined }, "td-width": { type: Number, default: 110 }, "td-height": { type: Number, default: 30 }, "td-padding": { type: Number, default: 10 },
+    "border-color": {
+      type: String,
+      default: "#666" } },
 
+
+  computed: {
+    tableHeight: function tableHeight() {
+      return Number(this.height) && Number(this.height) > this.tdHeight * 3 ? this.height + "px" : "auto";
+    },
+    talbeBodyHeight: function talbeBodyHeight() {
+      var t = this.tableHeight !== "auto" ? parseInt(this.tableHeight) - this.tdHeight + "px" : "auto";
+      console.log("this.tableHeight" + this.tableHeight);
+      console.log('this.tdHeight' + this.tdHeight);
+      console.log(t);
+      return t;
+    } },
 
   created: function created() {
     console.log(this.tdHeight);

@@ -76,20 +76,17 @@
 .div-table .td .td_wrap {
       position: relative;
       width: 220rpx;
-      height: 120rpx;
       padding: 10rpx;
       -webkit-box-sizing: border-box;
               box-sizing: border-box;
       overflow: hidden;
       line-height: 1.6;
 }
-.div-table .td.celspan {
-      position: relative;
-      width: 440rpx;
+.div-table .td.colspan {
       z-index: 10;
       position: absolute;
 }
-.div-table .td.celspan .td_wrap {
+.div-table .td.colspan .td_wrap {
         width: 100%;
         height: 100%;
         left: 0;
@@ -98,11 +95,19 @@
 }
 .div-table .td.rowspan {
       position: absolute;
-      width: 220rpx;
       z-index: 10;
 }
-.div-table .td.empty-cells {
-      opacity: 0;
+.div-table .td.empty-cells-for-celspan {
+      border-left: none !important;
+}
+.div-table .td.empty-cells-for-celspan .td_wrap {
+        opacity: 0;
+}
+.div-table .td.empty-cells-for-rowspan {
+      border-top: none !important;
+}
+.div-table .td.empty-cells-for-rowspan .td_wrap {
+        opacity: 0;
 }
 .div-table .td.noPadding {
       padding: 0;
