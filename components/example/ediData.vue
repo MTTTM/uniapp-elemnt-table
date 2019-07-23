@@ -1,6 +1,6 @@
 <template>
 	<view class="example">
-		<view class="title">数据操作 方式1</view>
+		<view class="title">数据删除&&编辑操作</view>
 		<v-table :columns="columnsOperate" :list="dataOperate" @delete="deleteFn" @edi="ediFn"></v-table>
 	</view>
 </template>

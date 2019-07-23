@@ -122,10 +122,7 @@
 				return Number(this.height)&&Number(this.height)>this.tdHeight*3?this.height+"px":"auto";
 			},
 			talbeBodyHeight(){
-				let t=this.tableHeight!=="auto"?parseInt(this.tableHeight)-this.tdHeight+"px":"auto";
-				console.log("this.tableHeight"+this.tableHeight)
-				console.log('this.tdHeight'+this.tdHeight)
-				console.log(t)
+				let t=this.tableHeight!=="auto"?(parseInt(this.tableHeight)-this.tdHeight-1)+"px":"auto";
 				return t;
 			}
 		},
