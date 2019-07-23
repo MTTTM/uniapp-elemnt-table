@@ -41,6 +41,8 @@
 
 
 
+
+
 var operateCol = {
   operate: {
     delete: {
@@ -260,6 +262,21 @@ var operateCol = {
       operateCol)],
 
 
+      //选择多行，给第一行添加$type: 'selection',就可以开启多选
+      columnsCheckBox: [{
+        '$type': 'selection',
+        title: 'Name',
+        key: 'name' },
+
+      {
+        title: 'Age',
+        key: 'age' },
+
+      {
+        title: 'Address',
+        key: 'address' }],
+
+
       columnsOperate: [{
         title: 'Name',
         key: 'name' },
@@ -312,6 +329,10 @@ var operateCol = {
         duration: 800 });
 
     },
+    onSelectionChange: function onSelectionChange(obj) {
+      console.log("对比前后，选中的变化");
+      console.log(obj);
+    },
     arraySpanMethod: function arraySpanMethod(
     row,
     column,
@@ -342,8 +363,7 @@ var operateCol = {
           rowspan: 1,
           colspan: 2 };
 
-      } else
-      if (row.nameCols == 2 && column.key == 'age') {
+      } else if (row.nameCols == 2 && column.key == 'age') {
         return {
           rowspan: 1,
           colspan: 0 };

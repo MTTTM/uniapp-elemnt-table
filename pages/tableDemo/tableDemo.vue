@@ -1,28 +1,30 @@
 <template>
 	<view>
-		<view>简单table</view>
+		 		<view class="title">简单table</view>
 		<v-table :columns="columns" :list="data"></v-table>
-		<view>固定高度的table</view>
+		<view class="title">固定高度的table</view>
 		<v-table :columns="columns" :list="data" :height="250"></v-table>
-		<view>自定义行样式</view>
+		<!--<view class="title">自定义行样式</view>
 		<v-table :columns="columns" :list="data" row-class-name="rowClassName"></v-table>
-		<view>自定义某行样式</view>
+		<view class="title">自定义某行样式</view>
 		<v-table :columns="columns" :list="data" :row-class-name="rowClassNameFn"></v-table>
-		<view>自定义某单元格样式</view>
+		<view class="title">自定义某单元格样式</view>
 		<v-table :columns="columns" :list="dataCusCell"></v-table>
-		<view>自定义列内容</view>
+		<view class="title">自定义列内容</view>
 		<v-table :columns="columns" :list="data" :slot-cols="['name']">
 			<template v-slot="{ row }">
 				<view style="font-weight: blod;color:red;">{{ row.name }}</view>
 			</template>
-		</v-table>
-		<view>自定义列内容</view>
-		<v-table :columns="columnsOperate" :list="dataOperate" @delete="deleteFn" @edi="ediFn"></v-table>
-		<view>跨行</view>
+		</v-table> 
+		<view class="title">数据操作 方式1</view>
+		<v-table :columns="columnsOperate" :list="dataOperate" @delete="deleteFn" @edi="ediFn"></v-table>-->
+		<view class="title">数据操作 多选</view>
+		<v-table :columns="columnsCheckBox" :list="data" @on-selection-change="onSelectionChange"></v-table>
+		<!-- 	<view class="title">跨行</view>
 		<v-table :columns="columns" :list="dataRowSpan" :span-method="arraySpanMethod"></v-table>
 
-		<view>跨列</view>
-		<v-table :columns="columns" :list="dataColSpan" :span-method="colsSpanMethod"></v-table>
+		<view class="title">跨列</view>
+		<v-table :columns="columns" :list="dataColSpan" :span-method="colsSpanMethod"></v-table> -->
 	</view>
 
 </template>
@@ -85,7 +87,7 @@
 						address: 'Ottawa No. 2 Lake Park',
 						id: "5"
 					},
-					
+
 					{
 						name: 'Jon Snow',
 						age: 26,
@@ -187,7 +189,7 @@
 						age: 25,
 						address: 'London No. 1 Lake Park',
 						id: "2",
-						 nameCols: 2
+						nameCols: 2
 					},
 					{
 						name: 'Joe Black',
@@ -250,6 +252,21 @@
 						...operateCol
 					}
 				],
+				//选择多行，给第一行添加$type: 'selection',就可以开启多选
+				columnsCheckBox: [{
+						'$type': 'selection',
+						title: 'Name',
+						key: 'name'
+					},
+					{
+						title: 'Age',
+						key: 'age'
+					},
+					{
+						title: 'Address',
+						key: 'address'
+					}
+				],
 				columnsOperate: [{
 						title: 'Name',
 						key: 'name'
@@ -302,6 +319,10 @@
 					duration: 800
 				});
 			},
+			onSelectionChange(obj){
+				console.log("对比前后，选中的变化")
+				console.log(obj)
+			},
 			arraySpanMethod(
 				row,
 				column,
@@ -325,15 +346,14 @@
 					}
 				}
 			},
-			colsSpanMethod(row,column,rowIndex,columnIndex) {
+			colsSpanMethod(row, column, rowIndex, columnIndex) {
 				// console.log(column)
-				if(column.key == 'name' &&row.nameCols == 2) {
+				if (column.key == 'name' && row.nameCols == 2) {
 					return {
 						rowspan: 1,
 						colspan: 2
 					};
-				} 
-				else if (row.nameCols == 2&&column.key == 'age') {
+				} else if (row.nameCols == 2 && column.key == 'age') {
 					return {
 						rowspan: 1,
 						colspan: 0
@@ -352,4 +372,8 @@
 <style lang="scss">
 	@import "@/common/style/table.scss";
 
+	.title {
+		line-height: 40px;
+		font-weight: bold;
+	}
 </style>

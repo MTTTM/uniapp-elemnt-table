@@ -5,6 +5,13 @@
 				<view class="div-table div-table-head">
 					<view class="thead">
 						<view class="tr">
+							<view class="td selection" v-if="columns[0].$type" :style='{width:selectionTdWidth,height:tdHeight+"px"}'>
+								<view :class="['td_wrap']" :style='{width:selectionTdWidth,height:tdHeight+"px"}'>
+									<checkbox-group @change="checkboxChangeAll">
+										<checkbox value="all"  :checked="switchAllCheckBox" style="transform:scale(0.7)"/>
+									</checkbox-group>
+								</view>
+							</view>
 							<view class="td" :style='{width:tdWidth+"px",height:tdHeight+"px"}' v-for="item in columns" :key="item.key">
 								<view class="td_wrap" :style='{width:tdWidth+"px",height:tdHeight+"px"}'>{{item.title}}</view>
 							</view>
@@ -13,35 +20,43 @@
 				</view>
 				<view class="table_tbody_box" :style='{height:talbeBodyHeight}'>
 					<view class="div-table">
-						<template v-for="(item,index) in list">
-							<view  :class='["tr",rowClassNamePlus(item,index)]'  :key="item.id">
-								<template  v-for="(tdItem,tdItemIndex) in columns">
-									<view class="td" 
-									
-									:class='[
-										item.cellClassName&&item.cellClassName[tdItem.key]?item.cellClassName[tdItem.key]:"",
-										spanMethod(item,tdItem,index,tdItemIndex)["rowspan"]==0?"empty-cells-for-rowspan":"",
-										spanMethod(item,tdItem,index,tdItemIndex)["colspan"]==0?"empty-cells-for-celspan":"",
-										spanMethod(item,tdItem,index,tdItemIndex)["rowspan"]>1?"rowspan":"",
-										spanMethod(item,tdItem,index,tdItemIndex)["colspan"]>1?"colspan":""]'
-										:style='{height:countRowspanHeight(item,tdItem,index,tdItemIndex),
-										width:countColspanWidth(item,tdItem,index,tdItemIndex)}'
-										 :key="tdItem.key">
-										<view :class="['td_wrap']" 
-										:style='{height:countRowspanHeight(item,tdItem,index,tdItemIndex),
-										 width:countColspanWidth(item,tdItem,index,tdItemIndex)}'>
-											<slot :row='item' v-if="slotCols.indexOf(tdItem.key)>-1"></slot>
-											<template v-if="tdItem.$operateList">
-												<template v-for="btn in tdItem.$operateList">
-													<button :class="[btn.styles?btn.styles:'']" v-bind:style="{ padding: '2px 5px',fontSize:'12px',lineHeight:'1.2',display:'inline-block'}" @click="pullEvent(btn.event,{row:item,index:index})" type="primary" size="min"  :key="btn.id">{{btn.label}}</button>	 
-												</template>
-											</template>
-											<template v-else>{{item[tdItem.key]}} </template>
+						 <checkbox-group @change="checkboxChange">
+							<template v-for="(item,index) in list">
+								<view  :class='["tr",rowClassNamePlus(item,index)]'  :key="item.id">
+									<!-- 多选操作 -->
+									<view class="td selection" v-if="columns[0].$type" :style='{width:selectionTdWidth,height:tdHeight+"px"}'>
+										<view :class="['td_wrap']" :style='{width:selectionTdWidth,height:tdHeight+"px"}'>
+											<checkbox :value="checkBoxList[index].id" :checked="checkBoxList[index].$checked" style="transform:scale(0.7)"/>
 										</view>
 									</view>
-								</template>
-							</view>
-						</template>
+									<template  v-for="(tdItem,tdItemIndex) in columns">
+										<view class="td" 
+										
+										:class='[
+											item.cellClassName&&item.cellClassName[tdItem.key]?item.cellClassName[tdItem.key]:"",
+											spanMethod(item,tdItem,index,tdItemIndex)["rowspan"]==0?"empty-cells-for-rowspan":"",
+											spanMethod(item,tdItem,index,tdItemIndex)["colspan"]==0?"empty-cells-for-celspan":"",
+											spanMethod(item,tdItem,index,tdItemIndex)["rowspan"]>1?"rowspan":"",
+											spanMethod(item,tdItem,index,tdItemIndex)["colspan"]>1?"colspan":""]'
+											:style='{height:countRowspanHeight(item,tdItem,index,tdItemIndex),
+											width:countColspanWidth(item,tdItem,index,tdItemIndex)}'
+											 :key="tdItem.key">
+											<view :class="['td_wrap']" 
+											:style='{height:countRowspanHeight(item,tdItem,index,tdItemIndex),
+											 width:countColspanWidth(item,tdItem,index,tdItemIndex)}'>
+												<slot :row='item' v-if="slotCols.indexOf(tdItem.key)>-1"></slot>
+												<template v-if="tdItem.$operateList">
+													<template v-for="btn in tdItem.$operateList">
+														<button :class="[btn.styles?btn.styles:'']" v-bind:style="{ padding: '2px 5px',fontSize:'12px',lineHeight:'1.2',display:'inline-block'}" @click="pullEvent(btn.event,{row:item,index:index})" type="primary" size="min"  :key="btn.id">{{btn.label}}</button>	 
+													</template>
+												</template>
+												<template v-else>{{item[tdItem.key]}} </template>
+											</view>
+										</view>
+									</template>
+								</view>
+							</template>
+						</checkbox-group>
 					</view>
 				</view>
 			</view>
@@ -120,11 +135,27 @@
 				return t;
 			}
 		},
+		data(){
+			return {
+				checkBoxList:[],
+				switchAllCheckBox:false,
+				selectionTdWidth:"50px"
+			}
+		},
+		watch:{
+			"list"(){
+				this.asyncCheckBoxList();
+			}	
+		},
 		created() {
-			console.log(this.tdHeight)
-
+			this.asyncCheckBoxList();
 		},
 		methods:{
+			asyncCheckBoxList(){
+				this.checkBoxList=this.list.map(item=>{
+					return {...item};
+				});
+			},
 			rowClassNamePlus(row,index){
 				if(typeof this.rowClassName==="string"){
 						return this.rowClassName;
@@ -142,6 +173,66 @@
 			},
 			countRowspanHeight(item,tdItem,index,tdItemIndex){
 				return this.spanMethod(item,tdItem,index,tdItemIndex)&&this.spanMethod(item,tdItem,index,tdItemIndex)["rowspan"]>1?(this.spanMethod(item,tdItem,index,tdItemIndex)["rowspan"]*this.tdHeight)+"px":this.tdHeight+"px"
+			},
+			checkboxChange(e){
+				let val = e.detail.value;
+				let before=[];
+				for(let v=0;v<this.checkBoxList.length;v++){
+					if(this.checkBoxList[v].$checked===true){
+						before.push({...this.checkBoxList[v]});
+					}
+				}
+				
+                if(val.length==this.checkBoxList.length){
+					this.switchAllCheckBox=true;
+					this.checkBoxList=this.checkBoxList.map(item=>{
+						item.$checked=true
+						return item;
+					});
+				}
+				else{
+					this.switchAllCheckBox=false;
+					this.checkBoxList=this.checkBoxList.map(item=>{
+						if(val.indexOf(item.id)>-1){
+							item.$checked=true
+						}
+						else{
+							item.$checked=false;
+						}
+						return item;
+					});
+				}
+				this.$emit("on-selection-change",{
+					old:before,
+					new:this.checkBoxList.filter(item=>item.$checked===true)
+				})
+			},
+			checkboxChangeAll(e){
+				let val=e.detail.value;
+				let before=[];
+				for(let v=0;v<this.checkBoxList.length;v++){
+					if(this.checkBoxList[v].$checked===true){
+						before.push({...this.checkBoxList[v]});
+					}
+				}
+				if(val&&val[0]=="all"){
+					this.switchAllCheckBox=true;
+					this.checkBoxList=this.checkBoxList.map(item=>{
+						item.$checked=true
+						return item;
+					});
+				}
+				else{
+					this.switchAllCheckBox=false;
+					this.checkBoxList=this.checkBoxList.map(item=>{
+						item.$checked=false
+						return item;
+					});
+				}
+				this.$emit("on-selection-change",{
+					old:before,
+					new:this.checkBoxList.filter(item=>item.$checked===true)
+				})
 			}
 		}
 	}

@@ -146,4 +146,8 @@
 .div-table .caption {
     display: table-caption;
 }
+.title {
+  line-height: 40px;
+  font-weight: bold;
+}
 

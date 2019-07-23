@@ -61,58 +61,73 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-var _watcher = _interopRequireDefault(__webpack_require__(/*! @/common/tools/watcher.js */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\common\\tools\\watcher.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var tableRow = function tableRow() {return Promise.all(/*! import() | components/table-row */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/table-row")]).then(__webpack_require__.bind(null, /*! @/components/table-row.vue */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\components\\table-row.vue"));};var _default2 = { components: { tableRow: tableRow }, props: { columns: { type: Array, required: true }, list: { type: Array, required: true }, rowClassName: { type: [String, Function], default: "" }, 'slot-cols': { type: Array, default: function _default() {return [];} }, "span-method": { type: Function, default: function _default() {return function () {return { rowspan: 1, colspan: 1 };};} }, height: { type: Number, default: undefined }, "td-width": { type: Number, default: 110 }, "td-height": { type: Number, default: 30 }, "td-padding": { type: Number, default: 10 },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _watcher = _interopRequireDefault(__webpack_require__(/*! @/common/tools/watcher.js */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\common\\tools\\watcher.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var tableRow = function tableRow() {return Promise.all(/*! import() | components/table-row */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/table-row")]).then(__webpack_require__.bind(null, /*! @/components/table-row.vue */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\components\\table-row.vue"));};var _default2 =
+
+{
+  components: {
+    tableRow: tableRow },
+
+  props: {
+    columns: {
+      type: Array,
+      required: true },
+
+    list: {
+      type: Array,
+      required: true },
+
+    rowClassName: {
+      type: [String, Function],
+      default: "" },
+
+    'slot-cols': {
+      type: Array,
+      default: function _default() {
+        return [];
+      } },
+
+    "span-method": {
+      type: Function,
+      default: function _default() {
+        return function () {
+          return {
+            rowspan: 1,
+            colspan: 1 };
+
+        };
+      } },
+
+    height: {
+      type: Number,
+      default: undefined },
+
+    "td-width": {
+      type: Number,
+      default: 110 },
+
+    "td-height": {
+      type: Number,
+      default: 30 },
+
+    "td-padding": {
+      type: Number,
+      default: 10 },
+
     "border-color": {
       type: String,
       default: "#666" } },
@@ -130,11 +145,27 @@ var tableRow = function tableRow() {return Promise.all(/*! import() | components
       return t;
     } },
 
-  created: function created() {
-    console.log(this.tdHeight);
+  data: function data() {
+    return {
+      checkBoxList: [],
+      switchAllCheckBox: false,
+      selectionTdWidth: "50px" };
 
   },
+  watch: {
+    "list": function list() {
+      this.asyncCheckBoxList();
+    } },
+
+  created: function created() {
+    this.asyncCheckBoxList();
+  },
   methods: {
+    asyncCheckBoxList: function asyncCheckBoxList() {
+      this.checkBoxList = this.list.map(function (item) {
+        return _objectSpread({}, item);
+      });
+    },
     rowClassNamePlus: function rowClassNamePlus(row, index) {
       if (typeof this.rowClassName === "string") {
         return this.rowClassName;
@@ -152,6 +183,66 @@ var tableRow = function tableRow() {return Promise.all(/*! import() | components
     },
     countRowspanHeight: function countRowspanHeight(item, tdItem, index, tdItemIndex) {
       return this.spanMethod(item, tdItem, index, tdItemIndex) && this.spanMethod(item, tdItem, index, tdItemIndex)["rowspan"] > 1 ? this.spanMethod(item, tdItem, index, tdItemIndex)["rowspan"] * this.tdHeight + "px" : this.tdHeight + "px";
+    },
+    checkboxChange: function checkboxChange(e) {
+      var val = e.detail.value;
+      var before = [];
+      for (var v = 0; v < this.checkBoxList.length; v++) {
+        if (this.checkBoxList[v].$checked === true) {
+          before.push(_objectSpread({}, this.checkBoxList[v]));
+        }
+      }
+
+      if (val.length == this.checkBoxList.length) {
+        this.switchAllCheckBox = true;
+        this.checkBoxList = this.checkBoxList.map(function (item) {
+          item.$checked = true;
+          return item;
+        });
+      } else
+      {
+        this.switchAllCheckBox = false;
+        this.checkBoxList = this.checkBoxList.map(function (item) {
+          if (val.indexOf(item.id) > -1) {
+            item.$checked = true;
+          } else
+          {
+            item.$checked = false;
+          }
+          return item;
+        });
+      }
+      this.$emit("on-selection-change", {
+        old: before,
+        new: this.checkBoxList.filter(function (item) {return item.$checked === true;}) });
+
+    },
+    checkboxChangeAll: function checkboxChangeAll(e) {
+      var val = e.detail.value;
+      var before = [];
+      for (var v = 0; v < this.checkBoxList.length; v++) {
+        if (this.checkBoxList[v].$checked === true) {
+          before.push(_objectSpread({}, this.checkBoxList[v]));
+        }
+      }
+      if (val && val[0] == "all") {
+        this.switchAllCheckBox = true;
+        this.checkBoxList = this.checkBoxList.map(function (item) {
+          item.$checked = true;
+          return item;
+        });
+      } else
+      {
+        this.switchAllCheckBox = false;
+        this.checkBoxList = this.checkBoxList.map(function (item) {
+          item.$checked = false;
+          return item;
+        });
+      }
+      this.$emit("on-selection-change", {
+        old: before,
+        new: this.checkBoxList.filter(function (item) {return item.$checked === true;}) });
+
     } } };exports.default = _default2;
 
 /***/ }),
