@@ -59,4 +59,13 @@
 		background: red !important;
 		color: #fff !important;
 	}
+	
+	
+	.example{
+		.title {
+			line-height: 40px;
+			font-weight: bold;
+		}
+	}
+		
 </style>

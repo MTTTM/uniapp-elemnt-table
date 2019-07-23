@@ -1,0 +1,1 @@
+<view class="example" bind:__l="__l"><view class="title">跨列</view><v-table columns="{{columns}}" list="{{dataColSpan}}" span-method="{{colsSpanMethod}}"></v-table></view>

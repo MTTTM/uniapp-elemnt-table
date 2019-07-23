@@ -3,7 +3,5 @@
     "scoped-slots-default": true
   },
   "component": true,
-  "usingComponents": {
-    "table-row": "/components/table-row"
-  }
+  "usingComponents": {}
 }

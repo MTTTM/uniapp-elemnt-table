@@ -7138,20 +7138,6 @@ module.exports = g;
 
 /***/ }),
 
-/***/ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\common\\tools\\watcher.js":
-/*!*********************************************************************************!*\
-  !*** C:/Users/Boolean/Documents/HBuilderProjects/demo1/common/tools/watcher.js ***!
-  \*********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-var t = new _vue.default();var _default =
-t;exports.default = _default;
-
-/***/ }),
-
 /***/ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\main.js":
 /*!*****************************************************************!*\
   !*** C:/Users/Boolean/Documents/HBuilderProjects/demo1/main.js ***!

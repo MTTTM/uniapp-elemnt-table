@@ -65,13 +65,7 @@
 </template>
 
 <script>
-
-	import Event from "@/common/tools/watcher.js"
-	import tableRow from "@/components/table-row.vue"
 	export default {
-		components: {
-			tableRow
-		},
 		props: {
 			columns: {
 				type: Array,
