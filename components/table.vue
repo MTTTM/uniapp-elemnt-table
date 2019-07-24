@@ -26,7 +26,7 @@
 									<!-- 多选操作 -->
 									<view class="td selection" v-if="columns[0].$type" :style='{width:selectionTdWidth,height:tdHeight+"px"}'>
 										<view :class="['td_wrap']" :style='{width:selectionTdWidth,height:tdHeight+"px"}'>
-											<checkbox :value="checkBoxList[index].id" :checked="checkBoxList[index].$checked" style="transform:scale(0.7)"/>
+											<checkbox :value="checkBoxList[index].id" :disabled="checkBoxList[index].$disabled" :checked="checkBoxList[index].$checked" style="transform:scale(0.7)"/>
 										</view>
 									</view>
 									<template  v-for="(tdItem,tdItemIndex) in columns">
@@ -124,6 +124,9 @@
 			talbeBodyHeight(){
 				let t=this.tableHeight!=="auto"?(parseInt(this.tableHeight)-this.tdHeight-1)+"px":"auto";
 				return t;
+			},
+			allCheckBoxAbledLen(){
+				return this.checkBoxList.filter(item=>!item.$disabled).length;
 			}
 		},
 		data(){
@@ -168,16 +171,17 @@
 			checkboxChange(e){
 				let val = e.detail.value;
 				let before=[];
-				for(let v=0;v<this.checkBoxList.length;v++){
+				for(let v=0;v<this.allCheckBoxAbledLen;v++){
 					if(this.checkBoxList[v].$checked===true){
 						before.push({...this.checkBoxList[v]});
 					}
 				}
-				
-                if(val.length==this.checkBoxList.length){
+                if(val.length==this.allCheckBoxAbledLen){
 					this.switchAllCheckBox=true;
 					this.checkBoxList=this.checkBoxList.map(item=>{
-						item.$checked=true
+						if(!item.$disabled){
+							item.$checked=true
+						}
 						return item;
 					});
 				}
@@ -201,7 +205,7 @@
 			checkboxChangeAll(e){
 				let val=e.detail.value;
 				let before=[];
-				for(let v=0;v<this.checkBoxList.length;v++){
+				for(let v=0;v<this.allCheckBoxAbledLen;v++){
 					if(this.checkBoxList[v].$checked===true){
 						before.push({...this.checkBoxList[v]});
 					}
@@ -209,7 +213,9 @@
 				if(val&&val[0]=="all"){
 					this.switchAllCheckBox=true;
 					this.checkBoxList=this.checkBoxList.map(item=>{
-						item.$checked=true
+						if(!item.$disabled){
+							item.$checked=true
+						}
 						return item;
 					});
 				}

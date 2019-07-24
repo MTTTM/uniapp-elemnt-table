@@ -33,13 +33,15 @@
 						age: 18,
 						address: 'New York No. 1 Lake Park',
 						id: "1",
+						$checked:true
 						
 					},
 					{
 						name: 'Jim Green',
 						age: 25,
 						address: 'London No. 1 Lake Park',
-						id: "2"
+						id: "2",
+						$disabled:true
 					},
 					{
 						name: 'Joe Black',

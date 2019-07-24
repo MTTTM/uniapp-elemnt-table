@@ -134,6 +134,9 @@ var _default2 =
     talbeBodyHeight: function talbeBodyHeight() {
       var t = this.tableHeight !== "auto" ? parseInt(this.tableHeight) - this.tdHeight - 1 + "px" : "auto";
       return t;
+    },
+    allCheckBoxAbledLen: function allCheckBoxAbledLen() {
+      return this.checkBoxList.filter(function (item) {return !item.$disabled;}).length;
     } },
 
   data: function data() {
@@ -178,16 +181,17 @@ var _default2 =
     checkboxChange: function checkboxChange(e) {
       var val = e.detail.value;
       var before = [];
-      for (var v = 0; v < this.checkBoxList.length; v++) {
+      for (var v = 0; v < this.allCheckBoxAbledLen; v++) {
         if (this.checkBoxList[v].$checked === true) {
           before.push(_objectSpread({}, this.checkBoxList[v]));
         }
       }
-
-      if (val.length == this.checkBoxList.length) {
+      if (val.length == this.allCheckBoxAbledLen) {
         this.switchAllCheckBox = true;
         this.checkBoxList = this.checkBoxList.map(function (item) {
-          item.$checked = true;
+          if (!item.$disabled) {
+            item.$checked = true;
+          }
           return item;
         });
       } else
@@ -211,7 +215,7 @@ var _default2 =
     checkboxChangeAll: function checkboxChangeAll(e) {
       var val = e.detail.value;
       var before = [];
-      for (var v = 0; v < this.checkBoxList.length; v++) {
+      for (var v = 0; v < this.allCheckBoxAbledLen; v++) {
         if (this.checkBoxList[v].$checked === true) {
           before.push(_objectSpread({}, this.checkBoxList[v]));
         }
@@ -219,7 +223,9 @@ var _default2 =
       if (val && val[0] == "all") {
         this.switchAllCheckBox = true;
         this.checkBoxList = this.checkBoxList.map(function (item) {
-          item.$checked = true;
+          if (!item.$disabled) {
+            item.$checked = true;
+          }
           return item;
         });
       } else
