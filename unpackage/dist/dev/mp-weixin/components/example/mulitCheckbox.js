@@ -25,7 +25,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     return {
       //选择多行，给第一行添加$type: 'selection',就可以开启多选
       columnsCheckBox: [{
-        '$type': 'selection',
         title: 'Name',
         key: 'name' },
 

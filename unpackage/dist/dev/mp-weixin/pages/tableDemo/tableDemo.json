@@ -10,6 +10,7 @@
     "custom-row-style-second": "/components/example/customRowStyleSecond",
     "custom-cel": "/components/example/customCel",
     "custom-cel-content": "/components/example/customCelContent",
-    "edi-data": "/components/example/ediData"
+    "edi-data": "/components/example/ediData",
+    "single-selected": "/components/example/singleSelected"
   }
 }

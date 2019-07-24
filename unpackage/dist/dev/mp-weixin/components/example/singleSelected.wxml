@@ -1,0 +1,1 @@
+<view class="example" bind:__l="__l"><view class="title">数据操作 单选</view><v-table columns="{{columnsCheckBox}}" list="{{data}}" selection="single" data-event-opts="{{[['^onSelectionChange',[['onSelectionChange']]]]}}" bind:onSelectionChange="__e"></v-table></view>

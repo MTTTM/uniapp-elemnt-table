@@ -62,7 +62,31 @@
 				}
 			}
 		}
-		
+		.th,.thead .tr{
+			.td{
+				background-color: #e0e0ea;
+				.td_wrap{
+					background-color: #e0e0ea;
+				}
+				
+			}
+		}
+		//单选样式========》选中
+		.selected{
+			.td{
+				background-color: #d3e3ef;
+				.td_wrap{
+					background-color: #d3e3ef;
+				}
+			}
+		}
+		//单选样式===》禁用
+		.disabled{
+			.td{
+				    background-color: #f8f8f9;
+					opacity: .6;
+			}
+		}
 		.td {
 			display: table-cell;
 			vertical-align: middle;

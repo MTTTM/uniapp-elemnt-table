@@ -5,7 +5,7 @@
 				<view class="div-table div-table-head">
 					<view class="thead">
 						<view class="tr">
-							<view class="td selection" v-if="columns[0].$type" :style='{width:selectionTdWidth,height:tdHeight+"px"}'>
+							<view class="td selection" v-if="selection=='mulit'" :style='{width:selectionTdWidth,height:tdHeight+"px"}'>
 								<view :class="['td_wrap']" :style='{width:selectionTdWidth,height:tdHeight+"px"}'>
 									<checkbox-group @change="checkboxChangeAll">
 										<checkbox value="all"  :checked="switchAllCheckBox" style="transform:scale(0.7)"/>
@@ -22,9 +22,13 @@
 					<view class="div-table">
 						 <checkbox-group @change="checkboxChange">
 							<template v-for="(item,index) in list">
-								<view  :class='["tr",rowClassNamePlus(item,index)]'  :key="item.id">
+								<view  :class='["tr",rowClassNamePlus(item,index),
+								selection=="single"&&checkBoxList[index].$checked?"selected":"",
+								selection=="single"&&checkBoxList[index].$disabled?"disabled":""]' 
+								@click="selectRow(item,index)"
+								:key="item.id">
 									<!-- 多选操作 -->
-									<view class="td selection" v-if="columns[0].$type" :style='{width:selectionTdWidth,height:tdHeight+"px"}'>
+									<view class="td selection" v-if="selection=='mulit'" :style='{width:selectionTdWidth,height:tdHeight+"px"}'>
 										<view :class="['td_wrap']" :style='{width:selectionTdWidth,height:tdHeight+"px"}'>
 											<checkbox :value="checkBoxList[index].id" :disabled="checkBoxList[index].$disabled" :checked="checkBoxList[index].$checked" style="transform:scale(0.7)"/>
 										</view>
@@ -96,6 +100,11 @@
 					}
 				}
 			},
+			//是否可选  mulit=>多选   single=》单选
+			selection:{
+				type:String,
+				default:"none"
+			},
 			height:{
 				type:Number,
 				default:undefined
@@ -133,7 +142,8 @@
 			return {
 				checkBoxList:[],
 				switchAllCheckBox:false,
-				selectionTdWidth:"50px"
+				selectionTdWidth:"50px",
+				singleSelect:{}
 			}
 		},
 		watch:{
@@ -167,6 +177,28 @@
 			},
 			countRowspanHeight(item,tdItem,index,tdItemIndex){
 				return this.spanMethod(item,tdItem,index,tdItemIndex)&&this.spanMethod(item,tdItem,index,tdItemIndex)["rowspan"]>1?(this.spanMethod(item,tdItem,index,tdItemIndex)["rowspan"]*this.tdHeight)+"px":this.tdHeight+"px"
+			},
+			selectRow(item,index){
+				if(item.$disabled){
+					return;
+				}
+				this.checkBoxList=this.checkBoxList.map((sitem,sindex)=>{
+					if(index===sindex){
+						sitem.$checked=true
+					}
+					else{
+						sitem.$checked=false;
+					}
+					return sitem;
+				});
+				if(this.selection){
+					this.$emit("on-selection-change",{
+						old:this.singleSelect,
+						new:{index,item}
+					})
+				}
+				this.singleSelect={index,item};
+				
 			},
 			checkboxChange(e){
 				let val = e.detail.value;

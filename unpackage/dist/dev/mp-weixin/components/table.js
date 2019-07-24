@@ -74,6 +74,10 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
+//
+//
+//
+//
 var _default2 =
 {
   props: {
@@ -105,6 +109,11 @@ var _default2 =
 
         };
       } },
+
+    //是否可选  mulit=>多选   single=》单选
+    selection: {
+      type: String,
+      default: "none" },
 
     height: {
       type: Number,
@@ -143,7 +152,8 @@ var _default2 =
     return {
       checkBoxList: [],
       switchAllCheckBox: false,
-      selectionTdWidth: "50px" };
+      selectionTdWidth: "50px",
+      singleSelect: {} };
 
   },
   watch: {
@@ -177,6 +187,28 @@ var _default2 =
     },
     countRowspanHeight: function countRowspanHeight(item, tdItem, index, tdItemIndex) {
       return this.spanMethod(item, tdItem, index, tdItemIndex) && this.spanMethod(item, tdItem, index, tdItemIndex)["rowspan"] > 1 ? this.spanMethod(item, tdItem, index, tdItemIndex)["rowspan"] * this.tdHeight + "px" : this.tdHeight + "px";
+    },
+    selectRow: function selectRow(item, index) {
+      if (item.$disabled) {
+        return;
+      }
+      this.checkBoxList = this.checkBoxList.map(function (sitem, sindex) {
+        if (index === sindex) {
+          sitem.$checked = true;
+        } else
+        {
+          sitem.$checked = false;
+        }
+        return sitem;
+      });
+      if (this.selection) {
+        this.$emit("on-selection-change", {
+          old: this.singleSelect,
+          new: { index: index, item: item } });
+
+      }
+      this.singleSelect = { index: index, item: item };
+
     },
     checkboxChange: function checkboxChange(e) {
       var val = e.detail.value;

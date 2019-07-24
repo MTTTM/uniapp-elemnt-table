@@ -10,6 +10,7 @@
 		<row-span></row-span>
 		<cel-span></cel-span>
 		<mulit-checkbox></mulit-checkbox>
+		<single-selected/>
 		<edi-data/>
 		
 		
@@ -33,6 +34,7 @@
 	import customCel from "@/components/example/customCel.vue";
 	import customCelContent from "@/components/example/customCelContent.vue";
 	import ediData from "@/components/example/ediData.vue";
+    import singleSelected from "@/components/example/singleSelected.vue";
 	export default {
 		components: {
 			vTable,
@@ -45,7 +47,8 @@
 			customRowStyleSecond,
 			customCel,
 			customCelContent,
-			ediData
+			ediData,
+			singleSelected
 		}
 	}
 </script>

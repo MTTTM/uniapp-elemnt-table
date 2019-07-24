@@ -70,6 +70,22 @@
       border-top: 1rpx solid #666;
       word-break: break-word;
 }
+.div-table .th .td, .div-table .thead .tr .td {
+    background-color: #e0e0ea;
+}
+.div-table .th .td .td_wrap, .div-table .thead .tr .td .td_wrap {
+      background-color: #e0e0ea;
+}
+.div-table .selected .td {
+    background-color: #d3e3ef;
+}
+.div-table .selected .td .td_wrap {
+      background-color: #d3e3ef;
+}
+.div-table .disabled .td {
+    background-color: #f8f8f9;
+    opacity: .6;
+}
 .div-table .td {
     display: table-cell;
     vertical-align: middle;
