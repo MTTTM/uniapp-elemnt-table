@@ -217,21 +217,49 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       this.$emit(event, data);
     },
     /**
+        * 计算单列宽
         * iswrap  是否是内容容器
         */
     countColspanWidth: function countColspanWidth(item, tdItem, index, tdItemIndex) {var iswrap = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
       var borderLeft = iswrap && tdItemIndex > 0 ? 1 : 0;
-      var t = this.spanMethod(item, tdItem, index, tdItemIndex) && this.spanMethod(item, tdItem, index, tdItemIndex)[
-      "colspan"] > 1 ? this.spanMethod(item, tdItem, index, tdItemIndex)["colspan"] * this.tdWidth - borderLeft + "px" : this.tdWidth - borderLeft +
-      "px";
+      //是否跨列
+      var moreThanOne = this.spanMethod(item, tdItem, index, tdItemIndex) && this.spanMethod(item, tdItem, index, tdItemIndex)["colspan"];
+      var t = moreThanOne > 1 ? this.spanMethod(item, tdItem, index, tdItemIndex)["colspan"] * this.tdWidth - borderLeft + "px" : this.tdWidth - borderLeft + "px";
+      //跨列
+      if (moreThanOne > 1) {
+        var countWidth = 0;
+        for (var i = tdItemIndex; i < tdItemIndex + (moreThanOne - 1); i++) {
+          countWidth += this.columns[i].$width && parseInt(this.columns[i].$width) ? parseInt(this.columns[i].$width) - borderLeft : this.tdWidth;
+        }
+        return countWidth + 'px';
+      } else
+      {
+        //不跨列
+        var tmp = this.columns[tdItemIndex].$width && parseInt(this.columns[tdItemIndex].$width) ? parseInt(this.columns[tdItemIndex].$width) : this.tdWidth;
+        return tmp + "px";
+      }
       return t;
-
     },
+    /**
+        * 计算头部td的宽度
+        * */
+    countHeadColspanWidth: function countHeadColspanWidth(item, index) {var iswrap = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+      var borderLeft = iswrap && index > 0 ? 1 : 0;
+      var tmp = item.$width ? parseInt(item.$width) : this.tdWidth;
+      return tmp + "px";
+    },
+    /**
+        * 计算单列高
+        * */
     countRowspanHeight: function countRowspanHeight(item, tdItem, index, tdItemIndex) {
-      return this.spanMethod(item, tdItem, index, tdItemIndex) && this.spanMethod(item, tdItem, index, tdItemIndex)[
-      "rowspan"] > 1 ? this.spanMethod(item, tdItem, index, tdItemIndex)["rowspan"] * this.tdHeight + "px" : this.tdHeight +
-      "px";
+      //是否跨行
+      var moreThanOne = this.spanMethod(item, tdItem, index, tdItemIndex) && this.spanMethod(item, tdItem, index, tdItemIndex)["rowspan"] > 1;
+      var t = moreThanOne ? this.spanMethod(item, tdItem, index, tdItemIndex)["rowspan"] * this.tdHeight + "px" : this.tdHeight + "px";
+      return t;
     },
+    /*
+       * 单选行
+       * */
     selectRow: function selectRow(item, index) {
       if (item.$disabled) {
         return;
@@ -259,6 +287,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
     },
+    /*
+       * 多选
+       * */
     checkboxChange: function checkboxChange(e) {
       var val = e.detail.value;
       var before = [];
@@ -292,6 +323,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
         new: this.checkBoxList.filter(function (item) {return item.$checked === true;}) });
 
     },
+    /*
+       * 全选
+       * */
     checkboxChangeAll: function checkboxChangeAll(e) {
       var val = e.detail.value;
       var before = [];
@@ -350,46 +384,56 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  var l1 = _vm.list.map(function(item, index) {
-    var m0 = _vm.rowClassNamePlus(item, index)
-    var l0 = _vm.columns.map(function(tdItem, tdItemIndex) {
-      var m1 = _vm.spanMethod(item, tdItem, index, tdItemIndex)
-      var m2 = _vm.spanMethod(item, tdItem, index, tdItemIndex)
+  var l0 = _vm.columns.map(function(item, index) {
+    var m0 = _vm.countHeadColspanWidth(item, index)
+    var m1 = _vm.countHeadColspanWidth(item, index, true)
+    return {
+      $orig: _vm.__get_orig(item),
+      m0: m0,
+      m1: m1
+    }
+  })
+  var l2 = _vm.list.map(function(item, index) {
+    var m2 = _vm.rowClassNamePlus(item, index)
+    var l1 = _vm.columns.map(function(tdItem, tdItemIndex) {
       var m3 = _vm.spanMethod(item, tdItem, index, tdItemIndex)
       var m4 = _vm.spanMethod(item, tdItem, index, tdItemIndex)
-      var m5 = _vm.countRowspanHeight(item, tdItem, index, tdItemIndex)
-      var m6 = _vm.countColspanWidth(item, tdItem, index, tdItemIndex)
+      var m5 = _vm.spanMethod(item, tdItem, index, tdItemIndex)
+      var m6 = _vm.spanMethod(item, tdItem, index, tdItemIndex)
       var m7 = _vm.countRowspanHeight(item, tdItem, index, tdItemIndex)
-      var m8 = _vm.countColspanWidth(item, tdItem, index, tdItemIndex, true)
+      var m8 = _vm.countColspanWidth(item, tdItem, index, tdItemIndex)
+      var m9 = _vm.countRowspanHeight(item, tdItem, index, tdItemIndex)
+      var m10 = _vm.countColspanWidth(item, tdItem, index, tdItemIndex, true)
       var g0 = _vm.slotCols.indexOf(tdItem.key)
       return {
         $orig: _vm.__get_orig(tdItem),
-        m1: m1,
-        m2: m2,
         m3: m3,
         m4: m4,
         m5: m5,
         m6: m6,
         m7: m7,
         m8: m8,
+        m9: m9,
+        m10: m10,
         g0: g0
       }
     })
     return {
       $orig: _vm.__get_orig(item),
-      m0: m0,
-      l0: l0
+      m2: m2,
+      l1: l1
     }
   })
-  var m9 = parseInt(_vm.emptyColHeight - 2)
-  var m10 = parseInt(_vm.emptyColHeight - 2)
+  var m11 = parseInt(_vm.emptyColHeight - 2)
+  var m12 = parseInt(_vm.emptyColHeight - 2)
   _vm.$mp.data = Object.assign(
     {},
     {
       $root: {
-        l1: l1,
-        m9: m9,
-        m10: m10
+        l0: l0,
+        l2: l2,
+        m11: m11,
+        m12: m12
       }
     }
   )

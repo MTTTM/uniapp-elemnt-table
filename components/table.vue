@@ -12,8 +12,8 @@
 									</checkbox-group>
 								</view>
 							</view>
-							<view class="td" :style='{width:tdWidth+"px",height:thTdHeight+"px"}' v-for="(item,index) in columns" :key="item.key">
-								<view class="td_wrap" :style='{width:index>0?(tdWidth-1)+"px":tdWidth+"px",height:thTdHeight+"px"}'>{{item.title}}</view>
+							<view class="td" :style='{width:countHeadColspanWidth(item,index),height:thTdHeight+"px"}' v-for="(item,index) in columns" :key="item.key">
+								<view class="td_wrap" :style='{width:countHeadColspanWidth(item,index,true),height:thTdHeight+"px"}'>{{item.title}}</view>
 							</view>
 						</view>
 					</view>
@@ -207,21 +207,49 @@
 				this.$emit(event, data);
 			},
 			/**
+			 * 计算单列宽
 			 * iswrap  是否是内容容器
 			 */
 			countColspanWidth(item, tdItem, index, tdItemIndex,iswrap=false) {
 				let borderLeft=iswrap&&tdItemIndex>0?1:0;
-				let t=this.spanMethod(item, tdItem, index, tdItemIndex) && this.spanMethod(item, tdItem, index, tdItemIndex)[
-						"colspan"] > 1 ? (this.spanMethod(item, tdItem, index, tdItemIndex)["colspan"] * this.tdWidth)-borderLeft + "px" : (this.tdWidth-borderLeft) +
-					"px";
-					return t;
-
+				//是否跨列
+				let moreThanOne=this.spanMethod(item, tdItem, index, tdItemIndex) && this.spanMethod(item, tdItem, index, tdItemIndex)["colspan"];
+				let t=moreThanOne>1 ? (this.spanMethod(item, tdItem, index, tdItemIndex)["colspan"] * this.tdWidth)-borderLeft + "px" : (this.tdWidth-borderLeft) +"px";
+				//跨列
+				if(moreThanOne>1){
+					let countWidth=0;
+					for(let i=tdItemIndex;i<tdItemIndex+(moreThanOne-1);i++){
+						countWidth+=this.columns[i].$width&&parseInt(this.columns[i].$width)?parseInt(this.columns[i].$width)-borderLeft:this.tdWidth;
+					}
+					return countWidth+'px';
+				}
+				else{
+					//不跨列
+					let tmp=this.columns[tdItemIndex].$width&&parseInt(this.columns[tdItemIndex].$width)?parseInt(this.columns[tdItemIndex].$width):this.tdWidth;
+					return tmp+"px";
+				}
+				return t;
 			},
+			/**
+			 * 计算头部td的宽度
+			 * */
+			countHeadColspanWidth(item,index,iswrap=false) {
+				let borderLeft=iswrap&&index>0?1:0;
+				let tmp=item.$width?parseInt(item.$width):this.tdWidth;
+				return tmp+"px";
+			},
+			/**
+			 * 计算单列高
+			 * */
 			countRowspanHeight(item, tdItem, index, tdItemIndex) {
-				return this.spanMethod(item, tdItem, index, tdItemIndex) && this.spanMethod(item, tdItem, index, tdItemIndex)[
-						"rowspan"] > 1 ? (this.spanMethod(item, tdItem, index, tdItemIndex)["rowspan"] * this.tdHeight) + "px" : this.tdHeight +
-					"px"
+				//是否跨行
+				let moreThanOne=this.spanMethod(item, tdItem, index, tdItemIndex) && this.spanMethod(item, tdItem, index, tdItemIndex)["rowspan"] > 1;
+				let t= moreThanOne? (this.spanMethod(item, tdItem, index, tdItemIndex)["rowspan"] * this.tdHeight) + "px" : this.tdHeight +"px";
+				return t;
 			},
+			/*
+			* 单选行
+			* */
 			selectRow(item, index) {
 				if (item.$disabled) {
 					return;
@@ -249,6 +277,9 @@
 				};
 
 			},
+			/*
+			* 多选
+			* */
 			checkboxChange(e) {
 				let val = e.detail.value;
 				let before = [];
@@ -282,6 +313,9 @@
 					new: this.checkBoxList.filter(item => item.$checked === true)
 				})
 			},
+			/*
+			* 全选
+			* */
 			checkboxChangeAll(e) {
 				let val = e.detail.value;
 				let before = [];

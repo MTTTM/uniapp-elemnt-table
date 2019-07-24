@@ -2,6 +2,7 @@
   "usingComponents": {
     "v-table": "/components/table",
     "single-demo": "/components/example/single",
+    "custom-cel-width": "/components/example/customCelWidth",
     "fixed-height": "/components/example/fixedHeight",
     "mulit-checkbox": "/components/example/mulitCheckbox",
     "row-span": "/components/example/rowSpan",

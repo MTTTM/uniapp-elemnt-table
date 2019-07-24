@@ -1,11 +1,11 @@
 <template>
-	<view>
+	<view class="demo-wrap">
 		
 		<single-demo></single-demo>
+		<custom-cel-width/>
 		<loading-table/>
 		<empty-row/>
 		<fixed-height-empty-row/>
-		
 		<fixed-height></fixed-height>
 		<custom-row-style/>
 		<custom-row-style-second/>
@@ -22,6 +22,7 @@
 
 <script>
 	import vTable from "@/components/table.vue";
+	import customCelWidth from "@/components/example/customCelWidth.vue";
 	import singleDemo from "@/components/example/single.vue";
 	import fixedHeight from "@/components/example/fixedHeight.vue";
 	import mulitCheckbox from "@/components/example/mulitCheckbox.vue";
@@ -40,6 +41,7 @@
 		components: {
 			vTable,
 			singleDemo,
+			customCelWidth,
 			fixedHeight,
 			mulitCheckbox,
 			rowSpan,
@@ -56,4 +58,9 @@
 		}
 	}
 </script>
+<style>
+	.demo-wrap{
+		padding:10px ;
+	}
+</style>
 
