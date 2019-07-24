@@ -102,11 +102,11 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"components/table":1};
+/******/ 		var cssChunks = {"components/table":1,"components/loading":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"components/example/celSpan":"components/example/celSpan","components/example/customCel":"components/example/customCel","components/example/customCelContent":"components/example/customCelContent","components/example/customRowStyle":"components/example/customRowStyle","components/example/customRowStyleSecond":"components/example/customRowStyleSecond","components/example/ediData":"components/example/ediData","components/example/fixedHeight":"components/example/fixedHeight","components/example/mulitCheckbox":"components/example/mulitCheckbox","components/example/rowSpan":"components/example/rowSpan","components/example/single":"components/example/single","components/example/singleSelected":"components/example/singleSelected","components/table":"components/table"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"components/example/celSpan":"components/example/celSpan","components/example/customCel":"components/example/customCel","components/example/customCelContent":"components/example/customCelContent","components/example/customRowStyle":"components/example/customRowStyle","components/example/customRowStyleSecond":"components/example/customRowStyleSecond","components/example/ediData":"components/example/ediData","components/example/emptyRow":"components/example/emptyRow","components/example/fixedHeight":"components/example/fixedHeight","components/example/fixedHeightEmptyRow":"components/example/fixedHeightEmptyRow","components/example/loadingTable":"components/example/loadingTable","components/example/mulitCheckbox":"components/example/mulitCheckbox","components/example/rowSpan":"components/example/rowSpan","components/example/single":"components/example/single","components/example/singleSelected":"components/example/singleSelected","components/table":"components/table","components/loading":"components/loading"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

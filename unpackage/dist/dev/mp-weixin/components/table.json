@@ -3,5 +3,7 @@
     "scoped-slots-default": true
   },
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "loading-component": "/components/loading"
+  }
 }

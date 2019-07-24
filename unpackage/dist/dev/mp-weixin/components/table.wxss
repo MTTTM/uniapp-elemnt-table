@@ -24,6 +24,9 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.content {
+  position: relative;
+}
 .table_box_big {
   overflow: auto;
   width: 100%;
@@ -32,17 +35,34 @@
 .table_box {
   overflow: auto;
 }
+.empty-data-body-box {
+  min-height: 100px;
+  line-height: 100px;
+  text-align: center;
+  color: #666;
+  border: 1rpx solid #666;
+  border-top: 0;
+}
+.fix-height {
+  border-bottom: 1rpx solid #666;
+}
 .fix-height .table_box_big {
-  overflow-x: scroll;
-  overflow-y: hidden;
-  position: relative;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    position: relative;
 }
 .fix-height .table_box {
-  overflow: hidden;
-  position: absolute;
+    overflow: hidden;
+    position: absolute;
 }
 .fix-height .table_tbody_box {
-  overflow: scroll;
+    overflow: scroll;
+}
+.fix-height .div-table-body {
+    border-bottom: 0;
+}
+.fix-height .div-table-body {
+    border-top: 0;
 }
 .div-table {
   display: table;
@@ -52,8 +72,8 @@
   table-layout: fixed;
   position: relative;
 }
-.div-table.div-table-head {
-    border-bottom: 0;
+.div-table.div-table-body {
+    border-top: 0;
 }
 .div-table .tr,
   .div-table .th {

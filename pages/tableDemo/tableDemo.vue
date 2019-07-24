@@ -2,6 +2,10 @@
 	<view>
 		
 		<single-demo></single-demo>
+		<loading-table/>
+		<empty-row/>
+		<fixed-height-empty-row/>
+		
 		<fixed-height></fixed-height>
 		<custom-row-style/>
 		<custom-row-style-second/>
@@ -12,12 +16,6 @@
 		<mulit-checkbox></mulit-checkbox>
 		<single-selected/>
 		<edi-data/>
-		
-		
-		
-	
-		
-	
 	</view>
 
 </template>
@@ -35,6 +33,9 @@
 	import customCelContent from "@/components/example/customCelContent.vue";
 	import ediData from "@/components/example/ediData.vue";
     import singleSelected from "@/components/example/singleSelected.vue";
+	import emptyRow from "@/components/example/emptyRow.vue";
+	import fixedHeightEmptyRow from "@/components/example/fixedHeightEmptyRow.vue";
+	import loadingTable from "@/components/example/loadingTable.vue"
 	export default {
 		components: {
 			vTable,
@@ -48,7 +49,10 @@
 			customCel,
 			customCelContent,
 			ediData,
-			singleSelected
+			singleSelected,
+			emptyRow,
+			fixedHeightEmptyRow,
+			loadingTable
 		}
 	}
 </script>

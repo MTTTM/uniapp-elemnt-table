@@ -11,6 +11,9 @@
     "custom-cel": "/components/example/customCel",
     "custom-cel-content": "/components/example/customCelContent",
     "edi-data": "/components/example/ediData",
-    "single-selected": "/components/example/singleSelected"
+    "single-selected": "/components/example/singleSelected",
+    "empty-row": "/components/example/emptyRow",
+    "fixed-height-empty-row": "/components/example/fixedHeightEmptyRow",
+    "loading-table": "/components/example/loadingTable"
   }
 }

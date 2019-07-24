@@ -1,3 +1,8 @@
+$div-table-border-color: #666;
+$div-table-border-width: 1upx;
+.content{
+	position: relative;
+}
 .table_box_big {
 		 overflow:auto;
 		 width:100%;
@@ -14,7 +19,18 @@
 		// height: 300px;
 		 // overflow: scroll;
 	}
+	//没有任何数据
+	.empty-data-body-box{
+		 min-height: 100px;
+		 line-height: 100px;
+		 text-align: center;
+		 color:#666;
+		 border: $div-table-border-width solid $div-table-border-color;
+		border-top: 0;
+		 
+	}
 .fix-height{
+	border-bottom: $div-table-border-width solid $div-table-border-color;
 	.table_box_big {
 			overflow-x: scroll;
 			overflow-y: hidden;
@@ -30,12 +46,19 @@
 		.table_tbody_box {
 			// height: 300px;
 			overflow: scroll;
+			
+		}
+		//固定高低里面的内容表格底部不要边框
+		.div-table-body {
+			border-bottom: 0;
+		}
+		.div-table-body {
+			border-top: 0;
 		}
 }
 
 
-	$div-table-border-color: #666;
-	$div-table-border-width: 1upx;
+	
 
 	.div-table {
 		display: table;
@@ -45,8 +68,8 @@
 		position: relative;
 		
 
-		&.div-table-head {
-			border-bottom: 0;
+		&.div-table-body {
+			border-top: 0;
 		}
 		.tr,
 		.th {
@@ -87,6 +110,7 @@
 					opacity: .6;
 			}
 		}
+		
 		.td {
 			display: table-cell;
 			vertical-align: middle;
