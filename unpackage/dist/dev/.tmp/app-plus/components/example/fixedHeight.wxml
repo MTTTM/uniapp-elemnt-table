@@ -1,0 +1,1 @@
+<view class="example" bind:__l="__l"><view class="title">固定高度的table</view><v-table columns="{{columns}}" list="{{data}}" height="{{250}}"></v-table></view>

@@ -4,6 +4,6 @@
   },
   "component": true,
   "usingComponents": {
-    "table-row": "/components/table-row"
+    "loading-component": "/components/loading"
   }
 }

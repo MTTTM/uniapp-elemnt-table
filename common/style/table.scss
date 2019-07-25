@@ -87,6 +87,7 @@ $div-table-border-width: 1upx;
 		.th,.thead .tr{
 			.td{
 				background-color: #e0e0ea;
+				
 				.td_wrap{
 					background-color: #e0e0ea;
 				}
@@ -124,7 +125,8 @@ $div-table-border-width: 1upx;
 				padding: 10upx;
 				box-sizing: border-box;
 				overflow: hidden;
-				line-height: 1.6;
+				line-height: 20px;
+				font-size:12px;
 			}
 			&.colspan {
 				  z-index: 10;
@@ -161,7 +163,9 @@ $div-table-border-width: 1upx;
 			}
 
 			&+.td {
-				border-left: $div-table-border-width solid $div-table-border-color;
+				.td_wrap{
+					border-left: $div-table-border-width solid $div-table-border-color;
+				}
 			}
 		}
 

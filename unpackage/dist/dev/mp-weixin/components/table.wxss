@@ -122,7 +122,8 @@
       -webkit-box-sizing: border-box;
               box-sizing: border-box;
       overflow: hidden;
-      line-height: 1.6;
+      line-height: 20px;
+      font-size: 12px;
 }
 .div-table .td.colspan {
       z-index: 10;
@@ -154,7 +155,7 @@
 .div-table .td.noPadding {
       padding: 0;
 }
-.div-table .td + .td {
+.div-table .td + .td .td_wrap {
       border-left: 1rpx solid #666;
 }
 .div-table .th .td {

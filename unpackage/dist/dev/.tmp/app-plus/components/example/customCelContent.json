@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "customCelContent-v-table-default": "/components/example/customCelContent-v-table-default",
+    "v-table": "/components/table"
+  }
+}

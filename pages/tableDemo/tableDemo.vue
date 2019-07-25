@@ -1,21 +1,20 @@
 <template>
 	<view class="demo-wrap">
-		
-		<single-demo></single-demo>
+		<single-demo/>
 		<custom-cel-width/>
 		<loading-table/>
 		<empty-row/>
 		<fixed-height-empty-row/>
-		<fixed-height></fixed-height>
+		<fixed-height/>
 		<custom-row-style/>
 		<custom-row-style-second/>
 		<custom-cel/>
-		<custom-cel-content/>
-		<row-span></row-span>
-		<cel-span></cel-span>
-		<mulit-checkbox></mulit-checkbox>
+		<custom-cel-content/> 
+		 <row-span/>
+		 <cel-span/>
+		 <mulit-checkbox/>
 		<single-selected/>
-		<edi-data/>
+		<edi-data/> 
 	</view>
 
 </template>

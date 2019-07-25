@@ -1,8 +1,20 @@
 {
   "usingComponents": {
-    "tableDemo-v-table-default": "/pages/tableDemo/tableDemo-v-table-default",
     "v-table": "/components/table",
-    "v-table-row": "/components/table-row",
-    "v-table-column": "/components/table-column"
+    "single-demo": "/components/example/single",
+    "custom-cel-width": "/components/example/customCelWidth",
+    "fixed-height": "/components/example/fixedHeight",
+    "mulit-checkbox": "/components/example/mulitCheckbox",
+    "row-span": "/components/example/rowSpan",
+    "cel-span": "/components/example/celSpan",
+    "custom-row-style": "/components/example/customRowStyle",
+    "custom-row-style-second": "/components/example/customRowStyleSecond",
+    "custom-cel": "/components/example/customCel",
+    "custom-cel-content": "/components/example/customCelContent",
+    "edi-data": "/components/example/ediData",
+    "single-selected": "/components/example/singleSelected",
+    "empty-row": "/components/example/emptyRow",
+    "fixed-height-empty-row": "/components/example/fixedHeightEmptyRow",
+    "loading-table": "/components/example/loadingTable"
   }
 }

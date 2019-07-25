@@ -8,7 +8,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var loadingComponent = function loadingComponent() {return __webpack_require__.e(/*! import() | components/loading */ "components/loading").then(__webpack_require__.bind(null, /*! ./loading.vue */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\components\\loading.vue"));};var _default2 =
 
 
 
@@ -61,82 +61,299 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-var _watcher = _interopRequireDefault(__webpack_require__(/*! @/common/tools/watcher.js */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\common\\tools\\watcher.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var tableRow = function tableRow() {return Promise.all(/*! import() | components/table-row */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/table-row")]).then(__webpack_require__.bind(null, /*! @/components/table-row.vue */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\components\\table-row.vue"));};var _default2 = { components: { tableRow: tableRow }, props: { columns: { type: Array, required: true }, list: { type: Array, required: true }, rowClassName: { type: [String, Function], default: "" }, 'slot-cols': { type: Array, default: function _default() {return [];} }, "span-method": { type: Function, default: function _default() {return function () {return { rowspan: 1, colspan: 1 };};} }, "td-width": { type: Number, default: 110 }, "td-height": { type: Number, default: 30 }, "td-padding": { type: Number, default: 10 }, "border-color": { type: String, default: "#666" } },
 
 
-  created: function created() {
-    console.log(this.tdHeight, " at components\\table.vue:109");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+  components: { loadingComponent: loadingComponent },
+  props: {
+    columns: {
+      type: Array,
+      required: true },
+
+    list: {
+      type: Array,
+      required: true },
+
+    rowClassName: {
+      type: [String, Function],
+      default: "" },
+
+    'slot-cols': {
+      type: Array,
+      default: function _default() {
+        return [];
+      } },
+
+    "span-method": {
+      type: Function,
+      default: function _default() {
+        return function () {
+          return {
+            rowspan: 1,
+            colspan: 1 };
+
+        };
+      } },
+
+    //是否可选  mulit=>多选   single=》单选
+    selection: {
+      type: String,
+      default: "none" },
+
+    loading: {
+      type: Boolean,
+      default: false },
+
+    height: {
+      type: Number,
+      default: undefined },
+
+    "td-width": {
+      type: Number,
+      default: 110 },
+
+    "td-height": {
+      type: Number,
+      default: 30 },
+
+    "th-td-height": {
+      type: Number,
+      default: 30 },
+
+    "td-padding": {
+      type: Number,
+      default: 10 },
+
+    "border-color": {
+      type: String,
+      default: "#666" },
+
+    "emptyText": {
+      type: String,
+      default: "数据为空" } },
+
+
+  computed: {
+    tableHeight: function tableHeight() {
+      return Number(this.height) && Number(this.height) > this.tdHeight * 3 ? this.height + "px" : "auto";
+    },
+    talbeBodyHeight: function talbeBodyHeight() {
+      var t = this.tableHeight !== "auto" ? parseInt(this.tableHeight) - this.tdHeight - 1 + "px" : "auto";
+      return t;
+    },
+    allCheckBoxAbledLen: function allCheckBoxAbledLen() {
+      return this.checkBoxList.filter(function (item) {return !item.$disabled;}).length;
+    },
+    emptyColHeight: function emptyColHeight() {
+      return this.height ? this.height - this.thTdHeight + 'px' : "100px";
+    },
+    emptyColWidth: function emptyColWidth() {
+      var t = this.tdWidth * this.columns.length + "px";
+      return t;
+    } },
+
+  data: function data() {
+    return {
+      checkBoxList: [],
+      switchAllCheckBox: false,
+      selectionTdWidth: "50px",
+      singleSelect: {} };
 
   },
+  watch: {
+    "list": function list() {
+      this.asyncCheckBoxList();
+    } },
+
+  created: function created() {
+    this.asyncCheckBoxList();
+  },
   methods: {
+    asyncCheckBoxList: function asyncCheckBoxList() {
+      this.checkBoxList = this.list.map(function (item) {
+        return _objectSpread({}, item);
+
+      });
+    },
     rowClassNamePlus: function rowClassNamePlus(row, index) {
       if (typeof this.rowClassName === "string") {
         return this.rowClassName;
-      } else
-      if (typeof this.rowClassName === "function") {
+      } else if (typeof this.rowClassName === "function") {
         return this.rowClassName(row, index);
       }
     },
     pullEvent: function pullEvent(event, data) {
       this.$emit(event, data);
     },
-    countColspanWidth: function countColspanWidth(item, tdItem, index, tdItemIndex) {
-      return this.spanMethod(item, tdItem, index, tdItemIndex) && this.spanMethod(item, tdItem, index, tdItemIndex)["colspan"] > 1 ? this.spanMethod(item, tdItem, index, tdItemIndex)["colspan"] * this.tdWidth + "px" : this.tdWidth + "px";
+    /**
+        * 计算单列宽
+        * iswrap  是否是内容容器
+        */
+    countColspanWidth: function countColspanWidth(item, tdItem, index, tdItemIndex) {var iswrap = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
+      var borderLeft = iswrap && tdItemIndex > 0 ? 1 : 0;
+      //是否跨列
+      var moreThanOne = this.spanMethod(item, tdItem, index, tdItemIndex) && this.spanMethod(item, tdItem, index, tdItemIndex)["colspan"];
+      var t = moreThanOne > 1 ? this.spanMethod(item, tdItem, index, tdItemIndex)["colspan"] * this.tdWidth - borderLeft + "px" : this.tdWidth - borderLeft + "px";
+      //跨列
+      if (moreThanOne > 1) {
+        var countWidth = 0;
+        for (var i = tdItemIndex; i < tdItemIndex + (moreThanOne - 1); i++) {
+          countWidth += this.columns[i].$width && parseInt(this.columns[i].$width) ? parseInt(this.columns[i].$width) - borderLeft : this.tdWidth;
+        }
+        return countWidth + 'px';
+      } else
+      {
+        //不跨列
+        var tmp = this.columns[tdItemIndex].$width && parseInt(this.columns[tdItemIndex].$width) ? parseInt(this.columns[tdItemIndex].$width) : this.tdWidth;
+        return tmp + "px";
+      }
+      return t;
+    },
+    /**
+        * 计算头部td的宽度
+        * */
+    countHeadColspanWidth: function countHeadColspanWidth(item, index) {var iswrap = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+      var borderLeft = iswrap && index > 0 ? 1 : 0;
+      var tmp = item.$width ? parseInt(item.$width) : this.tdWidth;
+      return tmp + "px";
+    },
+    /**
+        * 计算单列高
+        * */
+    countRowspanHeight: function countRowspanHeight(item, tdItem, index, tdItemIndex) {
+      //是否跨行
+      var moreThanOne = this.spanMethod(item, tdItem, index, tdItemIndex) && this.spanMethod(item, tdItem, index, tdItemIndex)["rowspan"] > 1;
+      var t = moreThanOne ? this.spanMethod(item, tdItem, index, tdItemIndex)["rowspan"] * this.tdHeight + "px" : this.tdHeight + "px";
+      return t;
+    },
+    /*
+       * 单选行
+       * */
+    selectRow: function selectRow(item, index) {
+      if (item.$disabled) {
+        return;
+      }
+      this.checkBoxList = this.checkBoxList.map(function (sitem, sindex) {
+        if (index === sindex) {
+          sitem.$checked = true;
+        } else {
+          sitem.$checked = false;
+        }
+        return sitem;
+      });
+      if (this.selection) {
+        this.$emit("on-selection-change", {
+          old: this.singleSelect,
+          new: {
+            index: index,
+            item: item } });
+
+
+      }
+      this.singleSelect = {
+        index: index,
+        item: item };
+
 
     },
-    countRowspanHeight: function countRowspanHeight(item, tdItem, index, tdItemIndex) {
-      return this.spanMethod(item, tdItem, index, tdItemIndex) && this.spanMethod(item, tdItem, index, tdItemIndex)["rowspan"] > 1 ? this.spanMethod(item, tdItem, index, tdItemIndex)["rowspan"] * this.tdHeight + "px" : this.tdHeight + "px";
+    /*
+       * 多选
+       * */
+    checkboxChange: function checkboxChange(e) {
+      var val = e.detail.value;
+      var before = [];
+      for (var v = 0; v < this.allCheckBoxAbledLen; v++) {
+        if (this.checkBoxList[v].$checked === true) {
+          before.push(_objectSpread({}, this.checkBoxList[v]));
+
+        }
+      }
+      if (val.length == this.allCheckBoxAbledLen) {
+        this.switchAllCheckBox = true;
+        this.checkBoxList = this.checkBoxList.map(function (item) {
+          if (!item.$disabled) {
+            item.$checked = true;
+          }
+          return item;
+        });
+      } else {
+        this.switchAllCheckBox = false;
+        this.checkBoxList = this.checkBoxList.map(function (item) {
+          if (val.indexOf(item.id) > -1) {
+            item.$checked = true;
+          } else {
+            item.$checked = false;
+          }
+          return item;
+        });
+      }
+      this.$emit("on-selection-change", {
+        old: before,
+        new: this.checkBoxList.filter(function (item) {return item.$checked === true;}) });
+
+    },
+    /*
+       * 全选
+       * */
+    checkboxChangeAll: function checkboxChangeAll(e) {
+      var val = e.detail.value;
+      var before = [];
+      for (var v = 0; v < this.allCheckBoxAbledLen; v++) {
+        if (this.checkBoxList[v].$checked === true) {
+          before.push(_objectSpread({}, this.checkBoxList[v]));
+
+        }
+      }
+      if (val && val[0] == "all") {
+        this.switchAllCheckBox = true;
+        this.checkBoxList = this.checkBoxList.map(function (item) {
+          if (!item.$disabled) {
+            item.$checked = true;
+          }
+          return item;
+        });
+      } else {
+        this.switchAllCheckBox = false;
+        this.checkBoxList = this.checkBoxList.map(function (item) {
+          item.$checked = false;
+          return item;
+        });
+      }
+      this.$emit("on-selection-change", {
+        old: before,
+        new: this.checkBoxList.filter(function (item) {return item.$checked === true;}) });
+
     } } };exports.default = _default2;
 
 /***/ }),
@@ -167,42 +384,56 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  var l1 = _vm.list.map(function(item, index) {
-    var m0 = _vm.rowClassNamePlus(item, index)
-    var l0 = _vm.columns.map(function(tdItem, tdItemIndex) {
-      var m1 = _vm.spanMethod(item, tdItem, index, tdItemIndex)
-      var m2 = _vm.spanMethod(item, tdItem, index, tdItemIndex)
+  var l0 = _vm.columns.map(function(item, index) {
+    var m0 = _vm.countHeadColspanWidth(item, index)
+    var m1 = _vm.countHeadColspanWidth(item, index, true)
+    return {
+      $orig: _vm.__get_orig(item),
+      m0: m0,
+      m1: m1
+    }
+  })
+  var l2 = _vm.list.map(function(item, index) {
+    var m2 = _vm.rowClassNamePlus(item, index)
+    var l1 = _vm.columns.map(function(tdItem, tdItemIndex) {
       var m3 = _vm.spanMethod(item, tdItem, index, tdItemIndex)
       var m4 = _vm.spanMethod(item, tdItem, index, tdItemIndex)
-      var m5 = _vm.countRowspanHeight(item, tdItem, index, tdItemIndex)
-      var m6 = _vm.countColspanWidth(item, tdItem, index, tdItemIndex)
+      var m5 = _vm.spanMethod(item, tdItem, index, tdItemIndex)
+      var m6 = _vm.spanMethod(item, tdItem, index, tdItemIndex)
       var m7 = _vm.countRowspanHeight(item, tdItem, index, tdItemIndex)
       var m8 = _vm.countColspanWidth(item, tdItem, index, tdItemIndex)
+      var m9 = _vm.countRowspanHeight(item, tdItem, index, tdItemIndex)
+      var m10 = _vm.countColspanWidth(item, tdItem, index, tdItemIndex, true)
       var g0 = _vm.slotCols.indexOf(tdItem.key)
       return {
         $orig: _vm.__get_orig(tdItem),
-        m1: m1,
-        m2: m2,
         m3: m3,
         m4: m4,
         m5: m5,
         m6: m6,
         m7: m7,
         m8: m8,
+        m9: m9,
+        m10: m10,
         g0: g0
       }
     })
     return {
       $orig: _vm.__get_orig(item),
-      m0: m0,
-      l0: l0
+      m2: m2,
+      l1: l1
     }
   })
+  var m11 = parseInt(_vm.emptyColHeight - 2)
+  var m12 = parseInt(_vm.emptyColHeight - 2)
   _vm.$mp.data = Object.assign(
     {},
     {
       $root: {
-        l1: l1
+        l0: l0,
+        l2: l2,
+        m11: m11,
+        m12: m12
       }
     }
   )

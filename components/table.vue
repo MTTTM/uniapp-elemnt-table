@@ -2,6 +2,7 @@
 	<view class="content" :class="[tableHeight!='auto'?'fix-height':'']">
 		<view class="table_box_big" :style='{height:tableHeight}'>
 			<view class="table_box">
+				<!-- 头部内容 【-->
 				<view class="div-table div-table-head">
 					<view class="thead">
 						<view class="tr">
@@ -18,6 +19,7 @@
 						</view>
 					</view>
 				</view>
+				<!-- 头部内容 】-->
 				<!-- 有数据情况 -->
 				<template v-if="list.length">
 					<view class="table_tbody_box" :style='{height:talbeBodyHeight}'>
@@ -70,7 +72,7 @@
 						<view class="tr " :style='{height:talbeBodyHeight,width:emptyColWidth}'>
 							<view class="td" :style='{height:emptyColHeight,width:emptyColWidth}'>
 								<view :class="['td_wrap']" :style='{height:parseInt(emptyColHeight-2)+"px",width:emptyColWidth,lineHeight:parseInt(emptyColHeight-2)+"px"}'>
-									{{emptyText}}
+									<text @click="emptyClickCallBack">{{emptyText}}</text>
 								</view>
 							</view>
 						</view>
@@ -87,24 +89,29 @@
 	export default {
 		components:{loadingComponent},
 		props: {
+			//显示列
 			columns: {
 				type: Array,
 				required: true
 			},
+			//数据
 			list: {
 				type: Array,
 				required: true
 			},
+			//自定义行和列样式
 			rowClassName: {
 				type: [String, Function],
 				default: ""
 			},
+			//自定义列元素
 			'slot-cols': {
 				type: Array,
 				default: () => {
 					return []
 				}
 			},
+			//行列合并函数
 			"span-method": {
 				type: Function,
 				default: () => {
@@ -152,22 +159,34 @@
 			"emptyText":{
 				type:String,
 				default:"数据为空"
+			},
+			//空提示点击事件
+			"emptyClickFn":{
+				type:Function,
+				default(){
+					return ()=>{};
+				}
 			}
 		},
 		computed: {
+			//表格高度
 			tableHeight() {
 				return Number(this.height) && Number(this.height) > this.tdHeight * 3 ? this.height + "px" : "auto";
 			},
+			//表格主体高度
 			talbeBodyHeight() {
 				let t = this.tableHeight !== "auto" ? (parseInt(this.tableHeight) - this.tdHeight - 1) + "px" : "auto";
 				return t;
 			},
+			//可选的列表长度
 			allCheckBoxAbledLen() {
 				return this.checkBoxList.filter(item => !item.$disabled).length;
 			},
+			//没数据时候主体高度
 			emptyColHeight() {
 				return this.height?(this.height- this.thTdHeight)+'px':"100px";
 			},
+			//没数据时候，主体的宽度
 			emptyColWidth(){
 				let t=(this.tdWidth*this.columns.length)+"px";
 				return t;
@@ -175,10 +194,10 @@
 		},
 		data() {
 			return {
-				checkBoxList: [],
-				switchAllCheckBox: false,
-				selectionTdWidth: "50px",
-				singleSelect: {}
+				checkBoxList: [],//多选=》选中列表
+				switchAllCheckBox: false,//多选=》全选
+				selectionTdWidth: "50px", //多选列宽
+				singleSelect: {},//单选，选中行
 			}
 		},
 		watch: {
@@ -190,12 +209,14 @@
 			this.asyncCheckBoxList();
 		},
 		methods: {
+			//获取数据副本，轻拷贝
 			asyncCheckBoxList() {
 				this.checkBoxList = this.list.map(item => {
 					return { ...item
 					};
 				});
 			},
+			//自定义行样式
 			rowClassNamePlus(row, index) {
 				if (typeof this.rowClassName === "string") {
 					return this.rowClassName;
@@ -203,6 +224,7 @@
 					return this.rowClassName(row, index);
 				}
 			},
+			//事件触发
 			pullEvent(event, data) {
 				this.$emit(event, data);
 			},
@@ -212,14 +234,15 @@
 			 */
 			countColspanWidth(item, tdItem, index, tdItemIndex,iswrap=false) {
 				let borderLeft=iswrap&&tdItemIndex>0?1:0;
-				//是否跨列
+				//是否跨列,返回跨列个数，1为不跨列
 				let moreThanOne=this.spanMethod(item, tdItem, index, tdItemIndex) && this.spanMethod(item, tdItem, index, tdItemIndex)["colspan"];
-				let t=moreThanOne>1 ? (this.spanMethod(item, tdItem, index, tdItemIndex)["colspan"] * this.tdWidth)-borderLeft + "px" : (this.tdWidth-borderLeft) +"px";
+				//console.log(`第${index}行,第${tdItemIndex}列 是跨列么?${moreThanOne}`);
+				let t=moreThanOne>1 ? (moreThanOne * this.tdWidth)-borderLeft + "px" : (this.tdWidth-borderLeft) +"px";
 				//跨列
 				if(moreThanOne>1){
 					let countWidth=0;
 					for(let i=tdItemIndex;i<tdItemIndex+(moreThanOne-1);i++){
-						countWidth+=this.columns[i].$width&&parseInt(this.columns[i].$width)?parseInt(this.columns[i].$width)-borderLeft:this.tdWidth;
+						countWidth+=this.columns[i].$width&&parseInt(this.columns[i].$width)?parseInt(moreThanOne*this.columns[i].$width)-borderLeft:this.tdWidth*moreThanOne;
 					}
 					return countWidth+'px';
 				}
@@ -344,6 +367,12 @@
 					old: before,
 					new: this.checkBoxList.filter(item => item.$checked === true)
 				})
+			},
+			/*
+			* 空提示点击事件
+			* */
+			emptyClickCallBack(){
+				typeof this.emptyClickFn=="function"?this.emptyClickFn():"";
 			}
 		}
 	}

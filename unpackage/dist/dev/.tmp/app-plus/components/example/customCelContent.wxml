@@ -1,0 +1,1 @@
+<view class="example" bind:__l="__l"><view class="title">自定义列内容</view><v-table generic:scoped-slots-default="customCelContent-v-table-default" columns="{{columns}}" list="{{data}}" slot-cols="{{['name']}}" vue-slots="{{['default']}}"></v-table></view>

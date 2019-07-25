@@ -24,19 +24,45 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.table_box_big {
-  overflow-x: scroll;
-  overflow-y: hidden;
+.content {
   position: relative;
-  height: 350px;
+}
+.table_box_big {
+  overflow: auto;
+  width: 100%;
+  position: relative;
 }
 .table_box {
-  overflow: hidden;
-  position: absolute;
+  overflow: auto;
 }
-.table_tbody_box {
-  height: 300px;
-  overflow: scroll;
+.empty-data-body-box {
+  min-height: 100px;
+  line-height: 100px;
+  text-align: center;
+  color: #666;
+  border: 1rpx solid #666;
+  border-top: 0;
+}
+.fix-height {
+  border-bottom: 1rpx solid #666;
+}
+.fix-height .table_box_big {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    position: relative;
+}
+.fix-height .table_box {
+    overflow: hidden;
+    position: absolute;
+}
+.fix-height .table_tbody_box {
+    overflow: scroll;
+}
+.fix-height .div-table-body {
+    border-bottom: 0;
+}
+.fix-height .div-table-body {
+    border-top: 0;
 }
 .div-table {
   display: table;
@@ -46,8 +72,8 @@
   table-layout: fixed;
   position: relative;
 }
-.div-table.div-table-head {
-    border-bottom: 0;
+.div-table.div-table-body {
+    border-top: 0;
 }
 .div-table .tr,
   .div-table .th {
@@ -63,6 +89,23 @@
     .div-table .th + .th .th {
       border-top: 1rpx solid #666;
       word-break: break-word;
+}
+.div-table .th .td, .div-table .thead .tr .td {
+    background-color: #e0e0ea;
+    border-top: 1rpx solid #666;
+}
+.div-table .th .td .td_wrap, .div-table .thead .tr .td .td_wrap {
+      background-color: #e0e0ea;
+}
+.div-table .selected .td {
+    background-color: #d3e3ef;
+}
+.div-table .selected .td .td_wrap {
+      background-color: #d3e3ef;
+}
+.div-table .disabled .td {
+    background-color: #f8f8f9;
+    opacity: .6;
 }
 .div-table .td {
     display: table-cell;
@@ -80,7 +123,8 @@
       -webkit-box-sizing: border-box;
               box-sizing: border-box;
       overflow: hidden;
-      line-height: 1.6;
+      line-height: 20px;
+      font-size: 12px;
 }
 .div-table .td.colspan {
       z-index: 10;
