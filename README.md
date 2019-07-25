@@ -15,10 +15,7 @@
 ###  [数据单选操作](https://github.com/MTTTM/uniapp-elemnt-table/blob/master/components/example/singleSelected.vue)
 ###  [数据删除&&数据编辑或者更多操作方式](https://github.com/MTTTM/uniapp-elemnt-table/blob/master/components/example/ediData.vue)
 
-## 已测试平台
-## 
-### ios，android，wap，微信小程序
-
+## 已测试平台 ->ios，android，wap，微信小程序
 ## 基本使用示例源码
 
 ### html
@@ -69,6 +66,8 @@
 ```
 
 ## 赞助我买咖啡
-### 如果作者的行为给你带来了便利，打赏入口在下面
-### 如果有需要作者协助的地方，打赏在下面
-![avatar](./qishi.jpg)
+
+#### 如果作者的行为给你带来了便利，打赏入口在下面
+#### 如果有需要作者协助的地方，打赏在下面
+ 
+![avatar](./qishi.jpg =328x613)
