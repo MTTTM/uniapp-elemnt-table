@@ -43,26 +43,21 @@
   border: 1rpx solid #666;
   border-top: 0;
 }
-.fix-height {
-  border-bottom: 1rpx solid #666;
-}
 .fix-height .table_box_big {
-    overflow-x: scroll;
-    overflow-y: hidden;
-    position: relative;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  position: relative;
 }
 .fix-height .table_box {
-    overflow: hidden;
-    position: absolute;
+  overflow: hidden;
+  position: absolute;
 }
 .fix-height .table_tbody_box {
-    overflow: scroll;
+  overflow: scroll;
+  border-bottom: 1rpx solid #666;
 }
 .fix-height .div-table-body {
-    border-bottom: 0;
-}
-.fix-height .div-table-body {
-    border-top: 0;
+  border-top: 0;
 }
 .div-table {
   display: table;

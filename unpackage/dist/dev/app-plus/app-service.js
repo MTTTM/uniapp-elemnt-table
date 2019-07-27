@@ -1578,8 +1578,8 @@ _(hMB,cOB)
 var oNB=_v()
 _(hMB,oNB)
 if(_oz(z,21,e,s,gg)){oNB.wxVkey=1
-cs.push("./components/table.wxml:block:1:4025")
-cs.push("./components/table.wxml:loading-component:1:4052")
+cs.push("./components/table.wxml:block:1:4114")
+cs.push("./components/table.wxml:loading-component:1:4141")
 var b9B=_n('loading-component')
 cs.pop()
 _(oNB,b9B)
@@ -2617,7 +2617,7 @@ function getData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_PLATFORM":"app-plus","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"app-plus","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -8691,7 +8691,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_PLATFORM":"app-plus","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"app-plus","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -8712,14 +8712,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_PLATFORM":"app-plus","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"app-plus","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_PLATFORM":"app-plus","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"app-plus","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -8788,7 +8788,7 @@ var patch = function(oldVnode, vnode) {
         });
         var diffData = diff(data, mpData);
         if (Object.keys(diffData).length) {
-            if (Object({"VUE_APP_PLATFORM":"app-plus","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+            if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"app-plus","BASE_URL":"/"}).VUE_APP_DEBUG) {
                 console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
                     ']差量更新',
                     JSON.stringify(diffData));
@@ -12719,27 +12719,34 @@ define('components/table.js',function(require, module, exports, window, document
 
 
 
+
+
     {
       components: { loadingComponent: loadingComponent },
       props: {
+        //显示列
         columns: {
           type: Array,
           required: true },
 
+        //数据
         list: {
           type: Array,
           required: true },
 
+        //自定义行和列样式
         rowClassName: {
           type: [String, Function],
           default: "" },
 
+        //自定义列元素
         'slot-cols': {
           type: Array,
           default: function _default() {
             return [];
           } },
 
+        //行列合并函数
         "span-method": {
           type: Function,
           default: function _default() {
@@ -12786,23 +12793,35 @@ define('components/table.js',function(require, module, exports, window, document
 
         "emptyText": {
           type: String,
-          default: "数据为空" } },
+          default: "数据为空" },
+
+        //空提示点击事件
+        "emptyClickFn": {
+          type: Function,
+          default: function _default() {
+            return function () {};
+          } } },
 
 
       computed: {
+        //表格高度
         tableHeight: function tableHeight() {
           return Number(this.height) && Number(this.height) > this.tdHeight * 3 ? this.height + "px" : "auto";
         },
+        //表格主体高度
         talbeBodyHeight: function talbeBodyHeight() {
           var t = this.tableHeight !== "auto" ? parseInt(this.tableHeight) - this.tdHeight - 1 + "px" : "auto";
           return t;
         },
+        //可选的列表长度
         allCheckBoxAbledLen: function allCheckBoxAbledLen() {
           return this.checkBoxList.filter(function (item) {return !item.$disabled;}).length;
         },
+        //没数据时候主体高度
         emptyColHeight: function emptyColHeight() {
           return this.height ? this.height - this.thTdHeight + 'px' : "100px";
         },
+        //没数据时候，主体的宽度
         emptyColWidth: function emptyColWidth() {
           var t = this.tdWidth * this.columns.length + "px";
           return t;
@@ -12810,11 +12829,11 @@ define('components/table.js',function(require, module, exports, window, document
 
       data: function data() {
         return {
-          checkBoxList: [],
-          switchAllCheckBox: false,
-          selectionTdWidth: "50px",
-          singleSelect: {} };
-
+          checkBoxList: [], //多选=》选中列表
+          switchAllCheckBox: false, //多选=》全选
+          selectionTdWidth: "50px", //多选列宽
+          singleSelect: {} //单选，选中行
+        };
       },
       watch: {
         "list": function list() {
@@ -12825,12 +12844,14 @@ define('components/table.js',function(require, module, exports, window, document
         this.asyncCheckBoxList();
       },
       methods: {
+        //获取数据副本，轻拷贝
         asyncCheckBoxList: function asyncCheckBoxList() {
           this.checkBoxList = this.list.map(function (item) {
             return _objectSpread({}, item);
 
           });
         },
+        //自定义行样式
         rowClassNamePlus: function rowClassNamePlus(row, index) {
           if (typeof this.rowClassName === "string") {
             return this.rowClassName;
@@ -12838,6 +12859,7 @@ define('components/table.js',function(require, module, exports, window, document
             return this.rowClassName(row, index);
           }
         },
+        //事件触发
         pullEvent: function pullEvent(event, data) {
           this.$emit(event, data);
         },
@@ -12847,14 +12869,15 @@ define('components/table.js',function(require, module, exports, window, document
                */
         countColspanWidth: function countColspanWidth(item, tdItem, index, tdItemIndex) {var iswrap = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
           var borderLeft = iswrap && tdItemIndex > 0 ? 1 : 0;
-          //是否跨列
+          //是否跨列,返回跨列个数，1为不跨列
           var moreThanOne = this.spanMethod(item, tdItem, index, tdItemIndex) && this.spanMethod(item, tdItem, index, tdItemIndex)["colspan"];
-          var t = moreThanOne > 1 ? this.spanMethod(item, tdItem, index, tdItemIndex)["colspan"] * this.tdWidth - borderLeft + "px" : this.tdWidth - borderLeft + "px";
+          //console.log(`第${index}行,第${tdItemIndex}列 是跨列么?${moreThanOne}`);
+          var t = moreThanOne > 1 ? moreThanOne * this.tdWidth - borderLeft + "px" : this.tdWidth - borderLeft + "px";
           //跨列
           if (moreThanOne > 1) {
             var countWidth = 0;
             for (var i = tdItemIndex; i < tdItemIndex + (moreThanOne - 1); i++) {
-              countWidth += this.columns[i].$width && parseInt(this.columns[i].$width) ? parseInt(this.columns[i].$width) - borderLeft : this.tdWidth;
+              countWidth += this.columns[i].$width && parseInt(this.columns[i].$width) ? parseInt(moreThanOne * this.columns[i].$width) - borderLeft : this.tdWidth * moreThanOne;
             }
             return countWidth + 'px';
           } else
@@ -12979,6 +13002,12 @@ define('components/table.js',function(require, module, exports, window, document
             old: before,
             new: this.checkBoxList.filter(function (item) {return item.$checked === true;}) });
 
+        },
+        /*
+              * 空提示点击事件
+              * */
+        emptyClickCallBack: function emptyClickCallBack() {
+          typeof this.emptyClickFn == "function" ? this.emptyClickFn() : "";
         } } };exports.default = _default2;
 
     /***/},
@@ -13186,7 +13215,6 @@ define('pages/tableDemo/tableDemo.js',function(require, module, exports, window,
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var vTable = function vTable() {return __webpack_require__.e(/*! import() | components/table */ "components/table").then(__webpack_require__.bind(null, /*! @/components/table.vue */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\components\\table.vue"));};var customCelWidth = function customCelWidth() {return __webpack_require__.e(/*! import() | components/example/customCelWidth */ "components/example/customCelWidth").then(__webpack_require__.bind(null, /*! @/components/example/customCelWidth.vue */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\components\\example\\customCelWidth.vue"));};var singleDemo = function singleDemo() {return __webpack_require__.e(/*! import() | components/example/single */ "components/example/single").then(__webpack_require__.bind(null, /*! @/components/example/single.vue */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\components\\example\\single.vue"));};var fixedHeight = function fixedHeight() {return __webpack_require__.e(/*! import() | components/example/fixedHeight */ "components/example/fixedHeight").then(__webpack_require__.bind(null, /*! @/components/example/fixedHeight.vue */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\components\\example\\fixedHeight.vue"));};var mulitCheckbox = function mulitCheckbox() {return __webpack_require__.e(/*! import() | components/example/mulitCheckbox */ "components/example/mulitCheckbox").then(__webpack_require__.bind(null, /*! @/components/example/mulitCheckbox.vue */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\components\\example\\mulitCheckbox.vue"));};var rowSpan = function rowSpan() {return __webpack_require__.e(/*! import() | components/example/rowSpan */ "components/example/rowSpan").then(__webpack_require__.bind(null, /*! @/components/example/rowSpan.vue */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\components\\example\\rowSpan.vue"));};var celSpan = function celSpan() {return __webpack_require__.e(/*! import() | components/example/celSpan */ "components/example/celSpan").then(__webpack_require__.bind(null, /*! @/components/example/celSpan.vue */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\components\\example\\celSpan.vue"));};var customRowStyle = function customRowStyle() {return __webpack_require__.e(/*! import() | components/example/customRowStyle */ "components/example/customRowStyle").then(__webpack_require__.bind(null, /*! @/components/example/customRowStyle.vue */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\components\\example\\customRowStyle.vue"));};var customRowStyleSecond = function customRowStyleSecond() {return __webpack_require__.e(/*! import() | components/example/customRowStyleSecond */ "components/example/customRowStyleSecond").then(__webpack_require__.bind(null, /*! @/components/example/customRowStyleSecond.vue */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\components\\example\\customRowStyleSecond.vue"));};var customCel = function customCel() {return __webpack_require__.e(/*! import() | components/example/customCel */ "components/example/customCel").then(__webpack_require__.bind(null, /*! @/components/example/customCel.vue */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\components\\example\\customCel.vue"));};var customCelContent = function customCelContent() {return __webpack_require__.e(/*! import() | components/example/customCelContent */ "components/example/customCelContent").then(__webpack_require__.bind(null, /*! @/components/example/customCelContent.vue */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\components\\example\\customCelContent.vue"));};var ediData = function ediData() {return __webpack_require__.e(/*! import() | components/example/ediData */ "components/example/ediData").then(__webpack_require__.bind(null, /*! @/components/example/ediData.vue */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\components\\example\\ediData.vue"));};var singleSelected = function singleSelected() {return __webpack_require__.e(/*! import() | components/example/singleSelected */ "components/example/singleSelected").then(__webpack_require__.bind(null, /*! @/components/example/singleSelected.vue */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\components\\example\\singleSelected.vue"));};var emptyRow = function emptyRow() {return __webpack_require__.e(/*! import() | components/example/emptyRow */ "components/example/emptyRow").then(__webpack_require__.bind(null, /*! @/components/example/emptyRow.vue */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\components\\example\\emptyRow.vue"));};var fixedHeightEmptyRow = function fixedHeightEmptyRow() {return __webpack_require__.e(/*! import() | components/example/fixedHeightEmptyRow */ "components/example/fixedHeightEmptyRow").then(__webpack_require__.bind(null, /*! @/components/example/fixedHeightEmptyRow.vue */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\components\\example\\fixedHeightEmptyRow.vue"));};var loadingTable = function loadingTable() {return __webpack_require__.e(/*! import() | components/example/loadingTable */ "components/example/loadingTable").then(__webpack_require__.bind(null, /*! @/components/example/loadingTable.vue */ "C:\\Users\\Boolean\\Documents\\HBuilderProjects\\demo1\\components\\example\\loadingTable.vue"));};var _default =
-
 
 
 

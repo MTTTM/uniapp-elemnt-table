@@ -68,8 +68,8 @@
 					</view>
 				</template>
 				<template v-else>
-					<view class="table_tbody_box empty-data-body-box div-table-body" :style='{height:talbeBodyHeight,width:emptyColWidth}'>
-						<view class="tr " :style='{height:talbeBodyHeight,width:emptyColWidth}'>
+					<view class="table_tbody_box empty-data-body-box div-table-body" :style='{height:emptyColHeight,width:emptyColWidth}'>
+						<view class="tr " :style='{height:emptyColHeight,width:emptyColWidth}'>
 							<view class="td" :style='{height:emptyColHeight,width:emptyColWidth}'>
 								<view :class="['td_wrap']" :style='{height:parseInt(emptyColHeight-2)+"px",width:emptyColWidth,lineHeight:parseInt(emptyColHeight-2)+"px"}'>
 									<text @click="emptyClickCallBack">{{emptyText}}</text>
@@ -175,7 +175,7 @@
 			},
 			//表格主体高度
 			talbeBodyHeight() {
-				let t = this.tableHeight !== "auto" ? (parseInt(this.tableHeight) - this.tdHeight - 1) + "px" : "auto";
+				let t = this.tableHeight !== "auto" ? (parseInt(this.tableHeight) - this.tdHeight - 3) + "px" : "auto";
 				return t;
 			},
 			//可选的列表长度
@@ -184,7 +184,9 @@
 			},
 			//没数据时候主体高度
 			emptyColHeight() {
-				return this.height?(this.height- this.thTdHeight)+'px':"100px";
+				let t=this.height?(this.height- this.thTdHeight - 30)+'px':"100px";
+				console.log("emptyColHeight",this.height, this.thTdHeight,t)
+				return t;
 			},
 			//没数据时候，主体的宽度
 			emptyColWidth(){

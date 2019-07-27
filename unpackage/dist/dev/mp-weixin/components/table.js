@@ -185,7 +185,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     },
     //表格主体高度
     talbeBodyHeight: function talbeBodyHeight() {
-      var t = this.tableHeight !== "auto" ? parseInt(this.tableHeight) - this.tdHeight - 1 + "px" : "auto";
+      var t = this.tableHeight !== "auto" ? parseInt(this.tableHeight) - this.tdHeight - 3 + "px" : "auto";
       return t;
     },
     //可选的列表长度
@@ -194,7 +194,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     },
     //没数据时候主体高度
     emptyColHeight: function emptyColHeight() {
-      return this.height ? this.height - this.thTdHeight + 'px' : "100px";
+      var t = this.height ? this.height - this.thTdHeight - 30 + 'px' : "100px";
+      console.log("emptyColHeight", this.height, this.thTdHeight, t);
+      return t;
     },
     //没数据时候，主体的宽度
     emptyColWidth: function emptyColWidth() {

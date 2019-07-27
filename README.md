@@ -1,7 +1,9 @@
 ## no-bad-table
-### 取名nobadtable，源于它看起来不是特别的糟糕
-### 这里默认大家都非常熟悉vue和uniapp的包引入，不再阐述uniapp组件引入方法以及uniapp组件和vue的区别
-## 支持功能大概如下  
+#### 取名nobadtable，源于它看起来不是特别的糟糕
+#### 这里默认大家都非常熟悉vue和uniapp的包引入，不再阐述uniapp组件引入方法以及uniapp组件和vue的区别
+
+## 支持功能大概如下 
+ 
 #### [在线查看,PC浏览器模拟显示和真实移动设备访问有差异](https://mtttm.github.io/async-validator-uniapp/#/pages/noBadTable/tableDemo)
 ####  [行合并](https://github.com/MTTTM/uniapp-elemnt-table/blob/master/components/example/rowSpan.vue)
 ####  [列合并](https://github.com/MTTTM/uniapp-elemnt-table/blob/master/components/example/celSpan.vue)

@@ -92,7 +92,6 @@
 }
 .div-table .th .td, .div-table .thead .tr .td {
     background-color: #e0e0ea;
-    border-top: 1rpx solid #666;
 }
 .div-table .th .td .td_wrap, .div-table .thead .tr .td .td_wrap {
       background-color: #e0e0ea;
@@ -156,7 +155,7 @@
 .div-table .td.noPadding {
       padding: 0;
 }
-.div-table .td + .td {
+.div-table .td + .td .td_wrap {
       border-left: 1rpx solid #666;
 }
 .div-table .th .td {

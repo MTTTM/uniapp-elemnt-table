@@ -30,11 +30,12 @@ $div-table-border-width: 1upx;
 		 
 	}
 .fix-height{
-	border-bottom: $div-table-border-width solid $div-table-border-color;
+	
 	.table_box_big {
 			overflow-x: scroll;
 			overflow-y: hidden;
 			position: relative;
+			
 			// height: 350px;
 		}
 	
@@ -46,12 +47,13 @@ $div-table-border-width: 1upx;
 		.table_tbody_box {
 			// height: 300px;
 			overflow: scroll;
+			border-bottom: $div-table-border-width solid $div-table-border-color;
 			
 		}
 		//固定高低里面的内容表格底部不要边框
-		.div-table-body {
-			border-bottom: 0;
-		}
+		// .div-table-body {
+		// 	border-bottom: 0;
+		// }
 		.div-table-body {
 			border-top: 0;
 		}

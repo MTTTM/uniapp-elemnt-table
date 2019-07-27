@@ -94,27 +94,34 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+
+
 {
   components: { loadingComponent: loadingComponent },
   props: {
+    //显示列
     columns: {
       type: Array,
       required: true },
 
+    //数据
     list: {
       type: Array,
       required: true },
 
+    //自定义行和列样式
     rowClassName: {
       type: [String, Function],
       default: "" },
 
+    //自定义列元素
     'slot-cols': {
       type: Array,
       default: function _default() {
         return [];
       } },
 
+    //行列合并函数
     "span-method": {
       type: Function,
       default: function _default() {
@@ -161,23 +168,35 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
     "emptyText": {
       type: String,
-      default: "数据为空" } },
+      default: "数据为空" },
+
+    //空提示点击事件
+    "emptyClickFn": {
+      type: Function,
+      default: function _default() {
+        return function () {};
+      } } },
 
 
   computed: {
+    //表格高度
     tableHeight: function tableHeight() {
       return Number(this.height) && Number(this.height) > this.tdHeight * 3 ? this.height + "px" : "auto";
     },
+    //表格主体高度
     talbeBodyHeight: function talbeBodyHeight() {
       var t = this.tableHeight !== "auto" ? parseInt(this.tableHeight) - this.tdHeight - 1 + "px" : "auto";
       return t;
     },
+    //可选的列表长度
     allCheckBoxAbledLen: function allCheckBoxAbledLen() {
       return this.checkBoxList.filter(function (item) {return !item.$disabled;}).length;
     },
+    //没数据时候主体高度
     emptyColHeight: function emptyColHeight() {
       return this.height ? this.height - this.thTdHeight + 'px' : "100px";
     },
+    //没数据时候，主体的宽度
     emptyColWidth: function emptyColWidth() {
       var t = this.tdWidth * this.columns.length + "px";
       return t;
@@ -185,11 +204,11 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
   data: function data() {
     return {
-      checkBoxList: [],
-      switchAllCheckBox: false,
-      selectionTdWidth: "50px",
-      singleSelect: {} };
-
+      checkBoxList: [], //多选=》选中列表
+      switchAllCheckBox: false, //多选=》全选
+      selectionTdWidth: "50px", //多选列宽
+      singleSelect: {} //单选，选中行
+    };
   },
   watch: {
     "list": function list() {
@@ -200,12 +219,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     this.asyncCheckBoxList();
   },
   methods: {
+    //获取数据副本，轻拷贝
     asyncCheckBoxList: function asyncCheckBoxList() {
       this.checkBoxList = this.list.map(function (item) {
         return _objectSpread({}, item);
 
       });
     },
+    //自定义行样式
     rowClassNamePlus: function rowClassNamePlus(row, index) {
       if (typeof this.rowClassName === "string") {
         return this.rowClassName;
@@ -213,6 +234,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
         return this.rowClassName(row, index);
       }
     },
+    //事件触发
     pullEvent: function pullEvent(event, data) {
       this.$emit(event, data);
     },
@@ -222,14 +244,15 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
         */
     countColspanWidth: function countColspanWidth(item, tdItem, index, tdItemIndex) {var iswrap = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
       var borderLeft = iswrap && tdItemIndex > 0 ? 1 : 0;
-      //是否跨列
+      //是否跨列,返回跨列个数，1为不跨列
       var moreThanOne = this.spanMethod(item, tdItem, index, tdItemIndex) && this.spanMethod(item, tdItem, index, tdItemIndex)["colspan"];
-      var t = moreThanOne > 1 ? this.spanMethod(item, tdItem, index, tdItemIndex)["colspan"] * this.tdWidth - borderLeft + "px" : this.tdWidth - borderLeft + "px";
+      //console.log(`第${index}行,第${tdItemIndex}列 是跨列么?${moreThanOne}`);
+      var t = moreThanOne > 1 ? moreThanOne * this.tdWidth - borderLeft + "px" : this.tdWidth - borderLeft + "px";
       //跨列
       if (moreThanOne > 1) {
         var countWidth = 0;
         for (var i = tdItemIndex; i < tdItemIndex + (moreThanOne - 1); i++) {
-          countWidth += this.columns[i].$width && parseInt(this.columns[i].$width) ? parseInt(this.columns[i].$width) - borderLeft : this.tdWidth;
+          countWidth += this.columns[i].$width && parseInt(this.columns[i].$width) ? parseInt(moreThanOne * this.columns[i].$width) - borderLeft : this.tdWidth * moreThanOne;
         }
         return countWidth + 'px';
       } else
@@ -354,6 +377,12 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
         old: before,
         new: this.checkBoxList.filter(function (item) {return item.$checked === true;}) });
 
+    },
+    /*
+       * 空提示点击事件
+       * */
+    emptyClickCallBack: function emptyClickCallBack() {
+      typeof this.emptyClickFn == "function" ? this.emptyClickFn() : "";
     } } };exports.default = _default2;
 
 /***/ }),
