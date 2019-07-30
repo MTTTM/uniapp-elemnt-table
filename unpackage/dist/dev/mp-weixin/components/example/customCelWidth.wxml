@@ -1,1 +1,1 @@
-<view class="example" bind:__l="__l"><view class="title">自定义列宽度</view><v-table columns="{{columns}}" list="{{data}}"></v-table></view>
+<view class="example"><view class="title">自定义列宽度</view><v-table vue-id="1" columns="{{columns}}" list="{{data}}" bind:__l="__l"></v-table></view>

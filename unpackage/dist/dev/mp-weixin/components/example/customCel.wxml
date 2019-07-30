@@ -1,1 +1,1 @@
-<view class="example" bind:__l="__l"><view class="title">自定义某单元格样式</view><v-table columns="{{columns}}" list="{{dataCusCell}}"></v-table></view>
+<view class="example"><view class="title">自定义某单元格样式</view><v-table vue-id="1" columns="{{columns}}" list="{{dataCusCell}}" bind:__l="__l"></v-table></view>

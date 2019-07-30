@@ -15,6 +15,9 @@
     "single-selected": "/components/example/singleSelected",
     "empty-row": "/components/example/emptyRow",
     "fixed-height-empty-row": "/components/example/fixedHeightEmptyRow",
-    "loading-table": "/components/example/loadingTable"
+    "loading-table": "/components/example/loadingTable",
+    "single-fixed-right": "/components/example/singleFixedRight",
+    "single-fixed-left": "/components/example/singleFixedLeft",
+    "single-fixed-left-and-height": "/components/example/singleFixedLeftAndHeight"
   }
 }

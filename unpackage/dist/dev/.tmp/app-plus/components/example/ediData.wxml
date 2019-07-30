@@ -1,1 +1,1 @@
-<view class="example" bind:__l="__l"><view class="title">数据删除&&编辑操作</view><v-table columns="{{columnsOperate}}" list="{{dataOperate}}" data-event-opts="{{[['^delete',[['deleteFn']]],['^edi',[['ediFn']]]]}}" bind:delete="__e" bind:edi="__e"></v-table></view>
+<view class="example"><view class="title">数据删除&&编辑操作</view><v-table vue-id="1" columns="{{columnsOperate}}" list="{{dataOperate}}" data-event-opts="{{[['^delete',[['deleteFn']]],['^edi',[['ediFn']]]]}}" bind:delete="__e" bind:edi="__e" bind:__l="__l"></v-table></view>

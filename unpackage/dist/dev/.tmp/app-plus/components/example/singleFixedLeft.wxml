@@ -1,0 +1,1 @@
+<view class="example"><view class="title">固定左边一列</view><v-table vue-id="1" columns="{{columns}}" list="{{data}}" bind:__l="__l"></v-table></view>

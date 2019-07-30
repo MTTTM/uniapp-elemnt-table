@@ -1,0 +1,1 @@
+<view class="example"><view class="title">固定右边一列</view><v-table vue-id="1" columns="{{columns}}" list="{{data}}" data-event-opts="{{[['^delete',[['deleteFn']]],['^edi',[['ediFn']]]]}}" bind:delete="__e" bind:edi="__e" bind:__l="__l"></v-table></view>

@@ -1,6 +1,7 @@
 <template>
 	<view class="content" :class="[tableHeight!='auto'?'fix-height':'']">
 		<view class="table_box_big" :style='{height:tableHeight}'>
+	
 			<view class="table_box">
 				<!-- 头部内容 【-->
 				<view class="div-table div-table-head">
@@ -65,6 +66,7 @@
 							</checkbox-group>
 
 						</view>
+			
 					</view>
 				</template>
 				<template v-else>
@@ -78,6 +80,63 @@
 						</view>
 					</view>
 				</template>
+				
+						<!-- 固定左边一列 【-->
+				<view class="fixed-left" v-if="columnsFixedLeft[0]">
+					<view class="tr fixed-thead-tr">
+						<view class="td">
+							<view class="td_wrap">
+								{{columnsFixedLeft[0].title}}
+							</view>
+						</view>
+					</view>
+					<view class="tr" v-for="(item,index) in list" :key="item.id">
+						 <view class="td fixed-td" 
+						     :style='{height:fixedHeight(columnsFixedLeft[0]),width:fixedWidth(columnsFixedLeft)}'>
+						 	<view class="td_wrap fixed-wrap" :style='{height:fixedHeight(columnsFixedLeft[0]),width:fixedWidth(columnsFixedLeft[0])}'>
+								<!-- td内容 【-->
+										<slot :row='item' v-if="slotCols.indexOf(columnsFixedLeft[0]&&columnsFixedLeft[0].key)>-1"></slot>
+										<template v-if="columnsFixedLeft[0].$operateList">
+											<template v-for="btn in columnsFixedLeft[0].$operateList">
+												<button :class="[btn.styles?btn.styles:'']" v-bind:style="{ padding: '2px 5px',fontSize:'12px',lineHeight:'1.2',display:'inline-block'}"
+												 @click="pullEvent(btn.event,{row:item,index:index})" type="primary" size="min" :key="btn.id">{{btn.label}}</button>
+											</template>
+										</template>
+										<template v-else>{{item[columnsFixedLeft[0].key]}} </template>
+								<!-- td内容 】-->		
+							</view>
+						 </view>
+					</view>
+				</view>
+				<!-- 固定左边一列 】-->
+				<!-- 固定右边一列 【-->
+				<view class="fixed-right" v-if="columnsFixedRight[0]">
+					<view class="tr fixed-thead-tr">
+						<view class="td">
+							<view class="td_wrap">
+								{{columnsFixedRight[0].title}}
+							</view>
+						</view>
+					</view>
+					<view class="tr" v-for="(item,index) in list" :key="item.id">
+						 <view class="td fixed-td" 
+						     :style='{height:fixedHeight(columnsFixedRight[0]),width:fixedWidth(columnsFixedRight[0])}'>
+						 	<view class="td_wrap fixed-wrap" :style='{height:fixedHeight(columnsFixedRight[0]),width:fixedWidth(columnsFixedRight[0])}'>
+								<!-- td内容 【-->
+										<slot :row='item' v-if="slotCols.indexOf(columnsFixedRight[0]&&columnsFixedRight[0].key)>-1"></slot>
+										<template v-if="columnsFixedRight[0]&&columnsFixedRight[0].$operateList">
+											<template v-for="btn in columnsFixedRight[0].$operateList">
+												<button :class="[btn.styles?btn.styles:'']" v-bind:style="{ padding: '2px 5px',fontSize:'12px',lineHeight:'1.2',display:'inline-block'}"
+												 @click="pullEvent(btn.event,{row:item,index:index})" type="primary" size="min" :key="btn.id">{{btn.label}}</button>
+											</template>
+										</template>
+										<template v-else>{{item[columnsFixedRight[0].key]}} </template>
+								<!-- td内容 】-->		
+							</view>
+						 </view>
+					</view>
+				</view>
+				<!-- 固定右边一列 】-->
 			</view>
 		</view>
 		<loading-component v-if="loading"/>
@@ -169,6 +228,14 @@
 			}
 		},
 		computed: {
+			columnsFixedRight(){
+				let t=this.columns.filter(item=>item.$fixed=="right");
+				return t.length?[t[0]]:[] ;
+			},
+			columnsFixedLeft(){
+				let t=this.columns.filter(item=>item.$fixed=="left");
+				return t.length?[t[0]]:[] ;
+			},
 			//表格高度
 			tableHeight() {
 				return Number(this.height) && Number(this.height) > this.tdHeight * 3 ? this.height + "px" : "auto";
@@ -185,7 +252,7 @@
 			//没数据时候主体高度
 			emptyColHeight() {
 				let t=this.height?(this.height- this.thTdHeight - 30)+'px':"100px";
-				console.log("emptyColHeight",this.height, this.thTdHeight,t)
+				// console.log("emptyColHeight",this.height, this.thTdHeight,t)
 				return t;
 			},
 			//没数据时候，主体的宽度
@@ -209,6 +276,7 @@
 		},
 		created() {
 			this.asyncCheckBoxList();
+			// console.log("columnsFixedRight",this.columnsFixedRight)
 		},
 		methods: {
 			//获取数据副本，轻拷贝
@@ -255,6 +323,19 @@
 				}
 				return t;
 			},
+			/**
+			 * 固定列宽
+			 */
+			fixedWidth(fixedWidth){
+				return fixedWidth&&fixedWidth.$width?fixedWidth+"px":this.tdWidth+"px";
+			},
+			/*
+			* 固定列-》列高
+			*/
+			fixedHeight(fixedHeight){
+				return fixedHeight&&fixedHeight.$height?fixedHeight+"px":this.tdHeight+"px";
+			},
+			
 			/**
 			 * 计算头部td的宽度
 			 * */

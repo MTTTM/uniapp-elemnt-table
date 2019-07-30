@@ -14,7 +14,11 @@
 		 <cel-span/>
 		 <mulit-checkbox/>
 		<single-selected/>
-		<edi-data/> 
+		<edi-data/>
+		<!-- <single-fixed-left-and-height/> -->
+		<single-fixed-right/>
+		<single-fixed-left/>
+		
 	</view>
 
 </template>
@@ -36,6 +40,9 @@
 	import emptyRow from "@/components/example/emptyRow.vue";
 	import fixedHeightEmptyRow from "@/components/example/fixedHeightEmptyRow.vue";
 	import loadingTable from "@/components/example/loadingTable.vue"
+	import singleFixedRight from "@/components/example/singleFixedRight.vue";
+	import singleFixedLeft from "@/components/example/singleFixedLeft.vue";
+	import singleFixedLeftAndHeight from "@/components/example/singleFixedLeftAndHeight.vue";
 	export default {
 		components: {
 			vTable,
@@ -53,13 +60,16 @@
 			singleSelected,
 			emptyRow,
 			fixedHeightEmptyRow,
-			loadingTable
+			loadingTable,
+			singleFixedRight,
+			singleFixedLeft,
+			singleFixedLeftAndHeight
 		}
 	}
 </script>
 <style>
 	.demo-wrap{
-		padding:10px ;
+		padding:20px 10px;
 	}
 </style>
 

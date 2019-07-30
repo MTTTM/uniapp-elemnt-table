@@ -1,2 +1,2 @@
-setCssToHead([".",[1],"demo-wrap{ padding:10px ; }\n",],undefined,{path:"./pages/tableDemo/tableDemo.wxss"})();
+setCssToHead([".",[1],"demo-wrap{ padding:20px 10px; }\n",],undefined,{path:"./pages/tableDemo/tableDemo.wxss"})();
 document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/tableDemo/tableDemo.wxml') } }));

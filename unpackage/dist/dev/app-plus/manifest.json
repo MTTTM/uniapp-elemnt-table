@@ -83,8 +83,9 @@
     },
     "allowsInlineMediaPlayback": true,
     "uni-app": {
-      "compilerVersion": "1.9.9",
-      "control": "v8"
+      "compilerVersion": "2.1.3",
+      "control": "v8",
+      "nvueCompiler": "weex"
     }
   }
 }

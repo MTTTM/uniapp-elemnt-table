@@ -1,8 +1,6 @@
 
-Component({
-    options: {
-        multipleSlots: true,
-        addGlobalClass: true
-    },
-    properties: {row:{type:null}}
+wx.createComponent({
+    generic:true,
+    props: {row:{type:null}},
+    render: function(){}
 })

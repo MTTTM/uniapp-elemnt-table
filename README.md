@@ -4,7 +4,7 @@
 
 ## 支持功能大概如下 
  
-#### [在线查看,PC浏览器模拟显示和真实移动设备访问有差异](https://mtttm.github.io/async-validator-uniapp/#/pages/noBadTable/tableDemo)
+####  [点击查看demo,PC浏览器模拟显示和真实移动设备访问有差异](https://mtttm.github.io/async-validator-uniapp/#/pages/noBadTable/tableDemo)
 ####  [行合并](https://github.com/MTTTM/uniapp-elemnt-table/blob/master/components/example/rowSpan.vue)
 ####  [列合并](https://github.com/MTTTM/uniapp-elemnt-table/blob/master/components/example/celSpan.vue)
 ####  [固定table高度](https://github.com/MTTTM/uniapp-elemnt-table/blob/master/components/example/fixedHeight.vue)
@@ -17,8 +17,10 @@
 ####  [数据多选操作](https://github.com/MTTTM/uniapp-elemnt-table/blob/master/components/example/mulitCheckbox.vue)
 ####  [数据单选操作](https://github.com/MTTTM/uniapp-elemnt-table/blob/master/components/example/singleSelected.vue)
 ####  [数据删除&&数据编辑或者更多操作方式](https://github.com/MTTTM/uniapp-elemnt-table/blob/master/components/example/ediData.vue)
-
-
+####  [固定右边一列](https://github.com/MTTTM/uniapp-elemnt-table/blob/master/components/example/singleFixedRight.vue)
+####  [固定左边一列](https://github.com/MTTTM/uniapp-elemnt-table/blob/master/components/example/singleFixedLeft.vue)
+####  固定高度不支持同时固定某一列
+  
 ## 已测试平台 ->ios，android，wap，微信小程序
 ## 基本使用示例源码
 
@@ -74,4 +76,4 @@
 #### 如果作者的行为给你带来了便利，打赏入口在下面
 #### 如果有需要作者协助的地方，打赏在下面
  
-<img src="./qishi.jpg" width="328" hegiht="613" alt="O(∩_∩)O哈哈~" />
+<img src="https://raw.githubusercontent.com/MTTTM/uniapp-elemnt-table/master/qishi.jpg" width="328" hegiht="613" alt="O(∩_∩)O哈哈~" />
