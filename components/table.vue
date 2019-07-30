@@ -1,5 +1,5 @@
 <template>
-	<view class="content" :class="[tableHeight!='auto'?'fix-height':'']">
+	<view class="no-bad-table-wrap" :class="[tableHeight!='auto'?'fix-height':'']">
 		<view class="table_box_big" :style='{height:tableHeight}'>
 	
 			<view class="table_box">

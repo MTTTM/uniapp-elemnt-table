@@ -1,6 +1,9 @@
 ## no-bad-table
 #### 取名nobadtable，源于它看起来不是特别的糟糕
 #### 这里默认大家都非常熟悉vue和uniapp的包引入，不再阐述uniapp组件引入方法以及uniapp组件和vue的区别
+####  插件市场更新会比github更新延后，[查看github项目](https://github.com/MTTTM/uniapp-elemnt-table) 
+####  插件市场更新会比github更新延后，[查看demo源码](https://github.com/MTTTM/uniapp-elemnt-table/tree/master/components/example)
+####  插件市场更新会比github更新延后，[查看demo使用引入方式](https://github.com/MTTTM/uniapp-elemnt-table/tree/master/pages/tableDemo)
 
 ## 支持功能大概如下 
  
@@ -20,7 +23,7 @@
 ####  [固定右边一列](https://github.com/MTTTM/uniapp-elemnt-table/blob/master/components/example/singleFixedRight.vue)
 ####  [固定左边一列](https://github.com/MTTTM/uniapp-elemnt-table/blob/master/components/example/singleFixedLeft.vue)
 ####  固定高度不支持同时固定某一列
-  
+ 
 ## 已测试平台 ->ios，android，wap，微信小程序
 ## 基本使用示例源码
 
@@ -75,5 +78,5 @@
 
 #### 如果作者的行为给你带来了便利，打赏入口在下面
 #### 如果有需要作者协助的地方，打赏在下面
- 
+
 <img src="https://raw.githubusercontent.com/MTTTM/uniapp-elemnt-table/master/qishi.jpg" width="328" hegiht="613" alt="O(∩_∩)O哈哈~" />
