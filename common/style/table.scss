@@ -56,11 +56,13 @@ $div-table-border-width: 1upx;
     }
 
     //固定高低里面的内容表格底部不要边框
-    // .div-table-body {
-    // 	border-bottom: 0;
-    // }
     .div-table-body {
       border-top: 0;
+	  border-bottom:0;
+	  //固定高度，数据为空
+	  &.empty-data-body-box{
+		  border-bottom: $div-table-border-width solid $div-table-border-color;
+	  }
     }
   }
 
@@ -224,16 +226,15 @@ $div-table-border-width: 1upx;
     .thead {
       display: table-header-group;
 
-      .tr,
-      .th {
-
-        .td,
-        .th {
-          // border-bottom: $div-table-border-width solid $div-table-border-color;
-          width: 120upx;
-          height: 75px;
-        }
-      }
+//       .tr,
+//       .th {
+// 
+//         .td,
+//         .th {
+//           width: 120upx;
+//           height: 75px;
+//         }
+//       }
     }
 
     .colgroup {
