@@ -182,38 +182,70 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.rowClassName .td {
+.example .title {
+  font-size: 12px;
+  line-height: 45px;
+}
+.no-bad-table-wrap .rowClassName .td {
   background: red;
 }
-.demo-table-info-row .td {
+.no-bad-table-wrap .rowClassName .td .td_wrap {
+    background: red;
+    color: #fff;
+}
+.no-bad-table-wrap .demo-table-info-row .td {
   background-color: #2db7f5;
   color: #fff;
 }
-.demo-table-error-row .td {
+.no-bad-table-wrap .demo-table-info-row .td .td_wrap {
+    background-color: #2db7f5;
+    color: #fff;
+}
+.no-bad-table-wrap .demo-table-error-row .td {
   background-color: #ff6600;
   color: #fff;
 }
-.td.demo-table-info-column {
+.no-bad-table-wrap .demo-table-error-row .td .td_wrap {
+    background-color: #ff6600;
+    color: #fff;
+}
+.no-bad-table-wrap .td.demo-table-info-column {
   background-color: #2db7f5;
   color: #fff;
 }
-.demo-table-info-cell-name {
+.no-bad-table-wrap .td.demo-table-info-column .td_wrap {
+    background-color: #2db7f5;
+    color: #fff;
+}
+.no-bad-table-wrap .table_box .demo-table-info-cell-name {
   background-color: #2db7f5;
   color: #fff;
 }
-.demo-table-info-cell-age {
+.no-bad-table-wrap .table_box .demo-table-info-cell-name .td_wrap {
+    background-color: #2db7f5;
+    color: #fff;
+}
+.no-bad-table-wrap .table_box .demo-table-info-cell-age {
   background-color: #ff6600;
   color: #fff;
 }
-.demo-table-info-cell-address {
+.no-bad-table-wrap .table_box .demo-table-info-cell-age .td_wrap {
+    background-color: #ff6600;
+    color: #fff;
+}
+.no-bad-table-wrap .table_box .demo-table-info-cell-address {
   background-color: #187;
   color: #fff;
 }
-.btn-delete {
+.no-bad-table-wrap .table_box .demo-table-info-cell-address .td_wrap {
+    background-color: #187;
+    color: #fff;
+}
+.no-bad-table-wrap .btn-delete {
   background: red !important;
   color: #fff !important;
 }
-.example .title {
+.no-bad-table-wrap .example .title {
   line-height: 40px;
   font-weight: bold;
 }

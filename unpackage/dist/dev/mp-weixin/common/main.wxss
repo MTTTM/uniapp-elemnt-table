@@ -182,6 +182,10 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.example .title {
+  font-size: 12px;
+  line-height: 45px;
+}
 .no-bad-table-wrap .rowClassName .td {
   background: red;
 }

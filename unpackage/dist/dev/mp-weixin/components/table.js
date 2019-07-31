@@ -122,14 +122,22 @@ var render = function() {
   var m13 = _vm.fixedHeight(_vm.columnsFixedLeft[0])
   var m14 = _vm.fixedWidth(_vm.columnsFixedLeft)
   var m15 = _vm.fixedHeight(_vm.columnsFixedLeft[0])
-  var m16 = _vm.fixedWidth(_vm.columnsFixedLeft[0])
+  var m16 = _vm.fixedWidth(_vm.columnsFixedLeft)
+  var m17 = _vm.fixedHeight(_vm.columnsFixedLeft[0])
+  var m18 = _vm.fixedWidth(_vm.columnsFixedLeft)
+  var m19 = _vm.fixedHeight(_vm.columnsFixedLeft[0])
+  var m20 = _vm.fixedWidth(_vm.columnsFixedLeft[0])
   var g1 = _vm.slotCols.indexOf(
     _vm.columnsFixedLeft[0] && _vm.columnsFixedLeft[0].key
   )
-  var m17 = _vm.fixedHeight(_vm.columnsFixedRight[0])
-  var m18 = _vm.fixedWidth(_vm.columnsFixedRight[0])
-  var m19 = _vm.fixedHeight(_vm.columnsFixedRight[0])
-  var m20 = _vm.fixedWidth(_vm.columnsFixedRight[0])
+  var m21 = _vm.fixedHeight(_vm.columnsFixedLeft[0])
+  var m22 = _vm.fixedWidth(_vm.columnsFixedLeft)
+  var m23 = _vm.fixedHeight(_vm.columnsFixedLeft[0])
+  var m24 = _vm.fixedWidth(_vm.columnsFixedLeft)
+  var m25 = _vm.fixedHeight(_vm.columnsFixedRight[0])
+  var m26 = _vm.fixedWidth(_vm.columnsFixedRight[0])
+  var m27 = _vm.fixedHeight(_vm.columnsFixedRight[0])
+  var m28 = _vm.fixedWidth(_vm.columnsFixedRight[0])
   var g2 = _vm.slotCols.indexOf(
     _vm.columnsFixedRight[0] && _vm.columnsFixedRight[0].key
   )
@@ -145,11 +153,19 @@ var render = function() {
         m14: m14,
         m15: m15,
         m16: m16,
-        g1: g1,
         m17: m17,
         m18: m18,
         m19: m19,
         m20: m20,
+        g1: g1,
+        m21: m21,
+        m22: m22,
+        m23: m23,
+        m24: m24,
+        m25: m25,
+        m26: m26,
+        m27: m27,
+        m28: m28,
         g2: g2
       }
     }

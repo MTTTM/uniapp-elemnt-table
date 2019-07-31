@@ -17,6 +17,10 @@
 	@import "./static/flex.less";
 </style>
 <style lang="scss">
+	.example .title{
+		font-size:12px;
+		line-height: 45px;
+	}
 	.no-bad-table-wrap {
 		.rowClassName {
 			.td {
@@ -63,7 +67,7 @@
 	
 
 		.table_box {
-				.demo-table-info-cell-name {
+			.demo-table-info-cell-name {
 				background-color: #2db7f5;
 				color: #fff;
 			

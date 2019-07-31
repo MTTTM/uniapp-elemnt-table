@@ -84,8 +84,8 @@
 						<!-- 固定左边一列 【-->
 				<view class="fixed-left" v-if="columnsFixedLeft[0]">
 					<view class="tr fixed-thead-tr">
-						<view class="td">
-							<view class="td_wrap">
+						<view class="td" :style='{height:fixedHeight(columnsFixedLeft[0]),width:fixedWidth(columnsFixedLeft)}'>
+							<view class="td_wrap" :style='{height:fixedHeight(columnsFixedLeft[0]),width:fixedWidth(columnsFixedLeft)}'>
 								{{columnsFixedLeft[0].title}}
 							</view>
 						</view>
@@ -112,8 +112,8 @@
 				<!-- 固定右边一列 【-->
 				<view class="fixed-right" v-if="columnsFixedRight[0]">
 					<view class="tr fixed-thead-tr">
-						<view class="td">
-							<view class="td_wrap">
+						<view class="td" :style='{height:fixedHeight(columnsFixedLeft[0]),width:fixedWidth(columnsFixedLeft)}'>
+							<view class="td_wrap" :style='{height:fixedHeight(columnsFixedLeft[0]),width:fixedWidth(columnsFixedLeft)}'>
 								{{columnsFixedRight[0].title}}
 							</view>
 						</view>
