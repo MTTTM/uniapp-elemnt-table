@@ -10,7 +10,7 @@
 							<view class="td selection" v-if="selection=='mulit'" :style='{width:selectionTdWidth,height:thTdHeight+"px"}'>
 								<view :class="['td_wrap']" :style='{width:selectionTdWidth,height:thTdHeight+"px"}'>
 									<checkbox-group @change="checkboxChangeAll">
-										<checkbox value="all" :checked="switchAllCheckBox" style="transform:scale(0.7)" />
+										<checkbox value="all" color="#999" :checked="switchAllCheckBox" style="transform:scale(0.7)" />
 									</checkbox-group>
 								</view>
 							</view>
@@ -34,7 +34,7 @@
 										<!-- 多选操作 -->
 										<view class="td selection" v-if="selection=='mulit'" :style='{width:selectionTdWidth,height:tdHeight+"px"}'>
 											<view :class="['td_wrap']" :style='{width:selectionTdWidth,height:tdHeight+"px"}'>
-												<checkbox :value="checkBoxList[index].id" :disabled="checkBoxList[index].$disabled" :checked="checkBoxList[index].$checked"
+												<checkbox :value="checkBoxList[index].id" color="#999"  :disabled="checkBoxList[index].$disabled" :checked="checkBoxList[index].$checked"
 												 style="transform:scale(0.7)" />
 											</view>
 										</view>
