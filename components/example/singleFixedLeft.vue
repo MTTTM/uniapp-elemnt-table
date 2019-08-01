@@ -1,7 +1,7 @@
 <template>
 	<view class="example">
 		<view class="title">固定左边一列</view>
-		<v-table :columns="columns" :list="data"></v-table>
+		<v-table :columns="columns" :list="data" selection="single"></v-table>
 	</view>
 </template>
 
@@ -13,7 +13,8 @@
 		},
 		data(){
 			return {
-				data: [{
+				data: [
+					{
 						name: 'John Brown',
 						age: 18,
 						address: 'New York No. 1 Lake Park',

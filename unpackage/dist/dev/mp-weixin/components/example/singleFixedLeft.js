@@ -118,7 +118,8 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
   data: function data() {
     return {
-      data: [{
+      data: [
+      {
         name: 'John Brown',
         age: 18,
         address: 'New York No. 1 Lake Park',

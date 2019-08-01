@@ -1,7 +1,7 @@
 <template>
 	<view class="example">
 		<view class="title">固定右边一列</view>
-		<v-table :columns="columns" :list="data" @delete="deleteFn" @edi="ediFn"></v-table>
+		<v-table :columns="columns" :list="data" selection="single" @delete="deleteFn" @edi="ediFn"></v-table>
 	</view>
 </template>
 

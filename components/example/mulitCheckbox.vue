@@ -28,64 +28,64 @@
 					}
 				],
 				data: [
-				// 	{
-				// 		name: 'John Brown',
-				// 		age: 18,
-				// 		address: 'New York No. 1 Lake Park',
-				// 		id: "1",
-				// 		$checked:true
-				// 		
-				// 	},
-				// 	{
-				// 		name: 'Jim Green',
-				// 		age: 25,
-				// 		address: 'London No. 1 Lake Park',
-				// 		id: "2",
-				// 		$disabled:true
-				// 	},
-				// 	{
-				// 		name: 'Joe Black',
-				// 		age: 30,
-				// 		address: 'Sydney No. 1 Lake Park',
-				// 		id: "3"
-				// 	},
-				// 	{
-				// 		name: 'Jon Snow',
-				// 		age: 26,
-				// 		address: 'Ottawa No. 2 Lake Park',
-				// 		id: "4"
-				// 	},
-				// 	{
-				// 		name: 'Jon Snow',
-				// 		age: 26,
-				// 		address: 'Ottawa No. 2 Lake Park',
-				// 		id: "5"
-				// 	},
-				// 
-				// 	{
-				// 		name: 'Jon Snow',
-				// 		age: 26,
-				// 		address: 'Ottawa No. 2 Lake Park',
-				// 		id: "6"
-				// 	},
-				// 	{
-				// 		name: 'Jon Snow',
-				// 		age: 26,
-				// 		address: 'Ottawa No. 2 Lake Park',
-				// 		id: "7"
-				// 	},
-				// 	{
-				// 		name: 'Jon Snow',
-				// 		age: 26,
-				// 		address: 'Ottawa No. 2 Lake Park',
-				// 		id: "8"
-				// 	},
-				// 	{
-				// 		name: 'Jon Snow',
-				// 		age: 26,
-				// 		address: 'Ottawa No. 2 Lake Park',
-				// 		id: "9"
-				// 	}
+					{
+						name: 'John Brown',
+						age: 18,
+						address: 'New York No. 1 Lake Park',
+						id: "1",
+						$checked:true
+						
+					},
+					{
+						name: 'Jim Green',
+						age: 25,
+						address: 'London No. 1 Lake Park',
+						id: "2",
+						$disabled:true
+					},
+					{
+						name: 'Joe Black',
+						age: 30,
+						address: 'Sydney No. 1 Lake Park',
+						id: "3"
+					},
+					{
+						name: 'Jon Snow',
+						age: 26,
+						address: 'Ottawa No. 2 Lake Park',
+						id: "4"
+					},
+					{
+						name: 'Jon Snow',
+						age: 26,
+						address: 'Ottawa No. 2 Lake Park',
+						id: "5"
+					},
+				
+					{
+						name: 'Jon Snow',
+						age: 26,
+						address: 'Ottawa No. 2 Lake Park',
+						id: "6"
+					},
+					{
+						name: 'Jon Snow',
+						age: 26,
+						address: 'Ottawa No. 2 Lake Park',
+						id: "7"
+					},
+					{
+						name: 'Jon Snow',
+						age: 26,
+						address: 'Ottawa No. 2 Lake Park',
+						id: "8"
+					},
+					{
+						name: 'Jon Snow',
+						age: 26,
+						address: 'Ottawa No. 2 Lake Park',
+						id: "9"
+					}
 				],
 			}
 		},

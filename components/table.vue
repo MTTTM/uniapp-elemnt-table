@@ -80,63 +80,74 @@
 						</view>
 					</view>
 				</template>
-				
-						<!-- 固定左边一列 【-->
-				<view class="fixed-left" v-if="columnsFixedLeft[0]">
-					<view class="tr fixed-thead-tr">
-						<view class="td" :style='{height:fixedHeight(columnsFixedLeft[0]),width:fixedWidth(columnsFixedLeft)}'>
-							<view class="td_wrap" :style='{height:fixedHeight(columnsFixedLeft[0]),width:fixedWidth(columnsFixedLeft)}'>
-								{{columnsFixedLeft[0].title}}
+				<template v-if="list.length">
+					<!-- 固定左边一列 【-->
+					<view class="fixed-left" v-if="columnsFixedLeft[0]">
+						<view class="tr fixed-thead-tr">
+							<view class="td" :style='{height:fixedHeight(columnsFixedLeft[0]),width:fixedWidth(columnsFixedLeft)}'>
+								<view class="td_wrap" :style='{height:fixedHeight(columnsFixedLeft[0]),width:fixedWidth(columnsFixedLeft)}'>
+									{{columnsFixedLeft[0].title}}
+								</view>
 							</view>
 						</view>
-					</view>
-					<view class="tr" v-for="(item,index) in list" :key="item.id">
-						 <view class="td fixed-td" 
-						     :style='{height:fixedHeight(columnsFixedLeft[0]),width:fixedWidth(columnsFixedLeft)}'>
-						 	<view class="td_wrap fixed-wrap" :style='{height:fixedHeight(columnsFixedLeft[0]),width:fixedWidth(columnsFixedLeft[0])}'>
-								<!-- td内容 【-->
-										<slot :row='item' v-if="slotCols.indexOf(columnsFixedLeft[0]&&columnsFixedLeft[0].key)>-1"></slot>
-										<template v-if="columnsFixedLeft[0].$operateList">
-											<template v-for="btn in columnsFixedLeft[0].$operateList">
-												<button :class="[btn.styles?btn.styles:'']" v-bind:style="{ padding: '2px 5px',fontSize:'12px',lineHeight:'1.2',display:'inline-block'}"
-												 @click="pullEvent(btn.event,{row:item,index:index})" type="primary" size="min" :key="btn.id">{{btn.label}}</button>
+						<view  v-for="(item,index) in list" :key="item.id"
+							:class='["tr",
+							  selection=="single"&&checkBoxList[index].$checked?"selected":"",
+							  selection=="single"&&checkBoxList[index].$disabled?"disabled":""]'
+							  @click="selectRow(item,index)"
+						>
+							 <view class="td fixed-td" 
+								 :style='{height:fixedHeight(columnsFixedLeft[0]),width:fixedWidth(columnsFixedLeft)}'>
+								<view class="td_wrap fixed-wrap" :style='{height:fixedHeight(columnsFixedLeft[0]),width:fixedWidth(columnsFixedLeft[0])}'>
+									<!-- td内容 【-->
+											<slot :row='item' v-if="slotCols.indexOf(columnsFixedLeft[0]&&columnsFixedLeft[0].key)>-1"></slot>
+											<template v-if="columnsFixedLeft[0].$operateList">
+												<template v-for="btn in columnsFixedLeft[0].$operateList">
+													<button :class="[btn.styles?btn.styles:'']" v-bind:style="{ padding: '2px 5px',fontSize:'12px',lineHeight:'1.2',display:'inline-block'}"
+													 @click="pullEvent(btn.event,{row:item,index:index})" type="primary" size="min" :key="btn.id">{{btn.label}}</button>
+												</template>
 											</template>
-										</template>
-										<template v-else>{{item[columnsFixedLeft[0].key]}} </template>
-								<!-- td内容 】-->		
-							</view>
-						 </view>
-					</view>
-				</view>
-				<!-- 固定左边一列 】-->
-				<!-- 固定右边一列 【-->
-				<view class="fixed-right" v-if="columnsFixedRight[0]">
-					<view class="tr fixed-thead-tr">
-						<view class="td" :style='{height:fixedHeight(columnsFixedLeft[0]),width:fixedWidth(columnsFixedLeft)}'>
-							<view class="td_wrap" :style='{height:fixedHeight(columnsFixedLeft[0]),width:fixedWidth(columnsFixedLeft)}'>
-								{{columnsFixedRight[0].title}}
-							</view>
+											<template v-else>{{item[columnsFixedLeft[0].key]}} </template>
+									<!-- td内容 】-->		
+								</view>
+							 </view>
 						</view>
 					</view>
-					<view class="tr" v-for="(item,index) in list" :key="item.id">
-						 <view class="td fixed-td" 
-						     :style='{height:fixedHeight(columnsFixedRight[0]),width:fixedWidth(columnsFixedRight[0])}'>
-						 	<view class="td_wrap fixed-wrap" :style='{height:fixedHeight(columnsFixedRight[0]),width:fixedWidth(columnsFixedRight[0])}'>
-								<!-- td内容 【-->
-										<slot :row='item' v-if="slotCols.indexOf(columnsFixedRight[0]&&columnsFixedRight[0].key)>-1"></slot>
-										<template v-if="columnsFixedRight[0]&&columnsFixedRight[0].$operateList">
-											<template v-for="btn in columnsFixedRight[0].$operateList">
-												<button :class="[btn.styles?btn.styles:'']" v-bind:style="{ padding: '2px 5px',fontSize:'12px',lineHeight:'1.2',display:'inline-block'}"
-												 @click="pullEvent(btn.event,{row:item,index:index})" type="primary" size="min" :key="btn.id">{{btn.label}}</button>
-											</template>
-										</template>
-										<template v-else>{{item[columnsFixedRight[0].key]}} </template>
-								<!-- td内容 】-->		
+					<!-- 固定左边一列 】-->
+					<!-- 固定右边一列 【-->
+					<view class="fixed-right" v-if="columnsFixedRight[0]">
+						<view class="tr fixed-thead-tr">
+							<view class="td" :style='{height:fixedHeight(columnsFixedLeft[0]),width:fixedWidth(columnsFixedLeft)}'>
+								<view class="td_wrap" :style='{height:fixedHeight(columnsFixedLeft[0]),width:fixedWidth(columnsFixedLeft)}'>
+									{{columnsFixedRight[0].title}}
+								</view>
 							</view>
-						 </view>
+						</view>
+						<view  v-for="(item,index) in list" :key="item.id"
+							:class='["tr",
+							  selection=="single"&&checkBoxList[index].$checked?"selected":"",
+							  selection=="single"&&checkBoxList[index].$disabled?"disabled":""]'
+							  @click="selectRow(item,index)"
+						>
+							 <view class="td fixed-td" 
+								 :style='{height:fixedHeight(columnsFixedRight[0]),width:fixedWidth(columnsFixedRight[0])}'>
+								<view class="td_wrap fixed-wrap" :style='{height:fixedHeight(columnsFixedRight[0]),width:fixedWidth(columnsFixedRight[0])}'>
+									<!-- td内容 【-->
+											<slot :row='item' v-if="slotCols.indexOf(columnsFixedRight[0]&&columnsFixedRight[0].key)>-1"></slot>
+											<template v-if="columnsFixedRight[0]&&columnsFixedRight[0].$operateList">
+												<template v-for="btn in columnsFixedRight[0].$operateList">
+													<button :class="[btn.styles?btn.styles:'']" v-bind:style="{ padding: '2px 5px',fontSize:'12px',lineHeight:'1.2',display:'inline-block'}"
+													 @click="pullEvent(btn.event,{row:item,index:index})" type="primary" size="min" :key="btn.id">{{btn.label}}</button>
+												</template>
+											</template>
+											<template v-else>{{item[columnsFixedRight[0].key]}} </template>
+									<!-- td内容 】-->		
+								</view>
+							 </view>
+						</view>
 					</view>
-				</view>
-				<!-- 固定右边一列 】-->
+					<!-- 固定右边一列 】-->
+				</template>
 			</view>
 		</view>
 		<loading-component v-if="loading"/>
