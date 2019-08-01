@@ -461,8 +461,11 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     },
     //没数据时候，主体的宽度
     emptyColWidth: function emptyColWidth() {
-      var t = this.tdWidth * this.columns.length + "px";
-      return t;
+      var t = this.tdWidth * this.columns.length;
+      if (this.selection == 'mulit') {
+        t = parseInt(this.selectionTdWidth) + t;
+      }
+      return t + "px";
     } },
 
   data: function data() {

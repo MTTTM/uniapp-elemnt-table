@@ -257,8 +257,11 @@
 			},
 			//没数据时候，主体的宽度
 			emptyColWidth(){
-				let t=(this.tdWidth*this.columns.length)+"px";
-				return t;
+				let t=(this.tdWidth*this.columns.length);
+				if(this.selection=='mulit'){
+					t=parseInt(this.selectionTdWidth)+t;
+				}
+				return t+"px";
 			}
 		},
 		data() {
