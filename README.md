@@ -80,3 +80,37 @@
 #### 如果有需要作者协助的地方，打赏在下面
 
 <img src="https://raw.githubusercontent.com/MTTTM/uniapp-elemnt-table/master/qishi.jpg" width="328" hegiht="613" alt="O(∩_∩)O哈哈~" />
+
+## 基本属性
+### html标签属性
+|  属性   | 说明  |类型  |默认 | 必填|
+|  ----   | ---- |----  |----|----|
+| columns | 列数据   |Array | -- |必填|
+| dataColSpan | 行数据   |Array | -- |必填|
+| row-class-name | 行样式   |String或Function | -- |--|
+| height | 表格高度(可用固定表头) | Number| -- |--|
+| loading | 加载状态| Boolean| false |--|
+| selection | 可选mulit和single| String| -- |--|
+| span-method | 行列合并| Function| -- |--|
+| slot-cols| 插槽自定义列元素,对应columns的key| Array| -- |--|
+
+### 事件
+
+|  属性   | 说明  |参数  |
+|  ----   | ---- |----  |
+| @on-selection-change | 单选 多选变更   | {old:"",new:""} | 
+| @delete | 自定义事件(它可以不叫delete，可以是任意事件，只要你在list里面定义了)   | 操作的行和index | 
+
+### list 参数
+|  属性   | 说明|类型  |
+|  ----   | ---- |---- |
+| cellClassName |设置行内某一列的样式类名| Object   | 
+| operate |数据操作的列| Object   | 
+
+### columns 参数
+|  属性   | 说明|类型  |
+|  ----   | ---- |---- |
+| $width |设置列宽度 例如 "120px",请务必使用px单位| String   | 
+| $fixed |固定某一列，可选left和right| String   | 
+| $operateList |数据操作选项和list的operate对应| Array   | 
+| $width |设置列宽度 例如 "120px",请务必使用px单位| String   | 
