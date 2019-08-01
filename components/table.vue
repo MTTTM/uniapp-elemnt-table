@@ -360,6 +360,10 @@
 				if (item.$disabled) {
 					return;
 				}
+				//非单选方式
+				if(this.selection!="single"){
+					return;
+				}
 				this.checkBoxList = this.checkBoxList.map((sitem, sindex) => {
 					if (index === sindex) {
 						sitem.$checked = true
