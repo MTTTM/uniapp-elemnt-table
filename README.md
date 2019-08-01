@@ -4,6 +4,7 @@
 ####  插件市场更新会比github更新延后，[查看github项目](https://github.com/MTTTM/uniapp-elemnt-table) 
 ####  插件市场更新会比github更新延后，[查看demo源码](https://github.com/MTTTM/uniapp-elemnt-table/tree/master/components/example)
 ####  插件市场更新会比github更新延后，[查看demo使用引入方式](https://github.com/MTTTM/uniapp-elemnt-table/tree/master/pages/tableDemo)
+####  如果本项目给你带来了便利，请给个star
 
 ## 支持功能大概如下 
  
