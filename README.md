@@ -89,17 +89,23 @@
 | dataColSpan | 行数据   |Array | -- |必填|
 | row-class-name | 行样式   |String或Function | -- |--|
 | height | 表格高度(可用固定表头) | Number| -- |--|
+| td-height | 单元格高 | Number| 110 |--|
+| td-width | 单元格宽 | Number| 30 |--|
+| td-padding | 单元格间距 | Number| 10 |--|
+| border-color | 表格边框颜色 | String| #666 |--|
+| th-td-height | 表头单元格高 | Number| 30 |--|
 | loading | 加载状态| Boolean| false |--|
 | selection | 可选mulit和single| String| -- |--|
 | span-method | 行列合并| Function| -- |--|
 | slot-cols| 插槽自定义列元素,对应columns的key| Array| -- |--|
-
+| emptyText| 插没数据提示文字| String| -- |--|
+| emptyClickFn| 没数据点击响应函数| Function| -- |--|
 ### 事件
 
 |  属性   | 说明  |参数  |
 |  ----   | ---- |----  |
 | @on-selection-change | 单选 多选变更   | {old:"",new:""} | 
-| @delete | 自定义事件(它可以不叫delete，可以是任意事件，只要你在list里面定义了)   | 操作的行和index | 
+| @delete | 自定义事件(它可以不叫delete，可以是任意事件，只要你在list里面定义了)   | {row:{},index:Number}| 
 
 ### list 参数
 |  属性   | 说明|类型  |
@@ -113,4 +119,3 @@
 | $width |设置列宽度 例如 "120px",请务必使用px单位| String   | 
 | $fixed |固定某一列，可选left和right| String   | 
 | $operateList |数据操作选项和list的operate对应| Array   | 
-| $width |设置列宽度 例如 "120px",请务必使用px单位| String   | 
