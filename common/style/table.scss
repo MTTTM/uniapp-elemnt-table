@@ -1,6 +1,31 @@
 $div-table-border-color: #666;
 $div-table-border-width: 1upx;
-
+@mixin fixBorderWidth($dir:none) {  
+	@if $dir==none{
+	
+		@media screen and (-webkit-device-pixel-ratio: 1) { 
+			border-width: 1px;
+		}
+		@media screen and (-webkit-device-pixel-ratio: 2) { 
+			border-width: .5px;
+		}
+		@media screen and (-webkit-device-pixel-ratio: 3) { 
+			border-width: .5px;
+		} 
+	}
+	@else{
+		@media screen and (-webkit-device-pixel-ratio: 1) { 
+			border-#{$dir}-width: 1px;
+		}
+		@media screen and (-webkit-device-pixel-ratio: 2) { 
+			border-#{$dir}-width: .5px;
+		}
+		@media screen and (-webkit-device-pixel-ratio: 3) { 
+			border-#{$dir}-width: .5px;
+		} 
+	}
+	
+}
 .no-bad-table-wrap {
   position: relative;
 	overflow: hidden;
@@ -37,7 +62,8 @@ $div-table-border-width: 1upx;
     line-height: 100px;
     text-align: center;
     color: #666;
-    border: $div-table-border-width solid $div-table-border-color;
+    border: 1px solid $div-table-border-color;
+	@include fixBorderWidth;
     border-top: 0;
 
   }
@@ -60,8 +86,8 @@ $div-table-border-width: 1upx;
     .table_tbody_box {
       // height: 300px;
       overflow: scroll;
-      border-bottom: $div-table-border-width solid $div-table-border-color;
-
+      border-bottom: 1px solid $div-table-border-color;
+	  @include fixBorderWidth(bottom);
     }
 
     //固定高低里面的内容表格底部不要边框
@@ -71,6 +97,7 @@ $div-table-border-width: 1upx;
 	  //固定高度，数据为空
 	  &.empty-data-body-box{
 		  border-bottom: $div-table-border-width solid $div-table-border-color;
+		   @include fixBorderWidth(bottom);
 	  }
     }
   }
@@ -92,22 +119,24 @@ $div-table-border-width: 1upx;
   //固定右边一列
   .fixed-right {
     position: absolute;
-    top: 1upx;
+    top: 0upx;
     right: 0px;
     z-index: 100;
-    border-right: $div-table-border-width solid $div-table-border-color;
-    border-left: $div-table-border-width solid $div-table-border-color;
+    // border-right: $div-table-border-width solid $div-table-border-color;
+    // border-left: $div-table-border-width solid $div-table-border-color;
     box-shadow: -2px 0 5px rgba(0, 0, 0, .5);
   }
 
   //固定左边一列
   .fixed-left {
     position: absolute;
-    top: 1upx;
-    left: 0px;
+    top: 0upx;
+    left: -1px;
     z-index: 100;
     border-right: $div-table-border-width solid $div-table-border-color;
     border-left: $div-table-border-width solid $div-table-border-color;
+	 @include fixBorderWidth(right);
+	 @include fixBorderWidth(left);
     box-shadow: 2px 0 5px rgba(0, 0, 0, .5);
   }
 
@@ -121,6 +150,7 @@ $div-table-border-width: 1upx;
       .td,
       .th {
         border-top: $div-table-border-width solid $div-table-border-color;
+		@include fixBorderWidth(top);
         word-break: break-word;
       }
     }
@@ -193,6 +223,7 @@ $div-table-border-width: 1upx;
     &+.td {
       .td_wrap {
         border-left: $div-table-border-width solid $div-table-border-color;
+		@include fixBorderWidth(left);
       }
     }
   }
@@ -222,6 +253,7 @@ $div-table-border-width: 1upx;
   .div-table {
     display: table;
     border: $div-table-border-width solid $div-table-border-color;
+	@include fixBorderWidth;
     box-sizing: border-box;
     table-layout: fixed;
     position: relative;
