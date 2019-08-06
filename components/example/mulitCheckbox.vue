@@ -1,7 +1,7 @@
 <template>
 	<view class="example">
 		<view class="title">数据操作 多选</view>
-		<v-table :columns="columnsCheckBox" :list="data" selection="mulit"  @on-selection-change="onSelectionChange"></v-table>
+		<v-table :columns="columnsCheckBox" :fixed-checkbox="fixedCheckBox" :list="data" selection="mulit"  @on-selection-change="onSelectionChange"></v-table>
 	</view>
 </template>
 
@@ -13,8 +13,14 @@
 		},
 		data(){
 			return {
+				fixedCheckBox:true,//可选false，非必填
 				//选择多行，给第一行添加$type: 'selection',就可以开启多选
-				columnsCheckBox: [{
+				columnsCheckBox: [
+					{
+							title: 'ID',
+							key: 'id'
+						},
+					{
 						title: 'Name',
 						key: 'name'
 					},

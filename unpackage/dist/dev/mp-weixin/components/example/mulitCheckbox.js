@@ -118,8 +118,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
   data: function data() {
     return {
+      fixedCheckBox: true, //可选false，非必填
       //选择多行，给第一行添加$type: 'selection',就可以开启多选
-      columnsCheckBox: [{
+      columnsCheckBox: [
+      {
+        title: 'ID',
+        key: 'id' },
+
+      {
         title: 'Name',
         key: 'name' },
 

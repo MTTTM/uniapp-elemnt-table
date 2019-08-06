@@ -360,6 +360,26 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
   components: { loadingComponent: loadingComponent },
   props: {
@@ -406,6 +426,10 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     selection: {
       type: String,
       default: "none" },
+
+    "fixed-checkbox": {
+      type: Boolean,
+      default: false },
 
     loading: {
       type: Boolean,

@@ -1,5 +1,5 @@
 <template>
-	<view class="no-bad-table-wrap" :class="[tableHeight!='auto'?'fix-height':celCenter?'td-center':'']">
+	<view class="no-bad-table-wrap" :class="[tableHeight!='auto'?'fix-height':'',celCenter?'td-center':'']">
 		<view class="table_box_big" :style='{height:tableHeight}'>
 	
 			<view class="table_box">
@@ -82,13 +82,24 @@
 				</template>
 				<template v-if="list.length">
 					<!-- 固定左边一列 【-->
-					<view class="fixed-left" v-if="columnsFixedLeft[0]">
+					<view class="fixed-left" v-if="columnsFixedLeft[0]||(selection=='mulit'&&fixedCheckbox)">
 						<view class="tr fixed-thead-tr">
-							<view class="td" :style='{height:fixedHeight(columnsFixedLeft[0]),width:fixedWidth(columnsFixedLeft)}'>
+						<!-- 	多选且固定左边 【-->
+							<view class="td selection" v-if="selection=='mulit'&&fixedCheckbox" :style='{width:selectionTdWidth,height:thTdHeight+"px"}'>
+								<view :class="['td_wrap']" :style='{width:selectionTdWidth,height:thTdHeight+"px"}'>
+									<checkbox-group @change="checkboxChangeAll">
+										<checkbox value="all" color="#999" :checked="switchAllCheckBox" style="transform:scale(0.7)" />
+									</checkbox-group>
+								</view>
+							</view>
+							<!-- 	多选且固定左边 】-->
+							<!-- 普通固定左边 【-->
+							<view class="td" v-if="columnsFixedLeft[0]" :style='{height:fixedHeight(columnsFixedLeft[0]),width:fixedWidth(columnsFixedLeft)}'>
 								<view class="td_wrap" :style='{height:fixedHeight(columnsFixedLeft[0]),width:fixedWidth(columnsFixedLeft)}'>
 									{{columnsFixedLeft[0].title}}
 								</view>
 							</view>
+								<!-- 普通固定左边 】-->
 						</view>
 						<view  v-for="(item,index) in list" :key="item.id"
 							:class='["tr",
@@ -96,7 +107,15 @@
 							  selection=="single"&&checkBoxList[index].$disabled?"disabled":""]'
 							  @click="selectRow(item,index)"
 						>
-							 <view class="td fixed-td" 
+							<!-- 	多选且固定左边 】-->
+							<view class="td selection fixed-td" v-if="selection=='mulit'&&fixedCheckbox" :style='{width:selectionTdWidth,height:tdHeight+"px"}'>
+								<view :class="['td_wrap']" :style='{width:selectionTdWidth,height:tdHeight+"px"}'>
+									<checkbox :value="checkBoxList[index].id" color="#999"  :disabled="checkBoxList[index].$disabled" :checked="checkBoxList[index].$checked"
+									 style="transform:scale(0.7)" />
+								</view>
+							</view>
+							<!-- 普通固定左边 【-->
+							 <view class="td fixed-td"  v-if="columnsFixedLeft[0]"
 								 :style='{height:fixedHeight(columnsFixedLeft[0]),width:fixedWidth(columnsFixedLeft)}'>
 								<view class="td_wrap fixed-wrap" :style='{height:fixedHeight(columnsFixedLeft[0]),width:fixedWidth(columnsFixedLeft[0])}'>
 									<!-- td内容 【-->
@@ -111,6 +130,7 @@
 									<!-- td内容 】-->		
 								</view>
 							 </view>
+							 <!-- 普通固定左边 】-->
 						</view>
 					</view>
 					<!-- 固定左边一列 】-->
@@ -202,6 +222,10 @@
 			selection: {
 				type: String,
 				default: "none"
+			},
+			"fixed-checkbox":{
+				type:Boolean,
+				default:false
 			},
 			loading:{
 				type:Boolean,

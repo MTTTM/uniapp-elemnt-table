@@ -91,13 +91,14 @@
 | row-class-name | 行样式   |String或Function | -- |--|
 | height | 表格高度(可用固定表头) | Number| -- |--|
 | td-height | 单元格高 | Number| 110 |--|
-| cel-center|单元格水平居中| Boolean|true|---|
+| cel-center|单元格水平居中| Boolean|true|--|
 | td-width | 单元格宽 | Number| 30 |--|
 | td-padding | 单元格间距 | Number| 10 |--|
 | border-color | 表格边框颜色 | String| #666 |--|
 | th-td-height | 表头单元格高 | Number| 30 |--|
 | loading | 加载状态| Boolean| false |--|
 | selection | 可选mulit和single| String| -- |--|
+| fixed-checkbox|固定多选列 和selection="mulit"共存|Boolean| false|--|
 | span-method | 行列合并| Function| -- |--|
 | slot-cols| 插槽自定义列元素,对应columns的key| Array| -- |--|
 | emptyText| 插没数据提示文字| String| -- |--|
