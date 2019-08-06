@@ -1,6 +1,6 @@
 <template>
 	<view class="demo-wrap">
-		<single-demo/>
+<!-- 		<single-demo/>
 		<custom-cel-width/>
 		<loading-table/>
 		<empty-row/>
@@ -9,15 +9,14 @@
 		<custom-row-style/>
 		<custom-row-style-second/>
 		<custom-cel/>
-		<custom-cel-content/> 
+		<custom-cel-content/> -->
 		 <row-span/>
-		 <cel-span/>
-		 <mulit-checkbox/>
-		<single-selected/>
+		<!-- <cel-span/>
+		 <mulit-checkbox/> -->
+<!-- 		<single-selected/>
 		<edi-data/>
-		<!-- <single-fixed-left-and-height/> -->
 		<single-fixed-right/>
-		<single-fixed-left/>
+		<single-fixed-left/> -->
 		
 	</view>
 

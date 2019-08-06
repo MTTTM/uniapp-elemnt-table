@@ -148,9 +148,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
           id: "9" }];
 
 
-        _this.$nextTick(function () {
-          _this.loading = false;
-        });
+
+        _this.loading = false;
+
       }, 2000);
     } } };exports.default = _default;
 

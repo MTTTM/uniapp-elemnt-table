@@ -4,12 +4,21 @@ $div-table-border-width: 1upx;
 .no-bad-table-wrap {
   position: relative;
 	overflow: hidden;
-
+//外层容器
   .table_box_big {
     overflow: auto;
     width: 100%;
     position: relative;
     // height: 350px;
+  }
+  //工具类
+  .verticalV{
+	 position: absolute;
+	 width: 100%;
+	 text-align: center;
+	 left:50%;
+	 top:50%;
+	 transform: translateY(-50%);
   }
 
   .table_box {
@@ -83,7 +92,7 @@ $div-table-border-width: 1upx;
   //固定右边一列
   .fixed-right {
     position: absolute;
-    top: 1px;
+    top: 1upx;
     right: 0px;
     z-index: 100;
     border-right: $div-table-border-width solid $div-table-border-color;
@@ -94,7 +103,7 @@ $div-table-border-width: 1upx;
   //固定左边一列
   .fixed-left {
     position: absolute;
-    top: 1px;
+    top: 1upx;
     left: 0px;
     z-index: 100;
     border-right: $div-table-border-width solid $div-table-border-color;
@@ -116,7 +125,14 @@ $div-table-border-width: 1upx;
       }
     }
   }
-
+  //外层容器控制td左右居中
+  &.td-center{
+	  .td {
+		  .td_wrap{
+			  text-align: center;
+		  }
+	  }
+  }
   .td {
     display: table-cell;
     vertical-align: middle;
@@ -134,13 +150,12 @@ $div-table-border-width: 1upx;
       line-height: 20px;
       font-size: 12px;
       background: #fff;
-
+	  text-align: left;
     }
 
     &.colspan {
       z-index: 10;
       position: absolute;
-
       .td_wrap {
         width: 100%;
         height: 100%;

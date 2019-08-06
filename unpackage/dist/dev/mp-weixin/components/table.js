@@ -373,6 +373,11 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       type: Array,
       required: true },
 
+    //单元格样式居中
+    "cel-center": {
+      type: Boolean,
+      default: true },
+
     //自定义行和列样式
     rowClassName: {
       type: [String, Function],
@@ -494,7 +499,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
   created: function created() {
     this.asyncCheckBoxList();
-    // console.log("columnsFixedRight",this.columnsFixedRight)
   },
   methods: {
     //获取数据副本，轻拷贝

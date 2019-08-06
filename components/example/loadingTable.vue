@@ -99,9 +99,9 @@
 							id: "9"
 						}
 					];
-					this.$nextTick(()=>{
+					
 						this.loading=false;
-					})
+					
 				},2000)
 			}
 		}

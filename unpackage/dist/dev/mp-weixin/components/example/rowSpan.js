@@ -175,8 +175,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     rowIndex,
     columnIndex)
     {
-      // console.log("合并")
-      // console.log(columnIndex)
       if (columnIndex == 0) {
 
         if (row.rowspan) {
@@ -190,6 +188,12 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
             colspan: 1 };
 
         }
+      } else
+      {
+        return {
+          rowspan: 1,
+          colspan: 1 };
+
       }
     } } };exports.default = _default;
 

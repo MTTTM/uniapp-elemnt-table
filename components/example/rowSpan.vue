@@ -70,8 +70,6 @@
 				rowIndex,
 				columnIndex
 			) {
-				// console.log("合并")
-				// console.log(columnIndex)
 				if (columnIndex == 0) {
 			
 					if (row.rowspan) {
@@ -85,6 +83,12 @@
 							colspan: 1
 						};
 					}
+				}
+				else{
+					return {
+						rowspan: 1,
+						colspan: 1
+					};
 				}
 			},
 		}

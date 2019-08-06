@@ -1277,6 +1277,7 @@ Z([3,'固定左边一列'])
 Z([3,'__l'])
 Z([[7],[3,'columns']])
 Z([[7],[3,'data']])
+Z([3,'single'])
 Z([3,'1'])
 })(__WXML_GLOBAL__.ops_cached.$gwx_16);return __WXML_GLOBAL__.ops_cached.$gwx_16
 }
@@ -1307,6 +1308,7 @@ Z(z[4])
 Z([[7],[3,'columns']])
 Z([[4],[[5],[[5],[[4],[[5],[[5],[1,'^delete']],[[4],[[5],[[4],[[5],[1,'deleteFn']]]]]]]],[[4],[[5],[[5],[1,'^edi']],[[4],[[5],[[4],[[5],[1,'ediFn']]]]]]]]])
 Z([[7],[3,'data']])
+Z([3,'single'])
 Z([3,'1'])
 })(__WXML_GLOBAL__.ops_cached.$gwx_18);return __WXML_GLOBAL__.ops_cached.$gwx_18
 }
@@ -1356,6 +1358,7 @@ Z(z[9])
 Z([3,'__e'])
 Z([[4],[[5],[[4],[[5],[[5],[1,'change']],[[4],[[5],[[4],[[5],[[5],[1,'checkboxChangeAll']],[[4],[[5],[1,'$event']]]]]]]]]]])
 Z([[7],[3,'switchAllCheckBox']])
+Z([3,'#999'])
 Z([3,'transform:scale(0.7);'])
 Z([3,'all'])
 Z([3,'index'])
@@ -1373,8 +1376,8 @@ Z([[2,'+'],[[2,'+'],[1,'height:'],[[7],[3,'talbeBodyHeight']]],[1,';']])
 Z([3,'div-table div-table-body'])
 Z(z[12])
 Z([[4],[[5],[[4],[[5],[[5],[1,'change']],[[4],[[5],[[4],[[5],[[5],[1,'checkboxChange']],[[4],[[5],[1,'$event']]]]]]]]]]])
-Z(z[17])
 Z(z[18])
+Z(z[19])
 Z([[6],[[7],[3,'$root']],[3,'l2']])
 Z([3,'id'])
 Z(z[12])
@@ -1384,15 +1387,16 @@ Z(z[7])
 Z(z[8])
 Z([[2,'+'],[[2,'+'],[[2,'+'],[1,'width:'],[[7],[3,'selectionTdWidth']]],[1,';']],[[2,'+'],[[2,'+'],[1,'height:'],[[2,'+'],[[7],[3,'tdHeight']],[1,'px']]],[1,';']]])
 Z(z[10])
-Z(z[41])
+Z(z[42])
 Z([[6],[[6],[[7],[3,'checkBoxList']],[[7],[3,'index']]],[3,'$checked']])
-Z([[6],[[6],[[7],[3,'checkBoxList']],[[7],[3,'index']]],[3,'$disabled']])
 Z(z[15])
+Z([[6],[[6],[[7],[3,'checkBoxList']],[[7],[3,'index']]],[3,'$disabled']])
+Z(z[16])
 Z([[6],[[6],[[7],[3,'checkBoxList']],[[7],[3,'index']]],[3,'id']])
 Z([3,'tdItemIndex'])
 Z([3,'tdItem'])
 Z([[6],[[7],[3,'item']],[3,'l1']])
-Z(z[20])
+Z(z[21])
 Z([[4],[[5],[[5],[[5],[[5],[[5],[[5],[1,'td']],[[2,'?:'],[[2,'&&'],[[6],[[6],[[7],[3,'item']],[3,'$orig']],[3,'cellClassName']],[[6],[[6],[[6],[[7],[3,'item']],[3,'$orig']],[3,'cellClassName']],[[6],[[6],[[7],[3,'tdItem']],[3,'$orig']],[3,'key']]]],[[6],[[6],[[6],[[7],[3,'item']],[3,'$orig']],[3,'cellClassName']],[[6],[[6],[[7],[3,'tdItem']],[3,'$orig']],[3,'key']]],[1,'']]],[[2,'?:'],[[2,'=='],[[6],[[6],[[7],[3,'tdItem']],[3,'m3']],[1,'rowspan']],[1,0]],[1,'empty-cells-for-rowspan'],[1,'']]],[[2,'?:'],[[2,'=='],[[6],[[6],[[7],[3,'tdItem']],[3,'m4']],[1,'colspan']],[1,0]],[1,'empty-cells-for-celspan'],[1,'']]],[[2,'?:'],[[2,'>'],[[6],[[6],[[7],[3,'tdItem']],[3,'m5']],[1,'rowspan']],[1,1]],[1,'rowspan'],[1,'']]],[[2,'?:'],[[2,'>'],[[6],[[6],[[7],[3,'tdItem']],[3,'m6']],[1,'colspan']],[1,1]],[1,'colspan'],[1,'']]]])
 Z([[2,'+'],[[2,'+'],[[2,'+'],[1,'height:'],[[6],[[7],[3,'tdItem']],[3,'m7']]],[1,';']],[[2,'+'],[[2,'+'],[1,'width:'],[[6],[[7],[3,'tdItem']],[3,'m8']]],[1,';']]])
 Z(z[10])
@@ -1403,8 +1407,8 @@ Z([[6],[[7],[3,'item']],[3,'$orig']])
 Z([[6],[[6],[[7],[3,'tdItem']],[3,'$orig']],[3,'$operateList']])
 Z([3,'__i0__'])
 Z([3,'btn'])
-Z(z[59])
-Z(z[35])
+Z(z[61])
+Z(z[36])
 Z(z[12])
 Z([[4],[[5],[[2,'?:'],[[6],[[7],[3,'btn']],[3,'styles']],[[6],[[7],[3,'btn']],[3,'styles']],[1,'']]]])
 Z([[4],[[5],[[4],[[5],[[5],[1,'tap']],[[4],[[5],[[4],[[5],[[5],[[5],[1,'pullEvent']],[[4],[[5],[[5],[1,'$0']],[[4],[[5],[[5],[[5],[1,'o']],[[4],[[5],[[5],[1,'row']],[[6],[[7],[3,'item']],[3,'$orig']]]]],[[4],[[5],[[5],[1,'index']],[[7],[3,'index']]]]]]]]],[[4],[[5],[[4],[[5],[[5],[[4],[[5],[[5],[[5],[1,'columns']],[1,'key']],[[6],[[6],[[7],[3,'tdItem']],[3,'$orig']],[3,'key']]]]],[[4],[[5],[[5],[[5],[[5],[1,'$operateList']],[1,'id']],[[6],[[7],[3,'btn']],[3,'id']]],[1,'event']]]]]]]]]]]]]]])
@@ -1416,82 +1420,87 @@ Z([a,[[2,'+'],[[6],[[6],[[7],[3,'item']],[3,'$orig']],[[6],[[6],[[7],[3,'tdItem'
 Z([3,'table_tbody_box empty-data-body-box div-table-body'])
 Z([[2,'+'],[[2,'+'],[[2,'+'],[1,'height:'],[[7],[3,'emptyColHeight']]],[1,';']],[[2,'+'],[[2,'+'],[1,'width:'],[[7],[3,'emptyColWidth']]],[1,';']]])
 Z([3,'tr '])
-Z(z[73])
-Z(z[21])
-Z(z[73])
+Z(z[75])
+Z(z[22])
+Z(z[75])
 Z(z[10])
 Z([[2,'+'],[[2,'+'],[[2,'+'],[[2,'+'],[1,'height:'],[[2,'+'],[[6],[[7],[3,'$root']],[3,'m11']],[1,'px']]],[1,';']],[[2,'+'],[[2,'+'],[1,'width:'],[[7],[3,'emptyColWidth']]],[1,';']]],[[2,'+'],[[2,'+'],[1,'line-height:'],[[2,'+'],[[6],[[7],[3,'$root']],[3,'m12']],[1,'px']]],[1,';']]])
 Z(z[12])
 Z([[4],[[5],[[4],[[5],[[5],[1,'tap']],[[4],[[5],[[4],[[5],[[5],[1,'emptyClickCallBack']],[[4],[[5],[1,'$event']]]]]]]]]]])
 Z([a,[[7],[3,'emptyText']]])
+Z(z[27])
 Z([[6],[[7],[3,'columnsFixedLeft']],[1,0]])
 Z([3,'fixed-left'])
 Z([3,'tr fixed-thead-tr'])
-Z(z[21])
+Z(z[22])
 Z([[2,'+'],[[2,'+'],[[2,'+'],[1,'height:'],[[6],[[7],[3,'$root']],[3,'m13']]],[1,';']],[[2,'+'],[[2,'+'],[1,'width:'],[[6],[[7],[3,'$root']],[3,'m14']]],[1,';']]])
-Z(z[23])
+Z(z[24])
 Z([[2,'+'],[[2,'+'],[[2,'+'],[1,'height:'],[[6],[[7],[3,'$root']],[3,'m15']]],[1,';']],[[2,'+'],[[2,'+'],[1,'width:'],[[6],[[7],[3,'$root']],[3,'m16']]],[1,';']]])
 Z([a,[[2,'+'],[[2,'+'],[1,''],[[6],[[6],[[7],[3,'columnsFixedLeft']],[1,0]],[3,'title']]],[1,'']]])
-Z(z[17])
 Z(z[18])
+Z(z[19])
 Z([[7],[3,'list']])
-Z(z[35])
-Z(z[6])
+Z(z[36])
+Z(z[12])
+Z([[4],[[5],[[5],[[5],[1,'tr']],[[2,'?:'],[[2,'&&'],[[2,'=='],[[7],[3,'selection']],[1,'single']],[[6],[[6],[[7],[3,'checkBoxList']],[[7],[3,'index']]],[3,'$checked']]],[1,'selected'],[1,'']]],[[2,'?:'],[[2,'&&'],[[2,'=='],[[7],[3,'selection']],[1,'single']],[[6],[[6],[[7],[3,'checkBoxList']],[[7],[3,'index']]],[3,'$disabled']]],[1,'disabled'],[1,'']]]])
+Z([[4],[[5],[[4],[[5],[[5],[1,'tap']],[[4],[[5],[[4],[[5],[[5],[[5],[1,'selectRow']],[[4],[[5],[[5],[1,'$0']],[[7],[3,'index']]]]],[[4],[[5],[[4],[[5],[[4],[[5],[[5],[[5],[1,'list']],[1,'id']],[[6],[[7],[3,'item']],[3,'id']]]]]]]]]]]]]]]])
 Z([3,'td fixed-td'])
 Z([[2,'+'],[[2,'+'],[[2,'+'],[1,'height:'],[[6],[[7],[3,'$root']],[3,'m17']]],[1,';']],[[2,'+'],[[2,'+'],[1,'width:'],[[6],[[7],[3,'$root']],[3,'m18']]],[1,';']]])
 Z([3,'td_wrap fixed-wrap'])
 Z([[2,'+'],[[2,'+'],[[2,'+'],[1,'height:'],[[6],[[7],[3,'$root']],[3,'m19']]],[1,';']],[[2,'+'],[[2,'+'],[1,'width:'],[[6],[[7],[3,'$root']],[3,'m20']]],[1,';']]])
 Z([[2,'>'],[[6],[[7],[3,'$root']],[3,'g1']],[[2,'-'],[1,1]]])
-Z(z[57])
+Z(z[59])
 Z([[7],[3,'item']])
 Z([[6],[[6],[[7],[3,'columnsFixedLeft']],[1,0]],[3,'$operateList']])
 Z([3,'__i1__'])
-Z(z[61])
-Z(z[103])
-Z(z[35])
+Z(z[63])
+Z(z[108])
+Z(z[36])
 Z(z[12])
-Z(z[65])
-Z([[4],[[5],[[4],[[5],[[5],[1,'tap']],[[4],[[5],[[4],[[5],[[5],[[5],[1,'pullEvent']],[[4],[[5],[[5],[1,'$0']],[[4],[[5],[[5],[[5],[1,'o']],[[4],[[5],[[5],[1,'row']],[[7],[3,'item']]]]],[[4],[[5],[[5],[1,'index']],[[7],[3,'index']]]]]]]]],[[4],[[5],[[4],[[5],[[4],[[5],[[5],[[5],[[5],[1,'columnsFixedLeft.__$n0.$operateList']],[1,'id']],[[6],[[7],[3,'btn']],[3,'id']]],[1,'event']]]]]]]]]]]]]]])
 Z(z[67])
-Z(z[68])
+Z([[4],[[5],[[4],[[5],[[5],[1,'tap']],[[4],[[5],[[4],[[5],[[5],[[5],[1,'pullEvent']],[[4],[[5],[[5],[1,'$0']],[[4],[[5],[[5],[[5],[1,'o']],[[4],[[5],[[5],[1,'row']],[[7],[3,'item']]]]],[[4],[[5],[[5],[1,'index']],[[7],[3,'index']]]]]]]]],[[4],[[5],[[4],[[5],[[4],[[5],[[5],[[5],[[5],[1,'columnsFixedLeft.__$n0.$operateList']],[1,'id']],[[6],[[7],[3,'btn']],[3,'id']]],[1,'event']]]]]]]]]]]]]]])
 Z(z[69])
-Z([a,z[70][1]])
+Z(z[70])
+Z(z[71])
+Z([a,z[72][1]])
 Z([a,[[2,'+'],[[6],[[7],[3,'item']],[[6],[[6],[[7],[3,'columnsFixedLeft']],[1,0]],[3,'key']]],[1,'']]])
 Z([[6],[[7],[3,'columnsFixedRight']],[1,0]])
 Z([3,'fixed-right'])
-Z(z[85])
-Z(z[21])
+Z(z[88])
+Z(z[22])
 Z([[2,'+'],[[2,'+'],[[2,'+'],[1,'height:'],[[6],[[7],[3,'$root']],[3,'m21']]],[1,';']],[[2,'+'],[[2,'+'],[1,'width:'],[[6],[[7],[3,'$root']],[3,'m22']]],[1,';']]])
-Z(z[23])
+Z(z[24])
 Z([[2,'+'],[[2,'+'],[[2,'+'],[1,'height:'],[[6],[[7],[3,'$root']],[3,'m23']]],[1,';']],[[2,'+'],[[2,'+'],[1,'width:'],[[6],[[7],[3,'$root']],[3,'m24']]],[1,';']]])
 Z([a,[[2,'+'],[[2,'+'],[1,''],[[6],[[6],[[7],[3,'columnsFixedRight']],[1,0]],[3,'title']]],[1,'']]])
-Z(z[17])
 Z(z[18])
-Z(z[93])
-Z(z[35])
-Z(z[6])
+Z(z[19])
 Z(z[96])
+Z(z[36])
+Z(z[12])
+Z(z[99])
+Z(z[100])
+Z(z[101])
 Z([[2,'+'],[[2,'+'],[[2,'+'],[1,'height:'],[[6],[[7],[3,'$root']],[3,'m25']]],[1,';']],[[2,'+'],[[2,'+'],[1,'width:'],[[6],[[7],[3,'$root']],[3,'m26']]],[1,';']]])
-Z(z[98])
+Z(z[103])
 Z([[2,'+'],[[2,'+'],[[2,'+'],[1,'height:'],[[6],[[7],[3,'$root']],[3,'m27']]],[1,';']],[[2,'+'],[[2,'+'],[1,'width:'],[[6],[[7],[3,'$root']],[3,'m28']]],[1,';']]])
 Z([[2,'>'],[[6],[[7],[3,'$root']],[3,'g2']],[[2,'-'],[1,1]]])
-Z(z[57])
-Z(z[102])
+Z(z[59])
+Z(z[107])
 Z([[2,'&&'],[[6],[[7],[3,'columnsFixedRight']],[1,0]],[[6],[[6],[[7],[3,'columnsFixedRight']],[1,0]],[3,'$operateList']]])
 Z([3,'__i2__'])
-Z(z[61])
+Z(z[63])
 Z([[6],[[6],[[7],[3,'columnsFixedRight']],[1,0]],[3,'$operateList']])
-Z(z[35])
+Z(z[36])
 Z(z[12])
-Z(z[65])
-Z([[4],[[5],[[4],[[5],[[5],[1,'tap']],[[4],[[5],[[4],[[5],[[5],[[5],[1,'pullEvent']],[[4],[[5],[[5],[1,'$0']],[[4],[[5],[[5],[[5],[1,'o']],[[4],[[5],[[5],[1,'row']],[[7],[3,'item']]]]],[[4],[[5],[[5],[1,'index']],[[7],[3,'index']]]]]]]]],[[4],[[5],[[4],[[5],[[4],[[5],[[5],[[5],[[5],[1,'columnsFixedRight.__$n0.$operateList']],[1,'id']],[[6],[[7],[3,'btn']],[3,'id']]],[1,'event']]]]]]]]]]]]]]])
 Z(z[67])
-Z(z[68])
+Z([[4],[[5],[[4],[[5],[[5],[1,'tap']],[[4],[[5],[[4],[[5],[[5],[[5],[1,'pullEvent']],[[4],[[5],[[5],[1,'$0']],[[4],[[5],[[5],[[5],[1,'o']],[[4],[[5],[[5],[1,'row']],[[7],[3,'item']]]]],[[4],[[5],[[5],[1,'index']],[[7],[3,'index']]]]]]]]],[[4],[[5],[[4],[[5],[[4],[[5],[[5],[[5],[[5],[1,'columnsFixedRight.__$n0.$operateList']],[1,'id']],[[6],[[7],[3,'btn']],[3,'id']]],[1,'event']]]]]]]]]]]]]]])
 Z(z[69])
-Z([a,z[70][1]])
+Z(z[70])
+Z(z[71])
+Z([a,z[72][1]])
 Z([a,[[2,'+'],[[6],[[7],[3,'item']],[[6],[[6],[[7],[3,'columnsFixedRight']],[1,0]],[3,'key']]],[1,'']]])
 Z([[7],[3,'loading']])
-Z(z[57])
+Z(z[59])
 Z([3,'1'])
 })(__WXML_GLOBAL__.ops_cached.$gwx_21);return __WXML_GLOBAL__.ops_cached.$gwx_21
 }
@@ -1789,7 +1798,7 @@ _rz(z,oFC,'class',1,e,s,gg)
 var cGC=_oz(z,2,e,s,gg)
 _(oFC,cGC)
 _(hEC,oFC)
-var oHC=_mz(z,'v-table',['bind:__l',3,'columns',1,'list',2,'vueId',3],[],e,s,gg)
+var oHC=_mz(z,'v-table',['bind:__l',3,'columns',1,'list',2,'selection',3,'vueId',4],[],e,s,gg)
 _(hEC,oHC)
 _(r,hEC)
 return r
@@ -1821,7 +1830,7 @@ _rz(z,oPC,'class',1,e,s,gg)
 var fQC=_oz(z,2,e,s,gg)
 _(oPC,fQC)
 _(xOC,oPC)
-var cRC=_mz(z,'v-table',['bind:__l',3,'bind:delete',1,'bind:edi',2,'columns',3,'data-event-opts',4,'list',5,'vueId',6],[],e,s,gg)
+var cRC=_mz(z,'v-table',['bind:__l',3,'bind:delete',1,'bind:edi',2,'columns',3,'data-event-opts',4,'list',5,'selection',6,'vueId',7],[],e,s,gg)
 _(xOC,cRC)
 _(r,xOC)
 return r
@@ -1872,254 +1881,258 @@ _rz(z,f5C,'class',0,e,s,gg)
 var h7C=_mz(z,'view',['class',1,'style',1],[],e,s,gg)
 var o8C=_n('view')
 _rz(z,o8C,'class',3,e,s,gg)
+var lAD=_n('view')
+_rz(z,lAD,'class',4,e,s,gg)
 var aBD=_n('view')
-_rz(z,aBD,'class',4,e,s,gg)
+_rz(z,aBD,'class',5,e,s,gg)
 var tCD=_n('view')
-_rz(z,tCD,'class',5,e,s,gg)
-var eDD=_n('view')
-_rz(z,eDD,'class',6,e,s,gg)
-var bED=_v()
-_(eDD,bED)
-if(_oz(z,7,e,s,gg)){bED.wxVkey=1
-var oFD=_mz(z,'view',['class',8,'style',1],[],e,s,gg)
-var xGD=_mz(z,'view',['class',10,'style',1],[],e,s,gg)
-var oHD=_mz(z,'checkbox-group',['bindchange',12,'data-event-opts',1],[],e,s,gg)
-var fID=_mz(z,'checkbox',['checked',14,'style',1,'value',2],[],e,s,gg)
-_(oHD,fID)
+_rz(z,tCD,'class',6,e,s,gg)
+var eDD=_v()
+_(tCD,eDD)
+if(_oz(z,7,e,s,gg)){eDD.wxVkey=1
+var bED=_mz(z,'view',['class',8,'style',1],[],e,s,gg)
+var oFD=_mz(z,'view',['class',10,'style',1],[],e,s,gg)
+var xGD=_mz(z,'checkbox-group',['bindchange',12,'data-event-opts',1],[],e,s,gg)
+var oHD=_mz(z,'checkbox',['checked',14,'color',1,'style',2,'value',3],[],e,s,gg)
 _(xGD,oHD)
 _(oFD,xGD)
 _(bED,oFD)
+_(eDD,bED)
 }
-var cJD=_v()
-_(eDD,cJD)
-var hKD=function(cMD,oLD,oND,gg){
-var aPD=_mz(z,'view',['class',21,'style',1],[],cMD,oLD,gg)
-var tQD=_mz(z,'view',['class',23,'style',1],[],cMD,oLD,gg)
-var eRD=_oz(z,25,cMD,oLD,gg)
-_(tQD,eRD)
+var fID=_v()
+_(tCD,fID)
+var cJD=function(oLD,hKD,cMD,gg){
+var lOD=_mz(z,'view',['class',22,'style',1],[],oLD,hKD,gg)
+var aPD=_mz(z,'view',['class',24,'style',1],[],oLD,hKD,gg)
+var tQD=_oz(z,26,oLD,hKD,gg)
 _(aPD,tQD)
-_(oND,aPD)
-return oND
+_(lOD,aPD)
+_(cMD,lOD)
+return cMD
 }
-cJD.wxXCkey=2
-_2z(z,19,hKD,e,s,gg,cJD,'item','index','key')
-bED.wxXCkey=1
-_(tCD,eDD)
+fID.wxXCkey=2
+_2z(z,20,cJD,e,s,gg,fID,'item','index','key')
+eDD.wxXCkey=1
 _(aBD,tCD)
-_(o8C,aBD)
+_(lAD,aBD)
+_(o8C,lAD)
 var c9C=_v()
 _(o8C,c9C)
-if(_oz(z,26,e,s,gg)){c9C.wxVkey=1
-var bSD=_mz(z,'view',['class',27,'style',1],[],e,s,gg)
-var oTD=_n('view')
-_rz(z,oTD,'class',29,e,s,gg)
-var xUD=_mz(z,'checkbox-group',['bindchange',30,'data-event-opts',1],[],e,s,gg)
-var oVD=_v()
-_(xUD,oVD)
-var fWD=function(hYD,cXD,oZD,gg){
-var o2D=_mz(z,'view',['bindtap',36,'class',1,'data-event-opts',2],[],hYD,cXD,gg)
-var l3D=_v()
-_(o2D,l3D)
-if(_oz(z,39,hYD,cXD,gg)){l3D.wxVkey=1
-var a4D=_mz(z,'view',['class',40,'style',1],[],hYD,cXD,gg)
-var t5D=_mz(z,'view',['class',42,'style',1],[],hYD,cXD,gg)
-var e6D=_mz(z,'checkbox',['checked',44,'disabled',1,'style',2,'value',3],[],hYD,cXD,gg)
-_(t5D,e6D)
+if(_oz(z,27,e,s,gg)){c9C.wxVkey=1
+var eRD=_mz(z,'view',['class',28,'style',1],[],e,s,gg)
+var bSD=_n('view')
+_rz(z,bSD,'class',30,e,s,gg)
+var oTD=_mz(z,'checkbox-group',['bindchange',31,'data-event-opts',1],[],e,s,gg)
+var xUD=_v()
+_(oTD,xUD)
+var oVD=function(cXD,fWD,hYD,gg){
+var c1D=_mz(z,'view',['bindtap',37,'class',1,'data-event-opts',2],[],cXD,fWD,gg)
+var o2D=_v()
+_(c1D,o2D)
+if(_oz(z,40,cXD,fWD,gg)){o2D.wxVkey=1
+var l3D=_mz(z,'view',['class',41,'style',1],[],cXD,fWD,gg)
+var a4D=_mz(z,'view',['class',43,'style',1],[],cXD,fWD,gg)
+var t5D=_mz(z,'checkbox',['checked',45,'color',1,'disabled',2,'style',3,'value',4],[],cXD,fWD,gg)
 _(a4D,t5D)
 _(l3D,a4D)
+_(o2D,l3D)
 }
-var b7D=_v()
-_(o2D,b7D)
-var o8D=function(o0D,x9D,fAE,gg){
-var hCE=_mz(z,'view',['class',52,'style',1],[],o0D,x9D,gg)
-var oDE=_mz(z,'view',['class',54,'style',1],[],o0D,x9D,gg)
-var cEE=_v()
-_(oDE,cEE)
-if(_oz(z,56,o0D,x9D,gg)){cEE.wxVkey=1
-var lGE=_mz(z,'scoped-slots-default',['bind:__l',57,'row',1],[],o0D,x9D,gg)
-_(cEE,lGE)
-}
-var oFE=_v()
-_(oDE,oFE)
-if(_oz(z,59,o0D,x9D,gg)){oFE.wxVkey=1
-var aHE=_v()
-_(oFE,aHE)
-var tIE=function(bKE,eJE,oLE,gg){
-var oNE=_mz(z,'button',['bindtap',64,'class',1,'data-event-opts',2,'size',3,'style',4,'type',5],[],bKE,eJE,gg)
-var fOE=_oz(z,70,bKE,eJE,gg)
-_(oNE,fOE)
-_(oLE,oNE)
-return oLE
-}
-aHE.wxXCkey=2
-_2z(z,62,tIE,o0D,x9D,gg,aHE,'btn','__i0__','id')
-}
-else{oFE.wxVkey=2
-var cPE=_oz(z,71,o0D,x9D,gg)
-_(oFE,cPE)
-}
-cEE.wxXCkey=1
-cEE.wxXCkey=3
-oFE.wxXCkey=1
+var e6D=_v()
+_(c1D,e6D)
+var b7D=function(x9D,o8D,o0D,gg){
+var cBE=_mz(z,'view',['class',54,'style',1],[],x9D,o8D,gg)
+var hCE=_mz(z,'view',['class',56,'style',1],[],x9D,o8D,gg)
+var oDE=_v()
 _(hCE,oDE)
-_(fAE,hCE)
-return fAE
+if(_oz(z,58,x9D,o8D,gg)){oDE.wxVkey=1
+var oFE=_mz(z,'scoped-slots-default',['bind:__l',59,'row',1],[],x9D,o8D,gg)
+_(oDE,oFE)
 }
-b7D.wxXCkey=4
-_2z(z,50,o8D,hYD,cXD,gg,b7D,'tdItem','tdItemIndex','key')
-l3D.wxXCkey=1
-_(oZD,o2D)
-return oZD
+var cEE=_v()
+_(hCE,cEE)
+if(_oz(z,61,x9D,o8D,gg)){cEE.wxVkey=1
+var lGE=_v()
+_(cEE,lGE)
+var aHE=function(eJE,tIE,bKE,gg){
+var xME=_mz(z,'button',['bindtap',66,'class',1,'data-event-opts',2,'size',3,'style',4,'type',5],[],eJE,tIE,gg)
+var oNE=_oz(z,72,eJE,tIE,gg)
+_(xME,oNE)
+_(bKE,xME)
+return bKE
 }
-oVD.wxXCkey=4
-_2z(z,34,fWD,e,s,gg,oVD,'item','index','id')
-_(oTD,xUD)
+lGE.wxXCkey=2
+_2z(z,64,aHE,x9D,o8D,gg,lGE,'btn','__i0__','id')
+}
+else{cEE.wxVkey=2
+var fOE=_oz(z,73,x9D,o8D,gg)
+_(cEE,fOE)
+}
+oDE.wxXCkey=1
+oDE.wxXCkey=3
+cEE.wxXCkey=1
+_(cBE,hCE)
+_(o0D,cBE)
+return o0D
+}
+e6D.wxXCkey=4
+_2z(z,52,b7D,cXD,fWD,gg,e6D,'tdItem','tdItemIndex','key')
+o2D.wxXCkey=1
+_(hYD,c1D)
+return hYD
+}
+xUD.wxXCkey=4
+_2z(z,35,oVD,e,s,gg,xUD,'item','index','id')
 _(bSD,oTD)
-_(c9C,bSD)
+_(eRD,bSD)
+_(c9C,eRD)
 }
 else{c9C.wxVkey=2
-var hQE=_mz(z,'view',['class',72,'style',1],[],e,s,gg)
-var oRE=_mz(z,'view',['class',74,'style',1],[],e,s,gg)
-var cSE=_mz(z,'view',['class',76,'style',1],[],e,s,gg)
-var oTE=_mz(z,'view',['class',78,'style',1],[],e,s,gg)
-var lUE=_mz(z,'text',['bindtap',80,'data-event-opts',1],[],e,s,gg)
-var aVE=_oz(z,82,e,s,gg)
-_(lUE,aVE)
+var cPE=_mz(z,'view',['class',74,'style',1],[],e,s,gg)
+var hQE=_mz(z,'view',['class',76,'style',1],[],e,s,gg)
+var oRE=_mz(z,'view',['class',78,'style',1],[],e,s,gg)
+var cSE=_mz(z,'view',['class',80,'style',1],[],e,s,gg)
+var oTE=_mz(z,'text',['bindtap',82,'data-event-opts',1],[],e,s,gg)
+var lUE=_oz(z,84,e,s,gg)
 _(oTE,lUE)
 _(cSE,oTE)
 _(oRE,cSE)
 _(hQE,oRE)
-_(c9C,hQE)
+_(cPE,hQE)
+_(c9C,cPE)
 }
 var o0C=_v()
 _(o8C,o0C)
-if(_oz(z,83,e,s,gg)){o0C.wxVkey=1
-var tWE=_n('view')
-_rz(z,tWE,'class',84,e,s,gg)
+if(_oz(z,85,e,s,gg)){o0C.wxVkey=1
+var aVE=_v()
+_(o0C,aVE)
+if(_oz(z,86,e,s,gg)){aVE.wxVkey=1
 var eXE=_n('view')
-_rz(z,eXE,'class',85,e,s,gg)
-var bYE=_mz(z,'view',['class',86,'style',1],[],e,s,gg)
-var oZE=_mz(z,'view',['class',88,'style',1],[],e,s,gg)
-var x1E=_oz(z,90,e,s,gg)
+_rz(z,eXE,'class',87,e,s,gg)
+var bYE=_n('view')
+_rz(z,bYE,'class',88,e,s,gg)
+var oZE=_mz(z,'view',['class',89,'style',1],[],e,s,gg)
+var x1E=_mz(z,'view',['class',91,'style',1],[],e,s,gg)
+var o2E=_oz(z,93,e,s,gg)
+_(x1E,o2E)
 _(oZE,x1E)
 _(bYE,oZE)
 _(eXE,bYE)
-_(tWE,eXE)
-var o2E=_v()
-_(tWE,o2E)
-var f3E=function(h5E,c4E,o6E,gg){
-var o8E=_n('view')
-_rz(z,o8E,'class',95,h5E,c4E,gg)
-var l9E=_mz(z,'view',['class',96,'style',1],[],h5E,c4E,gg)
-var a0E=_mz(z,'view',['class',98,'style',1],[],h5E,c4E,gg)
-var tAF=_v()
-_(a0E,tAF)
-if(_oz(z,100,h5E,c4E,gg)){tAF.wxVkey=1
-var bCF=_mz(z,'scoped-slots-default',['bind:__l',101,'row',1],[],h5E,c4E,gg)
-_(tAF,bCF)
-}
+var f3E=_v()
+_(eXE,f3E)
+var c4E=function(o6E,h5E,c7E,gg){
+var l9E=_mz(z,'view',['bindtap',98,'class',1,'data-event-opts',2],[],o6E,h5E,gg)
+var a0E=_mz(z,'view',['class',101,'style',1],[],o6E,h5E,gg)
+var tAF=_mz(z,'view',['class',103,'style',1],[],o6E,h5E,gg)
 var eBF=_v()
-_(a0E,eBF)
-if(_oz(z,103,h5E,c4E,gg)){eBF.wxVkey=1
-var oDF=_v()
+_(tAF,eBF)
+if(_oz(z,105,o6E,h5E,gg)){eBF.wxVkey=1
+var oDF=_mz(z,'scoped-slots-default',['bind:__l',106,'row',1],[],o6E,h5E,gg)
 _(eBF,oDF)
-var xEF=function(fGF,oFF,cHF,gg){
-var oJF=_mz(z,'button',['bindtap',108,'class',1,'data-event-opts',2,'size',3,'style',4,'type',5],[],fGF,oFF,gg)
-var cKF=_oz(z,114,fGF,oFF,gg)
-_(oJF,cKF)
-_(cHF,oJF)
-return cHF
 }
-oDF.wxXCkey=2
-_2z(z,106,xEF,h5E,c4E,gg,oDF,'btn','__i1__','id')
+var bCF=_v()
+_(tAF,bCF)
+if(_oz(z,108,o6E,h5E,gg)){bCF.wxVkey=1
+var xEF=_v()
+_(bCF,xEF)
+var oFF=function(cHF,fGF,hIF,gg){
+var cKF=_mz(z,'button',['bindtap',113,'class',1,'data-event-opts',2,'size',3,'style',4,'type',5],[],cHF,fGF,gg)
+var oLF=_oz(z,119,cHF,fGF,gg)
+_(cKF,oLF)
+_(hIF,cKF)
+return hIF
 }
-else{eBF.wxVkey=2
-var oLF=_oz(z,115,h5E,c4E,gg)
-_(eBF,oLF)
+xEF.wxXCkey=2
+_2z(z,111,oFF,o6E,h5E,gg,xEF,'btn','__i1__','id')
 }
-tAF.wxXCkey=1
-tAF.wxXCkey=3
+else{bCF.wxVkey=2
+var lMF=_oz(z,120,o6E,h5E,gg)
+_(bCF,lMF)
+}
 eBF.wxXCkey=1
+eBF.wxXCkey=3
+bCF.wxXCkey=1
+_(a0E,tAF)
 _(l9E,a0E)
-_(o8E,l9E)
-_(o6E,o8E)
-return o6E
+_(c7E,l9E)
+return c7E
 }
-o2E.wxXCkey=4
-_2z(z,93,f3E,e,s,gg,o2E,'item','index','id')
+f3E.wxXCkey=4
+_2z(z,96,c4E,e,s,gg,f3E,'item','index','id')
+_(aVE,eXE)
+}
+var tWE=_v()
 _(o0C,tWE)
-}
-var lAD=_v()
-_(o8C,lAD)
-if(_oz(z,116,e,s,gg)){lAD.wxVkey=1
-var lMF=_n('view')
-_rz(z,lMF,'class',117,e,s,gg)
+if(_oz(z,121,e,s,gg)){tWE.wxVkey=1
 var aNF=_n('view')
-_rz(z,aNF,'class',118,e,s,gg)
-var tOF=_mz(z,'view',['class',119,'style',1],[],e,s,gg)
-var ePF=_mz(z,'view',['class',121,'style',1],[],e,s,gg)
-var bQF=_oz(z,123,e,s,gg)
+_rz(z,aNF,'class',122,e,s,gg)
+var tOF=_n('view')
+_rz(z,tOF,'class',123,e,s,gg)
+var ePF=_mz(z,'view',['class',124,'style',1],[],e,s,gg)
+var bQF=_mz(z,'view',['class',126,'style',1],[],e,s,gg)
+var oRF=_oz(z,128,e,s,gg)
+_(bQF,oRF)
 _(ePF,bQF)
 _(tOF,ePF)
 _(aNF,tOF)
-_(lMF,aNF)
-var oRF=_v()
-_(lMF,oRF)
-var xSF=function(fUF,oTF,cVF,gg){
-var oXF=_n('view')
-_rz(z,oXF,'class',128,fUF,oTF,gg)
-var cYF=_mz(z,'view',['class',129,'style',1],[],fUF,oTF,gg)
-var oZF=_mz(z,'view',['class',131,'style',1],[],fUF,oTF,gg)
-var l1F=_v()
-_(oZF,l1F)
-if(_oz(z,133,fUF,oTF,gg)){l1F.wxVkey=1
-var t3F=_mz(z,'scoped-slots-default',['bind:__l',134,'row',1],[],fUF,oTF,gg)
-_(l1F,t3F)
-}
+var xSF=_v()
+_(aNF,xSF)
+var oTF=function(cVF,fUF,hWF,gg){
+var cYF=_mz(z,'view',['bindtap',133,'class',1,'data-event-opts',2],[],cVF,fUF,gg)
+var oZF=_mz(z,'view',['class',136,'style',1],[],cVF,fUF,gg)
+var l1F=_mz(z,'view',['class',138,'style',1],[],cVF,fUF,gg)
 var a2F=_v()
-_(oZF,a2F)
-if(_oz(z,136,fUF,oTF,gg)){a2F.wxVkey=1
-var e4F=_v()
+_(l1F,a2F)
+if(_oz(z,140,cVF,fUF,gg)){a2F.wxVkey=1
+var e4F=_mz(z,'scoped-slots-default',['bind:__l',141,'row',1],[],cVF,fUF,gg)
 _(a2F,e4F)
-var b5F=function(x7F,o6F,o8F,gg){
-var c0F=_mz(z,'button',['bindtap',141,'class',1,'data-event-opts',2,'size',3,'style',4,'type',5],[],x7F,o6F,gg)
-var hAG=_oz(z,147,x7F,o6F,gg)
-_(c0F,hAG)
-_(o8F,c0F)
-return o8F
 }
-e4F.wxXCkey=2
-_2z(z,139,b5F,fUF,oTF,gg,e4F,'btn','__i2__','id')
+var t3F=_v()
+_(l1F,t3F)
+if(_oz(z,143,cVF,fUF,gg)){t3F.wxVkey=1
+var b5F=_v()
+_(t3F,b5F)
+var o6F=function(o8F,x7F,f9F,gg){
+var hAG=_mz(z,'button',['bindtap',148,'class',1,'data-event-opts',2,'size',3,'style',4,'type',5],[],o8F,x7F,gg)
+var oBG=_oz(z,154,o8F,x7F,gg)
+_(hAG,oBG)
+_(f9F,hAG)
+return f9F
 }
-else{a2F.wxVkey=2
-var oBG=_oz(z,148,fUF,oTF,gg)
-_(a2F,oBG)
+b5F.wxXCkey=2
+_2z(z,146,o6F,cVF,fUF,gg,b5F,'btn','__i2__','id')
 }
-l1F.wxXCkey=1
-l1F.wxXCkey=3
+else{t3F.wxVkey=2
+var cCG=_oz(z,155,cVF,fUF,gg)
+_(t3F,cCG)
+}
 a2F.wxXCkey=1
+a2F.wxXCkey=3
+t3F.wxXCkey=1
+_(oZF,l1F)
 _(cYF,oZF)
-_(oXF,cYF)
-_(cVF,oXF)
-return cVF
+_(hWF,cYF)
+return hWF
 }
-oRF.wxXCkey=4
-_2z(z,126,xSF,e,s,gg,oRF,'item','index','id')
-_(lAD,lMF)
+xSF.wxXCkey=4
+_2z(z,131,oTF,e,s,gg,xSF,'item','index','id')
+_(tWE,aNF)
+}
+aVE.wxXCkey=1
+aVE.wxXCkey=3
+tWE.wxXCkey=1
+tWE.wxXCkey=3
 }
 c9C.wxXCkey=1
 c9C.wxXCkey=3
 o0C.wxXCkey=1
 o0C.wxXCkey=3
-lAD.wxXCkey=1
-lAD.wxXCkey=3
 _(h7C,o8C)
 _(f5C,h7C)
 var c6C=_v()
 _(f5C,c6C)
-if(_oz(z,149,e,s,gg)){c6C.wxVkey=1
-var cCG=_mz(z,'loading-component',['bind:__l',150,'vueId',1],[],e,s,gg)
-_(c6C,cCG)
+if(_oz(z,156,e,s,gg)){c6C.wxVkey=1
+var oDG=_mz(z,'loading-component',['bind:__l',157,'vueId',1],[],e,s,gg)
+_(c6C,oDG)
 }
 c6C.wxXCkey=1
 c6C.wxXCkey=3
@@ -2130,43 +2143,43 @@ e_[x[20]]={f:m20,j:[],i:[],ti:[],ic:[]}
 d_[x[21]]={}
 var m21=function(e,s,r,gg){
 var z=gz$gwx_22()
-var lEG=_n('view')
-_rz(z,lEG,'class',0,e,s,gg)
-var aFG=_mz(z,'single-demo',['bind:__l',1,'vueId',1],[],e,s,gg)
-_(lEG,aFG)
-var tGG=_mz(z,'custom-cel-width',['bind:__l',3,'vueId',1],[],e,s,gg)
-_(lEG,tGG)
-var eHG=_mz(z,'loading-table',['bind:__l',5,'vueId',1],[],e,s,gg)
-_(lEG,eHG)
-var bIG=_mz(z,'empty-row',['bind:__l',7,'vueId',1],[],e,s,gg)
-_(lEG,bIG)
-var oJG=_mz(z,'fixed-height-empty-row',['bind:__l',9,'vueId',1],[],e,s,gg)
-_(lEG,oJG)
-var xKG=_mz(z,'fixed-height',['bind:__l',11,'vueId',1],[],e,s,gg)
-_(lEG,xKG)
-var oLG=_mz(z,'custom-row-style',['bind:__l',13,'vueId',1],[],e,s,gg)
-_(lEG,oLG)
-var fMG=_mz(z,'custom-row-style-second',['bind:__l',15,'vueId',1],[],e,s,gg)
-_(lEG,fMG)
-var cNG=_mz(z,'custom-cel',['bind:__l',17,'vueId',1],[],e,s,gg)
-_(lEG,cNG)
-var hOG=_mz(z,'custom-cel-content',['bind:__l',19,'vueId',1],[],e,s,gg)
-_(lEG,hOG)
-var oPG=_mz(z,'row-span',['bind:__l',21,'vueId',1],[],e,s,gg)
-_(lEG,oPG)
-var cQG=_mz(z,'cel-span',['bind:__l',23,'vueId',1],[],e,s,gg)
-_(lEG,cQG)
-var oRG=_mz(z,'mulit-checkbox',['bind:__l',25,'vueId',1],[],e,s,gg)
-_(lEG,oRG)
-var lSG=_mz(z,'single-selected',['bind:__l',27,'vueId',1],[],e,s,gg)
-_(lEG,lSG)
-var aTG=_mz(z,'edi-data',['bind:__l',29,'vueId',1],[],e,s,gg)
-_(lEG,aTG)
-var tUG=_mz(z,'single-fixed-right',['bind:__l',31,'vueId',1],[],e,s,gg)
-_(lEG,tUG)
-var eVG=_mz(z,'single-fixed-left',['bind:__l',33,'vueId',1],[],e,s,gg)
-_(lEG,eVG)
-_(r,lEG)
+var aFG=_n('view')
+_rz(z,aFG,'class',0,e,s,gg)
+var tGG=_mz(z,'single-demo',['bind:__l',1,'vueId',1],[],e,s,gg)
+_(aFG,tGG)
+var eHG=_mz(z,'custom-cel-width',['bind:__l',3,'vueId',1],[],e,s,gg)
+_(aFG,eHG)
+var bIG=_mz(z,'loading-table',['bind:__l',5,'vueId',1],[],e,s,gg)
+_(aFG,bIG)
+var oJG=_mz(z,'empty-row',['bind:__l',7,'vueId',1],[],e,s,gg)
+_(aFG,oJG)
+var xKG=_mz(z,'fixed-height-empty-row',['bind:__l',9,'vueId',1],[],e,s,gg)
+_(aFG,xKG)
+var oLG=_mz(z,'fixed-height',['bind:__l',11,'vueId',1],[],e,s,gg)
+_(aFG,oLG)
+var fMG=_mz(z,'custom-row-style',['bind:__l',13,'vueId',1],[],e,s,gg)
+_(aFG,fMG)
+var cNG=_mz(z,'custom-row-style-second',['bind:__l',15,'vueId',1],[],e,s,gg)
+_(aFG,cNG)
+var hOG=_mz(z,'custom-cel',['bind:__l',17,'vueId',1],[],e,s,gg)
+_(aFG,hOG)
+var oPG=_mz(z,'custom-cel-content',['bind:__l',19,'vueId',1],[],e,s,gg)
+_(aFG,oPG)
+var cQG=_mz(z,'row-span',['bind:__l',21,'vueId',1],[],e,s,gg)
+_(aFG,cQG)
+var oRG=_mz(z,'cel-span',['bind:__l',23,'vueId',1],[],e,s,gg)
+_(aFG,oRG)
+var lSG=_mz(z,'mulit-checkbox',['bind:__l',25,'vueId',1],[],e,s,gg)
+_(aFG,lSG)
+var aTG=_mz(z,'single-selected',['bind:__l',27,'vueId',1],[],e,s,gg)
+_(aFG,aTG)
+var tUG=_mz(z,'edi-data',['bind:__l',29,'vueId',1],[],e,s,gg)
+_(aFG,tUG)
+var eVG=_mz(z,'single-fixed-right',['bind:__l',31,'vueId',1],[],e,s,gg)
+_(aFG,eVG)
+var bWG=_mz(z,'single-fixed-left',['bind:__l',33,'vueId',1],[],e,s,gg)
+_(aFG,bWG)
+_(r,aFG)
 return r
 }
 e_[x[21]]={f:m21,j:[],i:[],ti:[],ic:[]}
@@ -2354,7 +2367,7 @@ __wxAppCode__['components/example/singleSelected.wxml']=$gwx('./components/examp
 __wxAppCode__['components/loading.wxss']=setCssToHead([".",[1],"mask{ position: absolute; width: 100%; height: 100%; left:0; top:0; z-index:600; background:rgba(0,0,0,.75); }\n.",[1],"three-bounce { min-width: 60px; min-height: 30px; position: absolute; left:50%; top:50%; -webkit-transform: translateX(-50%) translateY(-50%); -ms-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%); z-index:100; }\n.",[1],"three-bounce wx-view { width: 12%; height: 12%; min-height: 10px; min-width: 10px; background-color: #ffffff; border-radius: 100%; display: inline-block; -webkit-animation: bouncedelay 1.4s infinite ease-in-out; animation: bouncedelay 1.4s infinite ease-in-out; -webkit-animation-fill-mode: both; animation-fill-mode: both; }\n.",[1],"three-bounce .",[1],"bounce1 { -webkit-animation-delay: -0.32s; animation-delay: -0.32s; }\n.",[1],"three-bounce .",[1],"bounce2 { -webkit-animation-delay: -0.16s; animation-delay: -0.16s; }\n@-webkit-keyframes bouncedelay { 0%, 80%, 100% { -webkit-transform: scale(0.0); transform: scale(0.0); }\n40% { -webkit-transform: scale(1.0); transform: scale(1.0); }\n}@keyframes bouncedelay { 0%, 80%, 100% { -webkit-transform: scale(0.0); transform: scale(0.0); }\n40% { -webkit-transform: scale(1.0); transform: scale(1.0); }\n}",],undefined,{path:"./components/loading.wxss"});    
 __wxAppCode__['components/loading.wxml']=$gwx('./components/loading.wxml');
 
-__wxAppCode__['components/table.wxss']=setCssToHead(["@charset \x22UTF-8\x22;\n.",[1],"no-bad-table-wrap { position: relative; overflow: hidden; }\n.",[1],"no-bad-table-wrap .",[1],"table_box_big { overflow: auto; width: 100%; position: relative; }\n.",[1],"no-bad-table-wrap .",[1],"table_box { overflow: auto; }\n.",[1],"no-bad-table-wrap .",[1],"empty-data-body-box { min-height: 100px; line-height: 100px; text-align: center; color: #666; border: ",[0,1]," solid #666; border-top: 0; }\n.",[1],"no-bad-table-wrap.",[1],"fix-height .",[1],"table_box_big { overflow-x: scroll; overflow-y: hidden; position: relative; }\n.",[1],"no-bad-table-wrap.",[1],"fix-height .",[1],"table_box { overflow: hidden; position: absolute; }\n.",[1],"no-bad-table-wrap.",[1],"fix-height .",[1],"table_tbody_box { overflow: scroll; border-bottom: ",[0,1]," solid #666; }\n.",[1],"no-bad-table-wrap.",[1],"fix-height .",[1],"div-table-body { border-top: 0; border-bottom: 0; }\n.",[1],"no-bad-table-wrap.",[1],"fix-height .",[1],"div-table-body.",[1],"empty-data-body-box { border-bottom: ",[0,1]," solid #666; }\n.",[1],"no-bad-table-wrap .",[1],"th .",[1],"td, .",[1],"no-bad-table-wrap .",[1],"thead .",[1],"tr .",[1],"td, .",[1],"no-bad-table-wrap .",[1],"fixed-thead-tr .",[1],"td { background-color: #e0e0ea; }\n.",[1],"no-bad-table-wrap .",[1],"th .",[1],"td .",[1],"td_wrap, .",[1],"no-bad-table-wrap .",[1],"thead .",[1],"tr .",[1],"td .",[1],"td_wrap, .",[1],"no-bad-table-wrap .",[1],"fixed-thead-tr .",[1],"td .",[1],"td_wrap { background-color: #e0e0ea; }\n.",[1],"no-bad-table-wrap .",[1],"fixed-right { position: absolute; top: 1px; right: 0px; z-index: 100; border-right: ",[0,1]," solid #666; border-left: ",[0,1]," solid #666; -webkit-box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5); box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5); }\n.",[1],"no-bad-table-wrap .",[1],"fixed-left { position: absolute; top: 1px; left: 0px; z-index: 100; border-right: ",[0,1]," solid #666; border-left: ",[0,1]," solid #666; -webkit-box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); }\n.",[1],"no-bad-table-wrap .",[1],"tr, .",[1],"no-bad-table-wrap .",[1],"th { display: table-row; }\n.",[1],"no-bad-table-wrap .",[1],"tr + .",[1],"tr .",[1],"td, .",[1],"no-bad-table-wrap .",[1],"tr + .",[1],"tr .",[1],"th, .",[1],"no-bad-table-wrap .",[1],"tr + .",[1],"th .",[1],"td, .",[1],"no-bad-table-wrap .",[1],"tr + .",[1],"th .",[1],"th, .",[1],"no-bad-table-wrap .",[1],"th + .",[1],"tr .",[1],"td, .",[1],"no-bad-table-wrap .",[1],"th + .",[1],"tr .",[1],"th, .",[1],"no-bad-table-wrap .",[1],"th + .",[1],"th .",[1],"td, .",[1],"no-bad-table-wrap .",[1],"th + .",[1],"th .",[1],"th { border-top: ",[0,1]," solid #666; word-break: break-word; }\n.",[1],"no-bad-table-wrap .",[1],"td { display: table-cell; vertical-align: middle; text-align: center; -webkit-box-sizing: border-box; box-sizing: border-box; z-index: 1; position: relative; overflow: hidden; }\n.",[1],"no-bad-table-wrap .",[1],"td .",[1],"td_wrap { position: relative; padding: ",[0,10],"; -webkit-box-sizing: border-box; box-sizing: border-box; overflow: hidden; line-height: 20px; font-size: 12px; background: #fff; }\n.",[1],"no-bad-table-wrap .",[1],"td.",[1],"colspan { z-index: 10; position: absolute; }\n.",[1],"no-bad-table-wrap .",[1],"td.",[1],"colspan .",[1],"td_wrap { width: 100%; height: 100%; left: 0; top: 0; position: absolute; }\n.",[1],"no-bad-table-wrap .",[1],"td.",[1],"rowspan { position: absolute; z-index: 10; }\n.",[1],"no-bad-table-wrap .",[1],"td.",[1],"empty-cells-for-celspan { border-left: none !important; }\n.",[1],"no-bad-table-wrap .",[1],"td.",[1],"empty-cells-for-celspan .",[1],"td_wrap { opacity: 0; }\n.",[1],"no-bad-table-wrap .",[1],"td.",[1],"empty-cells-for-rowspan { border-top: none !important; }\n.",[1],"no-bad-table-wrap .",[1],"td.",[1],"empty-cells-for-rowspan .",[1],"td_wrap { opacity: 0; }\n.",[1],"no-bad-table-wrap .",[1],"td.",[1],"noPadding { padding: 0; }\n.",[1],"no-bad-table-wrap .",[1],"td + .",[1],"td .",[1],"td_wrap { border-left: ",[0,1]," solid #666; }\n.",[1],"no-bad-table-wrap .",[1],"th .",[1],"td { font-weight: bold; }\n.",[1],"no-bad-table-wrap .",[1],"div-table { display: table; border: ",[0,1]," solid #666; -webkit-box-sizing: border-box; box-sizing: border-box; table-layout: fixed; position: relative; }\n.",[1],"no-bad-table-wrap .",[1],"div-table.",[1],"div-table-body { border-top: 0; }\n.",[1],"no-bad-table-wrap .",[1],"div-table .",[1],"selected .",[1],"td { background-color: #d3e3ef; }\n.",[1],"no-bad-table-wrap .",[1],"div-table .",[1],"selected .",[1],"td .",[1],"td_wrap { background-color: #d3e3ef; }\n.",[1],"no-bad-table-wrap .",[1],"div-table .",[1],"disabled .",[1],"td { background-color: #f8f8f9; opacity: .6; }\n.",[1],"no-bad-table-wrap .",[1],"div-table .",[1],"tbody { display: table-row-group; }\n.",[1],"no-bad-table-wrap .",[1],"div-table .",[1],"thead { display: table-header-group; }\n.",[1],"no-bad-table-wrap .",[1],"div-table .",[1],"colgroup { display: table-column-group; }\n.",[1],"no-bad-table-wrap .",[1],"div-table .",[1],"col { display: table-column; }\n.",[1],"no-bad-table-wrap .",[1],"div-table .",[1],"caption { display: table-caption; }\n",],undefined,{path:"./components/table.wxss"});    
+__wxAppCode__['components/table.wxss']=setCssToHead(["@charset \x22UTF-8\x22;\n.",[1],"no-bad-table-wrap { position: relative; overflow: hidden; }\n.",[1],"no-bad-table-wrap .",[1],"table_box_big { overflow: auto; width: 100%; position: relative; }\n.",[1],"no-bad-table-wrap .",[1],"table_box { overflow: auto; }\n.",[1],"no-bad-table-wrap .",[1],"empty-data-body-box { min-height: 100px; line-height: 100px; text-align: center; color: #666; border: ",[0,1]," solid #666; border-top: 0; }\n.",[1],"no-bad-table-wrap.",[1],"fix-height .",[1],"table_box_big { overflow-x: scroll; overflow-y: hidden; position: relative; }\n.",[1],"no-bad-table-wrap.",[1],"fix-height .",[1],"table_box { overflow: hidden; position: absolute; }\n.",[1],"no-bad-table-wrap.",[1],"fix-height .",[1],"table_tbody_box { overflow: scroll; border-bottom: ",[0,1]," solid #666; }\n.",[1],"no-bad-table-wrap.",[1],"fix-height .",[1],"div-table-body { border-top: 0; border-bottom: 0; }\n.",[1],"no-bad-table-wrap.",[1],"fix-height .",[1],"div-table-body.",[1],"empty-data-body-box { border-bottom: ",[0,1]," solid #666; }\n.",[1],"no-bad-table-wrap .",[1],"th .",[1],"td, .",[1],"no-bad-table-wrap .",[1],"thead .",[1],"tr .",[1],"td, .",[1],"no-bad-table-wrap .",[1],"fixed-thead-tr .",[1],"td { background-color: #e0e0ea; }\n.",[1],"no-bad-table-wrap .",[1],"th .",[1],"td .",[1],"td_wrap, .",[1],"no-bad-table-wrap .",[1],"thead .",[1],"tr .",[1],"td .",[1],"td_wrap, .",[1],"no-bad-table-wrap .",[1],"fixed-thead-tr .",[1],"td .",[1],"td_wrap { background-color: #e0e0ea; }\n.",[1],"no-bad-table-wrap .",[1],"fixed-right { position: absolute; top: ",[0,1],"; right: 0px; z-index: 100; border-right: ",[0,1]," solid #666; border-left: ",[0,1]," solid #666; -webkit-box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5); box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5); }\n.",[1],"no-bad-table-wrap .",[1],"fixed-left { position: absolute; top: ",[0,1],"; left: 0px; z-index: 100; border-right: ",[0,1]," solid #666; border-left: ",[0,1]," solid #666; -webkit-box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); }\n.",[1],"no-bad-table-wrap .",[1],"tr, .",[1],"no-bad-table-wrap .",[1],"th { display: table-row; }\n.",[1],"no-bad-table-wrap .",[1],"tr + .",[1],"tr .",[1],"td, .",[1],"no-bad-table-wrap .",[1],"tr + .",[1],"tr .",[1],"th, .",[1],"no-bad-table-wrap .",[1],"tr + .",[1],"th .",[1],"td, .",[1],"no-bad-table-wrap .",[1],"tr + .",[1],"th .",[1],"th, .",[1],"no-bad-table-wrap .",[1],"th + .",[1],"tr .",[1],"td, .",[1],"no-bad-table-wrap .",[1],"th + .",[1],"tr .",[1],"th, .",[1],"no-bad-table-wrap .",[1],"th + .",[1],"th .",[1],"td, .",[1],"no-bad-table-wrap .",[1],"th + .",[1],"th .",[1],"th { border-top: ",[0,1]," solid #666; word-break: break-word; }\n.",[1],"no-bad-table-wrap .",[1],"td { display: table-cell; vertical-align: middle; text-align: center; -webkit-box-sizing: border-box; box-sizing: border-box; z-index: 1; position: relative; overflow: hidden; }\n.",[1],"no-bad-table-wrap .",[1],"td .",[1],"td_wrap { position: relative; padding: ",[0,10],"; -webkit-box-sizing: border-box; box-sizing: border-box; overflow: hidden; line-height: 20px; font-size: 12px; background: #fff; }\n.",[1],"no-bad-table-wrap .",[1],"td.",[1],"colspan { z-index: 10; position: absolute; }\n.",[1],"no-bad-table-wrap .",[1],"td.",[1],"colspan .",[1],"td_wrap { width: 100%; height: 100%; left: 0; top: 0; position: absolute; }\n.",[1],"no-bad-table-wrap .",[1],"td.",[1],"rowspan { position: absolute; z-index: 10; }\n.",[1],"no-bad-table-wrap .",[1],"td.",[1],"empty-cells-for-celspan { border-left: none !important; }\n.",[1],"no-bad-table-wrap .",[1],"td.",[1],"empty-cells-for-celspan .",[1],"td_wrap { opacity: 0; }\n.",[1],"no-bad-table-wrap .",[1],"td.",[1],"empty-cells-for-rowspan { border-top: none !important; }\n.",[1],"no-bad-table-wrap .",[1],"td.",[1],"empty-cells-for-rowspan .",[1],"td_wrap { opacity: 0; }\n.",[1],"no-bad-table-wrap .",[1],"td.",[1],"noPadding { padding: 0; }\n.",[1],"no-bad-table-wrap .",[1],"td + .",[1],"td .",[1],"td_wrap { border-left: ",[0,1]," solid #666; }\n.",[1],"no-bad-table-wrap .",[1],"th .",[1],"td { font-weight: bold; }\n.",[1],"no-bad-table-wrap .",[1],"selected .",[1],"td { background-color: #d3e3ef; }\n.",[1],"no-bad-table-wrap .",[1],"selected .",[1],"td .",[1],"td_wrap { background-color: #d3e3ef; }\n.",[1],"no-bad-table-wrap .",[1],"disabled .",[1],"td { background-color: #f8f8f9; opacity: .6; }\n.",[1],"no-bad-table-wrap .",[1],"div-table { display: table; border: ",[0,1]," solid #666; -webkit-box-sizing: border-box; box-sizing: border-box; table-layout: fixed; position: relative; }\n.",[1],"no-bad-table-wrap .",[1],"div-table.",[1],"div-table-body { border-top: 0; }\n.",[1],"no-bad-table-wrap .",[1],"div-table .",[1],"tbody { display: table-row-group; }\n.",[1],"no-bad-table-wrap .",[1],"div-table .",[1],"thead { display: table-header-group; }\n.",[1],"no-bad-table-wrap .",[1],"div-table .",[1],"colgroup { display: table-column-group; }\n.",[1],"no-bad-table-wrap .",[1],"div-table .",[1],"col { display: table-column; }\n.",[1],"no-bad-table-wrap .",[1],"div-table .",[1],"caption { display: table-caption; }\n",],undefined,{path:"./components/table.wxss"});    
 __wxAppCode__['components/table.wxml']=$gwx('./components/table.wxml');
 
 __wxAppCode__['pages/tableDemo/tableDemo.wxss']=setCssToHead([".",[1],"demo-wrap{ padding:20px 10px; }\n",],undefined,{path:"./pages/tableDemo/tableDemo.wxss"});    

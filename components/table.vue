@@ -1,5 +1,5 @@
 <template>
-	<view class="no-bad-table-wrap" :class="[tableHeight!='auto'?'fix-height':'']">
+	<view class="no-bad-table-wrap" :class="[tableHeight!='auto'?'fix-height':celCenter?'td-center':'']">
 		<view class="table_box_big" :style='{height:tableHeight}'>
 	
 			<view class="table_box">
@@ -169,6 +169,11 @@
 				type: Array,
 				required: true
 			},
+			//单元格样式居中
+			"cel-center":{
+				type:Boolean,
+				default:true
+			},
 			//自定义行和列样式
 			rowClassName: {
 				type: [String, Function],
@@ -290,7 +295,6 @@
 		},
 		created() {
 			this.asyncCheckBoxList();
-			// console.log("columnsFixedRight",this.columnsFixedRight)
 		},
 		methods: {
 			//获取数据副本，轻拷贝

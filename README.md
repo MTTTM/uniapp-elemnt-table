@@ -91,6 +91,7 @@
 | row-class-name | 行样式   |String或Function | -- |--|
 | height | 表格高度(可用固定表头) | Number| -- |--|
 | td-height | 单元格高 | Number| 110 |--|
+| cel-center|单元格水平居中| Boolean|true|---|
 | td-width | 单元格宽 | Number| 30 |--|
 | td-padding | 单元格间距 | Number| 10 |--|
 | border-color | 表格边框颜色 | String| #666 |--|
